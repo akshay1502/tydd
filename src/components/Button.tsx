@@ -1,5 +1,4 @@
 export default function Button() {
-  return (
-    <button className="bg-blue-primary text-white p-4 py-4 px-8 font-semibold">Contact Us</button>
-  )
+  const styles = 'bg-blue text-white py-2 px-6 font-semibold text-xl rounded-lg'
+  return <button className={styles}>Contact Us</button>
 }
