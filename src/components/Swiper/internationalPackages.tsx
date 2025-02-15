@@ -5,12 +5,11 @@ import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import IconSwiperLeft from '@/assets/icons/swiperLeft'
-import Pill from '../pill'
 
 export default function SwiperInternationalPackages({ title, children }) {
   return (
     <div className="px-20">
-      <div className="flexCenter">
+      <div className="flexCenter mb-10">
         <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">{title}</h2>
         <div className="flex gap-6">
           <button className="internationalSwiperLeft">
@@ -20,12 +19,6 @@ export default function SwiperInternationalPackages({ title, children }) {
             <IconSwiperLeft />
           </button>
         </div>
-      </div>
-      <div className="flex gap-6 mt-10 mb-8">
-        <Pill text="All" isActive />
-        <Pill text="All" />
-        <Pill text="All" />
-        <Pill text="All" />
       </div>
       <Swiper
         spaceBetween={24}
