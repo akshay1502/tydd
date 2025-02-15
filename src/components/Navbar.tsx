@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Button from './Button'
+import { Button } from './ui/button'
 
 export default function Navbar() {
   return (
@@ -25,7 +25,9 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Button />
+          <Button asChild>
+            <Link href="/">Contact Us</Link>
+          </Button>
         </li>
       </ul>
     </nav>
