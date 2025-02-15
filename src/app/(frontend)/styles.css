@@ -106,3 +106,22 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 40px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  background-color: white !important;
+  border-radius: 50% !important;
+  opacity: 100 !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 40px !important;
+  height: 12px !important;
+  background-color: #2986fd !important;
+  border-radius: 32px !important;
+}

@@ -72,6 +72,8 @@ const config = {
           'linear-gradient(113deg, rgba(255, 255, 255, 0.32) -3.49%, rgba(255, 255, 255, 0.10) 114.11%)',
         'last-minute-discount-gradient':
           'linear-gradient(114deg, #E42125 -43.53%, #6F8CC8 105.61%)',
+        'explore-hero-gradient':
+          'linear-gradient(113deg, rgba(255, 255, 255, 0.32) -3.49%, rgba(255, 255, 255, 0.10) 114.11%)',
       },
     },
   },
