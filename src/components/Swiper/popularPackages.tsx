@@ -6,8 +6,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import IconSwiperLeft from '@/assets/icons/swiperLeft'
 import Pill from '../pill'
+import Packages from '../cards/package'
 
-export default function SwiperPopularPackages({ title, children }) {
+export default function SwiperPopularPackages({ title, data }) {
   return (
     <div className="px-20">
       <div className="flexCenter">
@@ -48,9 +49,9 @@ export default function SwiperPopularPackages({ title, children }) {
         }}
         className="mySwiper"
       >
-        {[...Array(10)].map((_, index) => (
+        {data.map((data, index) => (
           <SwiperSlide key={index} className="!w-auto">
-            {children}
+            <Packages data={data} />
           </SwiperSlide>
         ))}
       </Swiper>
