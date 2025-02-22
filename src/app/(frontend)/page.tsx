@@ -12,24 +12,22 @@ import SwiperInternationalPackages from '@/components/Swiper/internationalPackag
 import LastMinuteDeal from '@/components/cards/lastMinuteDeal'
 import SwiperLastMinutePackages from '@/components/Swiper/lastMinutePackages'
 import SwiperHeroPackages from '@/components/Swiper/heroPackages'
-import IconExperStart from '@/assets/icons/whytddstart'
 import IconExperStar from '@/assets/icons/whytddstart'
 import Image from 'next/image'
 
 export default async function HomePage() {
-  const headers = await getHeaders()
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
-
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
+  const payload = await getPayload({ config })
+  const result = await payload.find({
+    collection: 'packages', // required
+    depth: 1,
+    pagination: false, // If you want to disable pagination count, etc.
+  })
+  console.log(result?.docs)
 
   return (
     <div className="flex flex-col gap-28">
       <SwiperHeroPackages />
-      <SwiperPopularPackages title="Popular Packages">
-        <Packages />
-      </SwiperPopularPackages>
+      <SwiperPopularPackages title="Popular Packages" data={result?.docs} />
       <SwiperLastMinutePackages title="Last Minute Deals">
         <LastMinuteDeal />
       </SwiperLastMinutePackages>

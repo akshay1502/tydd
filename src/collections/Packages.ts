@@ -2,6 +2,12 @@ import type { CollectionConfig } from 'payload'
 
 export const Packages: CollectionConfig = {
   slug: 'packages',
+  access: {
+    read: () => true, // ✅ Make "GET /api/packages" public
+    create: () => true, // ✅ Allow public to add data (optional)
+    update: () => true, // ❌ Prevent public updates (optional)
+    delete: () => true, // ❌ Prevent public deletes (optional)
+  },
   fields: [
     {
       name: 'destination',
