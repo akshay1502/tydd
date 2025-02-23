@@ -27,8 +27,8 @@ export default function IconLastMinuteSwiperLeft() {
           y2="25.2157"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.00554471" stop-color="white" stop-opacity="0.32" />
-          <stop offset="1" stop-color="white" stop-opacity="0.1" />
+          <stop offset="0.00554471" stopColor="white" stop-opacity="0.32" />
+          <stop offset="1" stopColor="white" stop-opacity="0.1" />
         </linearGradient>
       </defs>
     </svg>
