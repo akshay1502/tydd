@@ -137,7 +137,7 @@ export interface User {
  */
 export interface Media {
   id: number;
-  alt: string;
+  alt?: string | null;
   prefix?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -162,6 +162,48 @@ export interface Package {
   cost?: number | null;
   image?: (number | null) | Media;
   category?: ('Solo' | 'Adventure' | 'Honeymoon') | null;
+  gallery?: (number | Media)[] | null;
+  overview?: string | null;
+  highlights?: {
+    chips?:
+      | {
+          chip?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    pointers?:
+      | {
+          pointer?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  day_breakup?: {
+    days?:
+      | {
+          title?: string | null;
+          break_up?:
+            | {
+                title?: string | null;
+                subtitle?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  accomodations?: {
+    location?:
+      | {
+          name?: string | null;
+          type?: string | null;
+          whats_included?: string | null;
+          link?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -270,6 +312,54 @@ export interface PackagesSelect<T extends boolean = true> {
   cost?: T;
   image?: T;
   category?: T;
+  gallery?: T;
+  overview?: T;
+  highlights?:
+    | T
+    | {
+        chips?:
+          | T
+          | {
+              chip?: T;
+              id?: T;
+            };
+        pointers?:
+          | T
+          | {
+              pointer?: T;
+              id?: T;
+            };
+      };
+  day_breakup?:
+    | T
+    | {
+        days?:
+          | T
+          | {
+              title?: T;
+              break_up?:
+                | T
+                | {
+                    title?: T;
+                    subtitle?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  accomodations?:
+    | T
+    | {
+        location?:
+          | T
+          | {
+              name?: T;
+              type?: T;
+              whats_included?: T;
+              link?: T;
+              id?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }
