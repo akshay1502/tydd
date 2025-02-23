@@ -7,8 +7,12 @@ import { Navigation } from 'swiper/modules'
 import IconSwiperLeft from '@/assets/icons/swiperLeft'
 import Pill from '../pill'
 import Packages from '../cards/package'
+import { useState } from 'react'
+import { PopularPackages } from '@/types/global'
 
 export default function SwiperPopularPackages({ title, data }) {
+  const [activePopularCategory, setActivePopularCategory] = useState('All')
+
   return (
     <div className="px-20">
       <div className="flexCenter">
@@ -23,10 +27,19 @@ export default function SwiperPopularPackages({ title, data }) {
         </div>
       </div>
       <div className="flex gap-6 mt-10 mb-8">
-        <Pill text="All" isActive />
-        <Pill text="All" />
-        <Pill text="All" />
-        <Pill text="All" />
+        <Pill
+          text="All"
+          isActive={'All' === activePopularCategory}
+          setActivePopularCategory={setActivePopularCategory}
+        />
+        {data?.map((data: PopularPackages) => (
+          <Pill
+            key={data?.id}
+            text={data?.category}
+            setActivePopularCategory={setActivePopularCategory}
+            isActive={data?.category === activePopularCategory}
+          />
+        ))}
       </div>
       <Swiper
         spaceBetween={24}
@@ -49,11 +62,16 @@ export default function SwiperPopularPackages({ title, data }) {
         }}
         className="mySwiper"
       >
-        {data.map((data, index) => (
-          <SwiperSlide key={index} className="!w-auto">
-            <Packages data={data} />
-          </SwiperSlide>
-        ))}
+        {data
+          ?.filter(
+            (packages: PopularPackages) =>
+              activePopularCategory === 'All' || packages?.category === activePopularCategory,
+          )
+          .map((data: PopularPackages) => (
+            <SwiperSlide key={data?.id} className="!w-auto">
+              <Packages data={data} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   )
