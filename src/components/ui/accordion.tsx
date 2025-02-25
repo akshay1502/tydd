@@ -5,7 +5,6 @@ import * as AccordionPrimitive from '@radix-ui/react-accordion'
 
 import { cn } from '@/lib/utils'
 import IconAccordionDown from '@/assets/icons/accordionDown'
-import IconLocation from '@/assets/icons/location'
 
 const Accordion = AccordionPrimitive.Root
 

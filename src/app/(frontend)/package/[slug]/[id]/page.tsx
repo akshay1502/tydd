@@ -8,7 +8,6 @@ import {
 } from '@/components/ui/accordion'
 import IconLocation from '@/assets/icons/location'
 import Link from 'next/link'
-import IconCalendar from '@/assets/icons/calendar'
 import { CollectionSlug } from 'payload'
 import { getDetailPage } from '@/payload'
 import { Button } from '@/components/ui/button'
