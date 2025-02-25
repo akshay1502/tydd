@@ -1,7 +1,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Packages({ data }) {
+type PackagesProps = {
+  id: number
+  image: {
+    url: string
+    alt: string
+  }
+  destination: string
+  package: string
+  cost: number
+}
+
+export default function Packages({ data }: { data: PackagesProps }) {
   return (
     <Link href={`/package/packages/${data?.id}`} className="flex flex-col gap-2 w-48">
       <div className="relative rounded-lg overflow-hidden shadow-packages">

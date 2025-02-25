@@ -1,4 +1,12 @@
 export type PopularPackages = {
+  gallery: {
+    url: string
+    alt: string
+  }[]
+  image: {
+    url: string
+    alt: string
+  }
   id: number
   category: string
   cost: number

@@ -5,8 +5,9 @@ import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import IconSwiperLeft from '@/assets/icons/swiperLeft'
+import FixedDeparture from '../cards/fixedDeparture'
 
-export default function SwiperFixedPackages({ title, children }) {
+export default function SwiperFixedPackages({ title }: { title: string }) {
   return (
     <div className="px-20">
       <div className="flexCenter mb-10">
@@ -43,7 +44,7 @@ export default function SwiperFixedPackages({ title, children }) {
       >
         {[...Array(10)].map((_, index) => (
           <SwiperSlide key={index} className="!w-auto">
-            {children}
+            <FixedDeparture key={index} />
           </SwiperSlide>
         ))}
       </Swiper>

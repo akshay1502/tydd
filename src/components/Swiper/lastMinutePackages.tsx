@@ -6,8 +6,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import Image from 'next/image'
 import IconLastMinuteSwiperLeft from '@/assets/icons/lastMinuteSwiperLeft'
+import LastMinuteDeal from '../cards/lastMinuteDeal'
 
-export default function SwiperLastMinutePackages({ title, children }) {
+export default function SwiperLastMinutePackages({ title }: { title: string }) {
   return (
     <div className="mx-20">
       <div className="py-20 relative rounded-3xl overflow-hidden">
@@ -49,7 +50,7 @@ export default function SwiperLastMinutePackages({ title, children }) {
         >
           {[...Array(10)].map((_, index) => (
             <SwiperSlide key={index} className="!w-auto">
-              {children}
+              <LastMinuteDeal />
             </SwiperSlide>
           ))}
         </Swiper>

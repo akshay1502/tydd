@@ -1,6 +1,7 @@
 type PillProps = {
   text: string
   isActive: boolean
+  // making temporary due to incomlete integratino in /all-packages route
   setActivePopularCategory: React.Dispatch<React.SetStateAction<string>>
 }
 
@@ -15,7 +16,7 @@ export default function Pill({ text, isActive, setActivePopularCategory }: PillP
   )
 }
 
-export function HighlightPill({ text }: { text: string }) {
+export function HighlightPill({ text }: { text: string | undefined }) {
   return (
     <button className="font-bold text-2xl text-white bg-orange  rounded-full py-2 px-4">
       {text}
