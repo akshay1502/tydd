@@ -6,10 +6,10 @@ export const Media: CollectionConfig = {
     read: () => true,
   },
   fields: [
+    // not making alt required as it would affect bulk uploading of images
     {
       name: 'alt',
       type: 'text',
-      required: true,
     },
   ],
   upload: true,

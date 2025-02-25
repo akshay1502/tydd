@@ -1,7 +1,7 @@
-import IconFeatuer from '@/assets/icons/feature'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../ui/button'
+import IconFeature from '@/assets/icons/feature'
 
 const Pill = ({ text }: { text: string }) => {
   return <button className="text-sm py-1 px-3 rounded-full bg-blue text-white">{text}</button>
@@ -25,7 +25,7 @@ export default function LastMinuteDeal() {
       <div className="flex flex-col gap-2 my-3">
         <p className="text-white">3 days & 4 Nights</p>
         <div className="text-white font-semibold flex items-center gap-2">
-          <IconFeatuer />
+          <IconFeature color="white" />
           <p className="text-white text-sm">4 Star Hotel</p>
         </div>
         <div className="text-white font-semibold flex items-center gap-2">
