@@ -17,3 +17,8 @@ https://www.npmjs.com/package/react-image-gallery - harsh approval
 photoswipe
 
 seo??
+
+remove all unused pacakges from package.json file
+
+for seo make every detail page as title and description with first image
+also try to fetch using slug instead of id /packages/1 to /packages/maldives
