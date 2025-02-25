@@ -22,7 +22,7 @@ type DetailPageProps = {
   }
 }
 export default async function DetailPage({ params }: DetailPageProps) {
-  const { slug, id } = await params
+  const { slug, id } = params
 
   const data = await getDetailPage(slug, id)
 
