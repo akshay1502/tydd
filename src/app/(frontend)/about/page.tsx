@@ -1,4 +1,4 @@
-import IconExperStar from '@/assets/icons/whytddstart'
+import IconExperStar from '@/assets/icons/expertStar'
 import Image from 'next/image'
 
 export default function AboutPage() {

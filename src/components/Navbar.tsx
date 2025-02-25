@@ -15,18 +15,18 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href="/" className="text-black font-semibold">
+          <Link href="/all-packages" className="text-black font-semibold">
             Packages
           </Link>
         </li>
         <li>
-          <Link href="/" className="text-black font-semibold">
+          <Link href="/about" className="text-black font-semibold">
             About Us
           </Link>
         </li>
         <li>
           <Button asChild>
-            <Link href="/">Contact Us</Link>
+            <Link href="/contact-us">Contact Us</Link>
           </Button>
         </li>
       </ul>

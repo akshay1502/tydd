@@ -5,8 +5,10 @@ import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import IconSwiperLeft from '@/assets/icons/swiperLeft'
+import Packages from '../cards/package'
+import { PopularPackages } from '@/types/global'
 
-export default function SwiperInternationalPackages({ title, children }) {
+export default function SwiperInternationalPackages({ title, data }) {
   return (
     <div className="px-20">
       <div className="flexCenter mb-10">
@@ -41,9 +43,9 @@ export default function SwiperInternationalPackages({ title, children }) {
         }}
         className="mySwiper"
       >
-        {[...Array(10)].map((_, index) => (
-          <SwiperSlide key={index} className="!w-auto">
-            {children}
+        {data.map((data: PopularPackages) => (
+          <SwiperSlide key={data?.id} className="!w-auto">
+            <Packages data={data} />
           </SwiperSlide>
         ))}
       </Swiper>
