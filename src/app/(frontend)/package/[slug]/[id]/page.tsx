@@ -8,7 +8,6 @@ import {
 } from '@/components/ui/accordion'
 import IconLocation from '@/assets/icons/location'
 import Link from 'next/link'
-import IconCalendar from '@/assets/icons/calendar'
 import { CollectionSlug } from 'payload'
 import { getDetailPage } from '@/payload'
 import { Button } from '@/components/ui/button'
@@ -16,13 +15,12 @@ import IconFeature from '@/assets/icons/feature'
 import IconBreakFast from '@/assets/icons/breakfast'
 import DetailPageForm from '@/components/detailPageForm'
 
-type DetailPageProps = {
-  params: {
-    slug: CollectionSlug
-    id: string
-  }
-}
-export default async function DetailPage({ params }: DetailPageProps) {
+type DetailPageProps = Promise<{
+  slug: CollectionSlug
+  id: string
+}>
+
+export default async function DetailPage({ params }: { params: DetailPageProps }) {
   const { slug, id } = await params
 
   const data = await getDetailPage(slug, id)
@@ -145,13 +143,13 @@ export default async function DetailPage({ params }: DetailPageProps) {
           {data?.accomodations?.location?.map((accomodation) => (
             <Link
               key={accomodation?.id}
-              href={accomodation?.link}
+              href={accomodation?.link as string}
               className="border border-offWhite rounded-xl"
             >
               <div className="w-[412px] h-[232px] rounded-lg overflow-hidden relative">
                 {/* <Image src="/destination.jpg" alt="image" fill className="object-cover" /> */}
                 <iframe
-                  src={accomodation?.link}
+                  src={accomodation?.link as string}
                   style={{ width: '100%', height: '100%', border: 0 }}
                   allowFullScreen
                   loading="lazy"

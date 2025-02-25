@@ -18,12 +18,8 @@ export default async function HomePage() {
     <div className="flex flex-col gap-28">
       <SwiperHeroPackages />
       <SwiperPopularPackages title="Popular Packages" data={data} />
-      <SwiperLastMinutePackages title="Last Minute Deals">
-        <LastMinuteDeal />
-      </SwiperLastMinutePackages>
-      <SwiperFixedPackages title="Fixed Departures">
-        <FixedDeparture />
-      </SwiperFixedPackages>
+      <SwiperLastMinutePackages title="Last Minute Deals" />
+      <SwiperFixedPackages title="Fixed Departures" />
       <SwiperInternationalPackages title="International Budget-Friendly Packages" data={data} />
       <div className="px-20">
         <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Why TYDD</h2>

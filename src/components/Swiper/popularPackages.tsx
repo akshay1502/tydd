@@ -10,7 +10,11 @@ import Packages from '../cards/package'
 import { useState } from 'react'
 import { PopularPackages } from '@/types/global'
 
-export default function SwiperPopularPackages({ title, data }) {
+type SwiperPopularPackagesProps = {
+  title: string
+  data: PopularPackages[]
+}
+export default function SwiperPopularPackages({ title, data }: SwiperPopularPackagesProps) {
   const [activePopularCategory, setActivePopularCategory] = useState('All')
 
   return (

@@ -1,4 +1,12 @@
 export type PopularPackages = {
+  gallery: {
+    url: string
+    alt: string
+  }[]
+  image: {
+    url: string
+    alt: string
+  }
   id: number
   category: string
   cost: number
@@ -45,4 +53,19 @@ export type PopularPackages = {
         }[]
       | null
   }
+}
+
+export type ContactUsFormTypes = {
+  name: string
+  mobile: string
+  email: string
+  destination: string
+  ideas?: string | undefined
+}
+
+export type DetailPageFormTypes = {
+  name: string
+  mobile: string
+  email: string
+  travellers: string
 }

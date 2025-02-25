@@ -3,10 +3,6 @@ import Link from 'next/link'
 import { Button } from '../ui/button'
 import IconFeature from '@/assets/icons/feature'
 
-const Pill = ({ text }: { text: string }) => {
-  return <button className="text-sm py-1 px-3 rounded-full bg-blue text-white">{text}</button>
-}
-
 export default function LastMinuteDeal() {
   return (
     <Link

@@ -8,7 +8,15 @@ import IconSwiperLeft from '@/assets/icons/swiperLeft'
 import Packages from '../cards/package'
 import { PopularPackages } from '@/types/global'
 
-export default function SwiperInternationalPackages({ title, data }) {
+type SwiperInternationalPackagesProps = {
+  title: string
+  data: PopularPackages[]
+}
+
+export default function SwiperInternationalPackages({
+  title,
+  data,
+}: SwiperInternationalPackagesProps) {
   return (
     <div className="px-20">
       <div className="flexCenter mb-10">

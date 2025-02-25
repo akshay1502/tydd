@@ -20,5 +20,5 @@ export const getPackages = async () => {
     depth: 1,
     pagination: false, // If you want to disable pagination count, etc.
   })
-  return result?.docs
+  return result?.docs as PopularPackages[]
 }

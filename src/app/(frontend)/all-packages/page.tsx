@@ -1,5 +1,6 @@
-import Packages from '@/components/cards/package'
-import Pill from '@/components/pill'
+// import Packages from '@/components/cards/package'
+// import Pill from '@/components/pill'
+// commenting above for deployment
 import Image from 'next/image'
 
 export default function AllPackagesPage() {
@@ -61,15 +62,16 @@ export default function AllPackagesPage() {
       <div>
         <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-8">Explore India</h2>
         <div className="flex gap-6 my-9">
-          <Pill text="All" isActive />
+          {/* <Pill text="All" isActive />
           <Pill text="All" />
           <Pill text="All" />
-          <Pill text="All" />
+          <Pill text="All" /> */}
         </div>
         {/* <div className="flex flex-wrap gap-6 justify-between"> */}
         <div className="grid grid-cols-[repeat(auto-fit,minmax(193px,1fr))]  gap-6">
           {[...Array(10)].map((_, index) => (
-            <Packages key={index} />
+            <p key={index}>dummy data</p>
+            // <Packages key={index} />
           ))}
         </div>
       </div>
