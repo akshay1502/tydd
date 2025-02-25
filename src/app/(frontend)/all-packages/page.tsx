@@ -69,7 +69,7 @@ export default function AllPackagesPage() {
         {/* <div className="flex flex-wrap gap-6 justify-between"> */}
         <div className="grid grid-cols-[repeat(auto-fit,minmax(193px,1fr))]  gap-6">
           {[...Array(10)].map((_, index) => (
-            <Packages />
+            <Packages key={index} />
           ))}
         </div>
       </div>
