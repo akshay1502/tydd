@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
+import { DetailPageFormTypes } from '@/types/global'
 
 const formSchema = z.object({
   name: z
@@ -47,7 +48,7 @@ export default function DetailPageForm() {
     },
   })
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: DetailPageFormTypes) => {
     console.log(data)
   }
   return (

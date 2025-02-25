@@ -14,6 +14,7 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
 import { Textarea } from './ui/textarea'
+import { ContactUsFormTypes } from '@/types/global'
 
 const formSchema = z.object({
   name: z
@@ -46,7 +47,7 @@ export default function ContactUsForm() {
     },
   })
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: ContactUsFormTypes) => {
     console.log(data)
   }
   return (

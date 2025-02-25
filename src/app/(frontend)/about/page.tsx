@@ -28,8 +28,8 @@ export default function AboutPage() {
             understanding of what makes a journey truly memorable. Based in Mumbai, Eshant founded
             TYDD to blend affordability with luxury, ensuring every traveler enjoys a unique and
             seamless experience. His commitment to quality and customer satisfaction drives the
-            agency's success. Eshant believes in turning travel dreams into lifelong memories for
-            every client.
+            agency&apos;s success. Eshant believes in turning travel dreams into lifelong memories
+            for every client.
           </p>
         </div>
         <div className="w-[508px] h-[508px] relative rounded-2xl overflow-hidden shrink-0 self-center">
@@ -51,8 +51,8 @@ export default function AboutPage() {
             understanding of what makes a journey truly memorable. Based in Mumbai, Eshant founded
             TYDD to blend affordability with luxury, ensuring every traveler enjoys a unique and
             seamless experience. His commitment to quality and customer satisfaction drives the
-            agency's success. Eshant believes in turning travel dreams into lifelong memories for
-            every client.
+            agency&apos;s success. Eshant believes in turning travel dreams into lifelong memories
+            for every client.
           </p>
         </div>
       </div>

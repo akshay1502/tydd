@@ -46,3 +46,18 @@ export type PopularPackages = {
       | null
   }
 }
+
+export type ContactUsFormTypes = {
+  name: string
+  mobile: string
+  email: string
+  destination: string
+  ideas?: string | undefined
+}
+
+export type DetailPageFormTypes = {
+  name: string
+  mobile: string
+  email: string
+  travellers: string
+}
