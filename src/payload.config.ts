@@ -10,6 +10,10 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Packages } from './collections/Packages'
+import { Inquiry } from './collections/Inquiry'
+import { FixedPackages } from './collections/FixedPackages'
+import { LastMinutePackages } from './collections/LastMinutePackages'
+import { Contact } from './collections/Contact'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -21,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Packages],
+  collections: [Users, Media, Packages, Inquiry, FixedPackages, LastMinutePackages, Contact],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
