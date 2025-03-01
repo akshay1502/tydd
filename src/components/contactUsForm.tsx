@@ -47,8 +47,25 @@ export default function ContactUsForm() {
     },
   })
 
-  const onSubmit = (data: ContactUsFormTypes) => {
-    console.log(data)
+  const onSubmit = async (data: ContactUsFormTypes) => {
+    try {
+      // The created Post document is returned
+      const res = await fetch('http://localhost:3000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+        }),
+      })
+      const result = await res.json()
+      console.log(result)
+    } catch (error) {
+      console.log('ERR ', error)
+    } finally {
+      form.reset()
+    }
   }
   return (
     <Form {...form}>
