@@ -16,14 +16,14 @@ import DetailPageForm from '@/components/detailPageForm'
 import LightBoxWrapper from '@/components/Lightbox'
 
 type DetailPageProps = Promise<{
-  slug: CollectionSlug
-  id: string
+  collection: CollectionSlug
+  destination: string
 }>
 
 export default async function DetailPage({ params }: { params: DetailPageProps }) {
-  const { slug, id } = await params
+  const { collection, destination } = await params
 
-  const data = await getDetailPage(slug, id)
+  const data = await getDetailPage(collection, destination)
 
   const slides = data?.gallery?.map((image) => {
     if (typeof image === 'object' && image !== null) {
@@ -143,7 +143,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           destination={data?.destination ?? ''}
           discount={'discount' in data ? (data.discount ?? 0) : 0}
           cost={data?.cost as number}
-          type={slug}
+          type={collection}
         />
       </div>
 
