@@ -26,7 +26,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
   const data = await getDetailPage(slug, id)
 
   return (
-    <div className="px-20 flex flex-col gap-28">
+    <div className="px-20 flex flex-col gap-28 pt-10 pb-20">
       <div>
         <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-8">
           {data?.destination}
@@ -134,7 +134,12 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
             </Accordion>
           </div>
         </div>
-        <DetailPageForm />
+        <DetailPageForm
+          destination={data?.destination}
+          discount={data?.discount}
+          cost={data?.cost}
+          type={slug}
+        />
       </div>
 
       <div>

@@ -1,20 +1,18 @@
 // import Packages from '@/components/cards/package'
 // import Pill from '@/components/pill'
 // commenting above for deployment
+import Packages from '@/components/cards/package'
+import PackagesTab from '@/components/PackagesTab'
+import { getPackages } from '@/payload'
 import Image from 'next/image'
 
-export default function AllPackagesPage() {
+export default async function AllPackagesPage() {
+  const allPackages = await getPackages()
   return (
     <div className="px-20 flex flex-col gap-28 pt-10">
       {/* image gallery section */}
       <div className="h-[516px] flex gap-4 relative">
-        <div className="absolute top-6 left-1/2 -translate-x-1/2 rounded-lg py-3 px-6 flex gap-10 z-10 bg-all-packages-buttons backdrop-blur-[50px]">
-          <button className="font-semibold text-xl text-blue pb-0.5 border-b border-blue">
-            Domestic
-          </button>
-          <button className="font-semibold text-xl text-white">Domestic</button>
-          <button className="font-semibold text-xl text-white">Domestic</button>
-        </div>
+        <PackagesTab />
         <div className="flex-[1.5] h-full grid grid-cols-2 grid-rows-[7fr_10fr] gap-4 relative">
           {/* Image 1 */}
           <div className="relative col-span-2 row-span-1">
@@ -68,10 +66,9 @@ export default function AllPackagesPage() {
           <Pill text="All" /> */}
         </div>
         {/* <div className="flex flex-wrap gap-6 justify-between"> */}
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(193px,1fr))]  gap-6">
-          {[...Array(10)].map((_, index) => (
-            <p key={index}>dummy data</p>
-            // <Packages key={index} />
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(193px,1fr))] gap-6">
+          {allPackages.map((item) => (
+            <Packages key={item?.id} data={item} />
           ))}
         </div>
       </div>
