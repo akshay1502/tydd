@@ -2,9 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../ui/button'
 import IconFeature from '@/assets/icons/feature'
-import { LastMinutePackages, PopularPackages } from '@/types/global'
+import { LastMinutePackage } from '@/payload-types'
 
-export default function LastMinuteDeal({ data }: { data: LastMinutePackages }) {
+export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
   return (
     <Link
       href={`/package/last-minute-packages/${data?.id}`}
@@ -12,7 +12,12 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackages }) {
     >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
         <div className="w-[284px] h-52">
-          <Image src={data?.image?.url} alt={data?.image?.alt} fill className="object-cover" />
+          <Image
+            src={typeof data.image === 'object' && data.image?.url ? data.image.url : ''}
+            alt={typeof data.image === 'object' && data.image?.alt ? data.image.alt : ''}
+            fill
+            className="object-cover"
+          />
         </div>
         <p className="rounded-br-lg py-1 px-2 text-white text-xs font-semibold absolute top-0 left-0 bg-last-minute-discount-gradient">
           {data?.discount}% OFF
@@ -33,8 +38,12 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackages }) {
         })}
         <div className="text-white font-semibold flex items-center gap-2">
           <p className="text-white font-semibold">
-            ₹{(data?.cost - data?.cost * (data?.discount / 100))?.toLocaleString('en-IN')} per
-            person
+            ₹
+            {(
+              (data?.cost as number) -
+              (data?.cost as number) * ((data?.discount as number) / 100)
+            )?.toLocaleString('en-IN')}{' '}
+            per person
           </p>
           <p className="text-white text-xs line-through">₹{data?.cost?.toLocaleString('en-IN')}</p>
         </div>

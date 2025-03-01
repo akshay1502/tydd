@@ -5,14 +5,14 @@ import { Navigation } from 'swiper/modules'
 import Image from 'next/image'
 import IconLastMinuteSwiperLeft from '@/assets/icons/lastMinuteSwiperLeft'
 import LastMinuteDeal from '../cards/lastMinuteDeal'
-import { PopularPackages } from '@/types/global'
+import { LastMinutePackage } from '@/payload-types'
 
 export default function SwiperLastMinutePackages({
   title,
   data,
 }: {
   title: string
-  data: PopularPackages[]
+  data: LastMinutePackage[]
 }) {
   return (
     <div className="mx-20">
