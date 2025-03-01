@@ -1,6 +1,6 @@
 import { CollectionSlug, getPayload } from 'payload'
 import config from '@/payload.config'
-import { PopularPackages } from '@/types/global'
+import { LastMinutePackages, PopularPackages } from '@/types/global'
 
 // initializing payload to be used for local queries
 const payload = await getPayload({ config })
@@ -11,7 +11,7 @@ export const getDetailPage = async (slug: CollectionSlug, id: string): Promise<P
     id, // required
     depth: 1,
   })
-  return result as PopularPackages
+  return result as LastMinutePackages
 }
 
 export const getPackages = async () => {
@@ -21,4 +21,30 @@ export const getPackages = async () => {
     pagination: false, // If you want to disable pagination count, etc.
   })
   return result?.docs as PopularPackages[]
+}
+
+export const getFixedPackages = async () => {
+  const result = await payload.find({
+    collection: 'fixed-packages', // required
+    depth: 1,
+    pagination: false, // If you want to disable pagination count, etc.
+  })
+  return result?.docs as PopularPackages[]
+}
+
+export const getLastMinutePackages = async () => {
+  const result = await payload.find({
+    collection: 'last-minute-packages', // required
+    depth: 1,
+    pagination: false, // If you want to disable pagination count, etc.
+  })
+  return result?.docs as PopularPackages[]
+}
+
+export const createInquiry = async (data) => {
+  const response = await payload.create({
+    collection: 'inquiry', // required
+    data,
+  })
+  return response
 }
