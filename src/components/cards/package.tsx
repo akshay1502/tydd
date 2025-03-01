@@ -24,7 +24,7 @@ export default function Packages({ data }: { data: PackagesProps }) {
         </p>
       </div>
       <p className="text-black">{data?.package}</p>
-      <p className="text-black font-semibold">₹ {data?.cost.toLocaleString('en-IN')} per person</p>
+      <p className="text-black font-semibold">₹{data?.cost?.toLocaleString('en-IN')} per person</p>
     </Link>
   )
 }
