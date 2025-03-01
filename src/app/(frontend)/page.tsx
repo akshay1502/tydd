@@ -1,6 +1,5 @@
 import React from 'react'
 import './styles.css'
-import FixedDeparture from '@/components/cards/fixedDeparture'
 import SwiperPopularPackages from '@/components/Swiper/popularPackages'
 import SwiperFixedPackages from '@/components/Swiper/fixedPackages'
 import SwiperInternationalPackages from '@/components/Swiper/internationalPackages'
@@ -10,19 +9,28 @@ import IconExperStar from '@/assets/icons/expertStar'
 import Image from 'next/image'
 import { getFixedPackages, getLastMinutePackages, getPackages } from '@/payload'
 
+// swiper navigation and pagination css files
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
 export default async function HomePage() {
-  const data = await getPackages()
+  const packages = await getPackages()
   const fixedPackages = await getFixedPackages()
   const lastMinutePackages = await getLastMinutePackages()
-  console.log(lastMinutePackages)
 
   return (
     <div className="flex flex-col gap-28 pt-10 pb-20">
+      {/* Hero packages will redirect to same as popular packages */}
       <SwiperHeroPackages />
-      <SwiperPopularPackages title="Popular Packages" data={data} />
+      {/* packages with popular boolean marked as true */}
+      <SwiperPopularPackages title="Popular Packages" data={packages} />
+      {/* last minute date packages with discount */}
       <SwiperLastMinutePackages title="Last Minute Deals" data={lastMinutePackages} />
+      {/* fixed date packages */}
       <SwiperFixedPackages title="Fixed Departures" data={fixedPackages} />
-      <SwiperInternationalPackages title="International Budget-Friendly Packages" data={data} />
+      {/* packages with international type */}
+      <SwiperInternationalPackages title="International Budget-Friendly Packages" data={packages} />
       <div className="px-20">
         <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Why TYDD</h2>
         <div className="mt-14 flex gap-32">
