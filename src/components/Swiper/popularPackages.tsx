@@ -6,11 +6,11 @@ import IconSwiperLeft from '@/assets/icons/swiperLeft'
 import Pill from '../pill'
 import Packages from '../cards/package'
 import { useState } from 'react'
-import { PopularPackages } from '@/types/global'
+import { Package } from '@/payload-types'
 
 type SwiperPopularPackagesProps = {
   title: string
-  data: PopularPackages[]
+  data: Package[]
 }
 export default function SwiperPopularPackages({ title, data }: SwiperPopularPackagesProps) {
   const [activePopularCategory, setActivePopularCategory] = useState('All')
@@ -34,10 +34,10 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
           isActive={'All' === activePopularCategory}
           setActivePopularCategory={setActivePopularCategory}
         />
-        {data?.map((data: PopularPackages) => (
+        {data?.map((data: Package) => (
           <Pill
             key={data?.id}
-            text={data?.category}
+            text={data?.category ?? ''}
             setActivePopularCategory={setActivePopularCategory}
             isActive={data?.category === activePopularCategory}
           />
@@ -66,10 +66,10 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
       >
         {data
           ?.filter(
-            (packages: PopularPackages) =>
+            (packages: Package) =>
               activePopularCategory === 'All' || packages?.category === activePopularCategory,
           )
-          .map((data: PopularPackages) => (
+          .map((data: Package) => (
             <SwiperSlide key={data?.id} className="!w-auto">
               <Packages data={data} />
             </SwiperSlide>

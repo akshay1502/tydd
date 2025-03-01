@@ -1,6 +1,7 @@
 import { CollectionSlug, getPayload } from 'payload'
 import config from '@/payload.config'
 import { LastMinutePackages, PopularPackages } from '@/types/global'
+import { Package } from '@/payload-types'
 
 // initializing payload to be used for local queries
 const payload = await getPayload({ config })
@@ -20,7 +21,7 @@ export const getPackages = async () => {
     depth: 1,
     pagination: false, // If you want to disable pagination count, etc.
   })
-  return result?.docs as PopularPackages[]
+  return result?.docs as Package[]
 }
 
 export const getFixedPackages = async () => {

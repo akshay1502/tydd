@@ -1,7 +1,6 @@
 type PillProps = {
   text: string
   isActive: boolean
-  // making temporary due to incomlete integratino in /all-packages route
   setActivePopularCategory: React.Dispatch<React.SetStateAction<string>>
 }
 
