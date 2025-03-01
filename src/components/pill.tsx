@@ -15,7 +15,7 @@ export default function Pill({ text, isActive, setActivePopularCategory }: PillP
   )
 }
 
-export function HighlightPill({ text }: { text: string | undefined }) {
+export function HighlightPill({ text }: { text: string }) {
   return (
     <button className="font-bold text-2xl text-white bg-orange  rounded-full py-2 px-4">
       {text}

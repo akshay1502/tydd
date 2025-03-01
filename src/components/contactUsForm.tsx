@@ -14,7 +14,7 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
 import { Textarea } from './ui/textarea'
-import { ContactUsFormTypes } from '@/types/global'
+import { Contact } from '@/payload-types'
 
 const formSchema = z.object({
   name: z
@@ -35,6 +35,8 @@ const formSchema = z.object({
   ideas: z.string().optional(),
 })
 
+export type ContactFormData = Omit<Contact, 'id' | 'createdAt' | 'updatedAt'>
+
 export default function ContactUsForm() {
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -47,10 +49,10 @@ export default function ContactUsForm() {
     },
   })
 
-  const onSubmit = async (data: ContactUsFormTypes) => {
+  const onSubmit = async (data: ContactFormData) => {
     try {
       // The created Post document is returned
-      const res = await fetch('http://localhost:3000/api/contact', {
+      const response = await fetch('http://localhost:3000/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,8 +61,6 @@ export default function ContactUsForm() {
           ...data,
         }),
       })
-      const result = await res.json()
-      console.log(result)
     } catch (error) {
       console.log('ERR ', error)
     } finally {

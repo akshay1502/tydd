@@ -13,8 +13,7 @@ import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
-import { DetailPageFormTypes } from '@/types/global'
-import { createInquiry } from '@/payload'
+import { Inquiry } from '@/payload-types'
 
 const formSchema = z.object({
   name: z
@@ -38,6 +37,8 @@ const formSchema = z.object({
     }),
 })
 
+export type InquiryFormData = Omit<Inquiry, 'id' | 'createdAt' | 'updatedAt'>
+
 export default function DetailPageForm({
   destination,
   discount,
@@ -45,7 +46,7 @@ export default function DetailPageForm({
   type,
 }: {
   destination: string
-  discount: number | undefined
+  discount: number
   cost: number
   type: string
 }) {
@@ -59,7 +60,7 @@ export default function DetailPageForm({
     },
   })
 
-  const onSubmit = async (data: DetailPageFormTypes) => {
+  const onSubmit = async (data: InquiryFormData) => {
     try {
       // The created Post document is returned
       const res = await fetch('http://localhost:3000/api/inquiry', {
