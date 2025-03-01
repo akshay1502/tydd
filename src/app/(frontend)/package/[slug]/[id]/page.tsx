@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button'
 import IconFeature from '@/assets/icons/feature'
 import IconBreakFast from '@/assets/icons/breakfast'
 import DetailPageForm from '@/components/detailPageForm'
+import LightBoxWrapper from '@/components/Lightbox'
 
 type DetailPageProps = Promise<{
   slug: CollectionSlug
@@ -24,6 +25,11 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
   const { slug, id } = await params
 
   const data = await getDetailPage(slug, id)
+
+  const slides = data?.gallery?.map((image) => ({
+    src: image?.url,
+    alt: image?.alt,
+  }))
 
   return (
     <div className="px-20 flex flex-col gap-28 pt-10 pb-20">
@@ -74,9 +80,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
             />
           </div>
 
-          <Button className="absolute bottom-5 right-5 text-sm font-medium py-3 px-5">
-            See all photos
-          </Button>
+          <LightBoxWrapper slides={slides} />
         </div>
       </div>
 
