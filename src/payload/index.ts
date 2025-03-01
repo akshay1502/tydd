@@ -5,13 +5,18 @@ import { FixedPackage, LastMinutePackage, Package } from '@/payload-types'
 // initializing payload to be used for local queries
 const payload = await getPayload({ config })
 
-export const getDetailPage = async (slug: CollectionSlug, id: string) => {
-  const result = await payload.findByID({
-    collection: slug, // required
-    id, // required
+export const getDetailPage = async (collection: CollectionSlug, destination: string) => {
+  const result = await payload.find({
+    collection, // required
+    where: {
+      destination: {
+        equals: destination,
+      },
+    }, // required
     depth: 1,
+    limit: 1,
   })
-  return result as Package | LastMinutePackage | FixedPackage
+  return result?.docs[0] as Package | LastMinutePackage | FixedPackage
 }
 
 export const getPackages = async () => {
