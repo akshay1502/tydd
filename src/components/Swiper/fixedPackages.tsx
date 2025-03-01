@@ -4,14 +4,14 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import IconSwiperLeft from '@/assets/icons/swiperLeft'
 import FixedDeparture from '../cards/fixedDeparture'
-import { FixedPackages } from '@/types/global'
+import { FixedPackage } from '@/payload-types'
 
 export default function SwiperFixedPackages({
   title,
   data,
 }: {
   title: string
-  data: FixedPackages[]
+  data: FixedPackage[]
 }) {
   return (
     <div className="px-20">
