@@ -12,6 +12,7 @@ export const Packages: CollectionConfig = {
     {
       name: 'destination',
       type: 'text',
+      unique: true,
     },
     {
       name: 'package',

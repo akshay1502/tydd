@@ -12,6 +12,7 @@ export const LastMinutePackages: CollectionConfig = {
     {
       name: 'destination',
       type: 'text',
+      unique: true,
     },
     {
       name: 'package',
