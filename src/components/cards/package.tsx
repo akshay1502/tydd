@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Packages({ data }: { data: Package }) {
   return (
-    <Link href={`/package/packages/${data?.id}`} className="flex flex-col gap-2 w-48">
+    <Link href={`/package/packages/${data?.destination}`} className="flex flex-col gap-2 w-48">
       <div className="relative rounded-lg overflow-hidden shadow-packages">
         <div className="w-48 h-48">
           <Image

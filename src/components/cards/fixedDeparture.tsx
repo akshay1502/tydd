@@ -11,7 +11,7 @@ const Pill = ({ text }: { text: string }) => {
 export default function FixedDeparture({ data }: { data: FixedPackage }) {
   return (
     <Link
-      href={`/package/fixed-packages/${data?.id}`}
+      href={`/package/fixed-packages/${data?.destination}`}
       className="flex flex-col w-[300px] border border-offWhite rounded-lg"
     >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
