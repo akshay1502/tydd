@@ -10,23 +10,30 @@ import IconLocation from '@/assets/icons/location'
 import Link from 'next/link'
 import { CollectionSlug } from 'payload'
 import { getDetailPage } from '@/payload'
-import { Button } from '@/components/ui/button'
 import IconFeature from '@/assets/icons/feature'
 import IconBreakFast from '@/assets/icons/breakfast'
 import DetailPageForm from '@/components/detailPageForm'
+import LightBoxWrapper from '@/components/Lightbox'
 
 type DetailPageProps = Promise<{
-  slug: CollectionSlug
-  id: string
+  collection: CollectionSlug
+  destination: string
 }>
 
 export default async function DetailPage({ params }: { params: DetailPageProps }) {
-  const { slug, id } = await params
+  const { collection, destination } = await params
 
-  const data = await getDetailPage(slug, id)
+  const data = await getDetailPage(collection, destination)
+
+  const slides = data?.gallery?.map((image) => {
+    if (typeof image === 'object' && image !== null) {
+      return { src: image.url ?? '', alt: image.alt ?? '' }
+    }
+    return { src: '', alt: '' }
+  })
 
   return (
-    <div className="px-20 flex flex-col gap-28">
+    <div className="px-20 flex flex-col gap-28 pt-10 pb-20">
       <div>
         <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-8">
           {data?.destination}
@@ -37,8 +44,8 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           {/* Image 1 */}
           <div className="relative col-span-2 row-span-2">
             <Image
-              src={data?.gallery[0]?.url}
-              alt={data?.gallery[0]?.alt}
+              src={typeof data?.gallery?.[0] === 'object' ? (data.gallery[0]?.url ?? '') : ''}
+              alt={typeof data?.gallery?.[0] === 'object' ? (data.gallery[0]?.alt ?? '') : ''}
               fill
               className="object-cover rounded-xl"
             />
@@ -47,8 +54,8 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           {/* Image 2 */}
           <div className="relative col-span-2 row-span-1">
             <Image
-              src={data?.gallery[1]?.url}
-              alt={data?.gallery[1]?.alt}
+              src={typeof data?.gallery?.[1] === 'object' ? (data.gallery[1]?.url ?? '') : ''}
+              alt={typeof data?.gallery?.[1] === 'object' ? (data.gallery[1]?.alt ?? '') : ''}
               fill
               className="object-cover rounded-xl"
             />
@@ -57,8 +64,8 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           {/* Image 3 */}
           <div className="relative col-span-1 row-span-1">
             <Image
-              src={data?.gallery[2]?.url}
-              alt={data?.gallery[2]?.alt}
+              src={typeof data?.gallery?.[2] === 'object' ? (data.gallery[2]?.url ?? '') : ''}
+              alt={typeof data?.gallery?.[2] === 'object' ? (data.gallery[2]?.alt ?? '') : ''}
               fill
               className="object-cover rounded-xl"
             />
@@ -67,16 +74,14 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           {/* Image 4 */}
           <div className="relative col-span-1 row-span-1">
             <Image
-              src={data?.gallery[3]?.url}
-              alt={data?.gallery[3]?.alt}
+              src={typeof data?.gallery?.[3] === 'object' ? (data.gallery[3]?.url ?? '') : ''}
+              alt={typeof data?.gallery?.[3] === 'object' ? (data.gallery[3]?.alt ?? '') : ''}
               fill
               className="object-cover rounded-xl"
             />
           </div>
 
-          <Button className="absolute bottom-5 right-5 text-sm font-medium py-3 px-5">
-            See all photos
-          </Button>
+          <LightBoxWrapper slides={slides} />
         </div>
       </div>
 
@@ -91,7 +96,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
             <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Highlights</h2>
             <div className="flex gap-6 flex-wrap">
               {data?.highlights?.chips?.map((chip) => (
-                <HighlightPill key={chip?.id} text={chip?.chip} />
+                <HighlightPill key={chip?.id} text={chip?.chip ?? ''} />
               ))}
             </div>
             <ul className="flex flex-col gap-4 list-disc list-inside">
@@ -134,7 +139,12 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
             </Accordion>
           </div>
         </div>
-        <DetailPageForm />
+        <DetailPageForm
+          destination={data?.destination ?? ''}
+          discount={'discount' in data ? (data.discount ?? 0) : 0}
+          cost={data?.cost as number}
+          type={collection}
+        />
       </div>
 
       <div>

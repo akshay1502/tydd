@@ -1,14 +1,19 @@
 'use client'
 
-import 'swiper/css'
-import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import Image from 'next/image'
 import IconLastMinuteSwiperLeft from '@/assets/icons/lastMinuteSwiperLeft'
 import LastMinuteDeal from '../cards/lastMinuteDeal'
+import { LastMinutePackage } from '@/payload-types'
 
-export default function SwiperLastMinutePackages({ title }: { title: string }) {
+export default function SwiperLastMinutePackages({
+  title,
+  data,
+}: {
+  title: string
+  data: LastMinutePackage[]
+}) {
   return (
     <div className="mx-20">
       <div className="py-20 relative rounded-3xl overflow-hidden">
@@ -48,9 +53,9 @@ export default function SwiperLastMinutePackages({ title }: { title: string }) {
           }}
           className="mySwiper !px-16"
         >
-          {[...Array(10)].map((_, index) => (
-            <SwiperSlide key={index} className="!w-auto">
-              <LastMinuteDeal />
+          {data.map((data) => (
+            <SwiperSlide key={data?.id} className="!w-auto">
+              <LastMinuteDeal data={data} />
             </SwiperSlide>
           ))}
         </Swiper>

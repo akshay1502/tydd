@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
-export const Packages: CollectionConfig = {
-  slug: 'packages',
+export const LastMinutePackages: CollectionConfig = {
+  slug: 'last-minute-packages',
   access: {
     read: () => true, // ✅ Make "GET /api/packages" public
     create: () => true, // ✅ Allow public to add data (optional)
@@ -17,6 +17,20 @@ export const Packages: CollectionConfig = {
     {
       name: 'package',
       type: 'text',
+    },
+    {
+      name: 'discount',
+      type: 'number',
+    },
+    {
+      name: 'features',
+      type: 'array',
+      fields: [
+        {
+          name: 'feature',
+          type: 'text',
+        },
+      ],
     },
     {
       name: 'cost',

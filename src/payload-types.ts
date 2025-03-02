@@ -69,6 +69,10 @@ export interface Config {
     users: User;
     media: Media;
     packages: Package;
+    inquiry: Inquiry;
+    'fixed-packages': FixedPackage;
+    'last-minute-packages': LastMinutePackage;
+    contact: Contact;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -78,6 +82,10 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     packages: PackagesSelect<false> | PackagesSelect<true>;
+    inquiry: InquirySelect<false> | InquirySelect<true>;
+    'fixed-packages': FixedPackagesSelect<false> | FixedPackagesSelect<true>;
+    'last-minute-packages': LastMinutePackagesSelect<false> | LastMinutePackagesSelect<true>;
+    contact: ContactSelect<false> | ContactSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -209,6 +217,156 @@ export interface Package {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiry".
+ */
+export interface Inquiry {
+  id: number;
+  name?: string | null;
+  mobile?: string | null;
+  email?: string | null;
+  travellers?: string | null;
+  destination?: string | null;
+  type?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "fixed-packages".
+ */
+export interface FixedPackage {
+  id: number;
+  destination?: string | null;
+  package?: string | null;
+  start_date?: string | null;
+  end_date?: string | null;
+  cost?: number | null;
+  image?: (number | null) | Media;
+  category?: ('Solo' | 'Adventure' | 'Honeymoon') | null;
+  gallery?: (number | Media)[] | null;
+  overview?: string | null;
+  highlights?: {
+    chips?:
+      | {
+          chip?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    pointers?:
+      | {
+          pointer?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  day_breakup?: {
+    days?:
+      | {
+          title?: string | null;
+          break_up?:
+            | {
+                title?: string | null;
+                subtitle?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  accomodations?: {
+    location?:
+      | {
+          name?: string | null;
+          type?: string | null;
+          whats_included?: string | null;
+          link?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "last-minute-packages".
+ */
+export interface LastMinutePackage {
+  id: number;
+  destination?: string | null;
+  package?: string | null;
+  discount?: number | null;
+  features?:
+    | {
+        feature?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  cost?: number | null;
+  image?: (number | null) | Media;
+  category?: ('Solo' | 'Adventure' | 'Honeymoon') | null;
+  gallery?: (number | Media)[] | null;
+  overview?: string | null;
+  highlights?: {
+    chips?:
+      | {
+          chip?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    pointers?:
+      | {
+          pointer?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  day_breakup?: {
+    days?:
+      | {
+          title?: string | null;
+          break_up?:
+            | {
+                title?: string | null;
+                subtitle?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  accomodations?: {
+    location?:
+      | {
+          name?: string | null;
+          type?: string | null;
+          whats_included?: string | null;
+          link?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact".
+ */
+export interface Contact {
+  id: number;
+  name?: string | null;
+  mobile?: string | null;
+  email?: string | null;
+  destination?: string | null;
+  ideas?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -225,6 +383,22 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'packages';
         value: number | Package;
+      } | null)
+    | ({
+        relationTo: 'inquiry';
+        value: number | Inquiry;
+      } | null)
+    | ({
+        relationTo: 'fixed-packages';
+        value: number | FixedPackage;
+      } | null)
+    | ({
+        relationTo: 'last-minute-packages';
+        value: number | LastMinutePackage;
+      } | null)
+    | ({
+        relationTo: 'contact';
+        value: number | Contact;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -360,6 +534,164 @@ export interface PackagesSelect<T extends boolean = true> {
               id?: T;
             };
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiry_select".
+ */
+export interface InquirySelect<T extends boolean = true> {
+  name?: T;
+  mobile?: T;
+  email?: T;
+  travellers?: T;
+  destination?: T;
+  type?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "fixed-packages_select".
+ */
+export interface FixedPackagesSelect<T extends boolean = true> {
+  destination?: T;
+  package?: T;
+  start_date?: T;
+  end_date?: T;
+  cost?: T;
+  image?: T;
+  category?: T;
+  gallery?: T;
+  overview?: T;
+  highlights?:
+    | T
+    | {
+        chips?:
+          | T
+          | {
+              chip?: T;
+              id?: T;
+            };
+        pointers?:
+          | T
+          | {
+              pointer?: T;
+              id?: T;
+            };
+      };
+  day_breakup?:
+    | T
+    | {
+        days?:
+          | T
+          | {
+              title?: T;
+              break_up?:
+                | T
+                | {
+                    title?: T;
+                    subtitle?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  accomodations?:
+    | T
+    | {
+        location?:
+          | T
+          | {
+              name?: T;
+              type?: T;
+              whats_included?: T;
+              link?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "last-minute-packages_select".
+ */
+export interface LastMinutePackagesSelect<T extends boolean = true> {
+  destination?: T;
+  package?: T;
+  discount?: T;
+  features?:
+    | T
+    | {
+        feature?: T;
+        id?: T;
+      };
+  cost?: T;
+  image?: T;
+  category?: T;
+  gallery?: T;
+  overview?: T;
+  highlights?:
+    | T
+    | {
+        chips?:
+          | T
+          | {
+              chip?: T;
+              id?: T;
+            };
+        pointers?:
+          | T
+          | {
+              pointer?: T;
+              id?: T;
+            };
+      };
+  day_breakup?:
+    | T
+    | {
+        days?:
+          | T
+          | {
+              title?: T;
+              break_up?:
+                | T
+                | {
+                    title?: T;
+                    subtitle?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  accomodations?:
+    | T
+    | {
+        location?:
+          | T
+          | {
+              name?: T;
+              type?: T;
+              whats_included?: T;
+              link?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact_select".
+ */
+export interface ContactSelect<T extends boolean = true> {
+  name?: T;
+  mobile?: T;
+  email?: T;
+  destination?: T;
+  ideas?: T;
   updatedAt?: T;
   createdAt?: T;
 }

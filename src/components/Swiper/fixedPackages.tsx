@@ -1,13 +1,18 @@
 'use client'
 
-import 'swiper/css'
-import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import IconSwiperLeft from '@/assets/icons/swiperLeft'
 import FixedDeparture from '../cards/fixedDeparture'
+import { FixedPackage } from '@/payload-types'
 
-export default function SwiperFixedPackages({ title }: { title: string }) {
+export default function SwiperFixedPackages({
+  title,
+  data,
+}: {
+  title: string
+  data: FixedPackage[]
+}) {
   return (
     <div className="px-20">
       <div className="flexCenter mb-10">
@@ -42,9 +47,9 @@ export default function SwiperFixedPackages({ title }: { title: string }) {
         }}
         className="mySwiper"
       >
-        {[...Array(10)].map((_, index) => (
-          <SwiperSlide key={index} className="!w-auto">
-            <FixedDeparture key={index} />
+        {data.map((data) => (
+          <SwiperSlide key={data?.id} className="!w-auto">
+            <FixedDeparture data={data} />
           </SwiperSlide>
         ))}
       </Swiper>

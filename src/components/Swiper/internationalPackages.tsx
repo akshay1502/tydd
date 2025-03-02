@@ -1,16 +1,14 @@
 'use client'
 
-import 'swiper/css'
-import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import IconSwiperLeft from '@/assets/icons/swiperLeft'
 import Packages from '../cards/package'
-import { PopularPackages } from '@/types/global'
+import { Package } from '@/payload-types'
 
 type SwiperInternationalPackagesProps = {
   title: string
-  data: PopularPackages[]
+  data: Package[]
 }
 
 export default function SwiperInternationalPackages({
@@ -51,7 +49,7 @@ export default function SwiperInternationalPackages({
         }}
         className="mySwiper"
       >
-        {data.map((data: PopularPackages) => (
+        {data.map((data: Package) => (
           <SwiperSlide key={data?.id} className="!w-auto">
             <Packages data={data} />
           </SwiperSlide>

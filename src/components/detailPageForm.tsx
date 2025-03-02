@@ -13,7 +13,7 @@ import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
-import { DetailPageFormTypes } from '@/types/global'
+import { Inquiry } from '@/payload-types'
 
 const formSchema = z.object({
   name: z
@@ -37,7 +37,19 @@ const formSchema = z.object({
     }),
 })
 
-export default function DetailPageForm() {
+export type InquiryFormData = Omit<Inquiry, 'id' | 'createdAt' | 'updatedAt'>
+
+export default function DetailPageForm({
+  destination,
+  discount,
+  cost,
+  type,
+}: {
+  destination: string
+  discount: number
+  cost: number
+  type: string
+}) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,9 +60,27 @@ export default function DetailPageForm() {
     },
   })
 
-  const onSubmit = (data: DetailPageFormTypes) => {
-    console.log(data)
+  const onSubmit = async (data: InquiryFormData) => {
+    try {
+      // The created Post document is returned
+      const res = await fetch('http://localhost:3000/api/inquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          destination,
+          type,
+        }),
+      })
+      const result = await res.json()
+      console.log(result)
+    } catch (error) {
+      console.log('ERR ', error)
+    }
   }
+
   return (
     <Form {...form}>
       <form
@@ -120,7 +150,13 @@ export default function DetailPageForm() {
         <div>
           <p className="text-sm text-black">Starting from</p>
           <p className="text-sm text-black">
-            <span className="text-base font-semibold">₹1,50,000</span> per person
+            <span className="text-base font-semibold">
+              ₹
+              {discount
+                ? (cost - cost * (discount / 100))?.toLocaleString('en-IN')
+                : cost?.toLocaleString('en-IN')}
+            </span>{' '}
+            per person
           </p>
         </div>
 

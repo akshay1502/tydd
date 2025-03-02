@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
-export const Packages: CollectionConfig = {
-  slug: 'packages',
+export const FixedPackages: CollectionConfig = {
+  slug: 'fixed-packages',
   access: {
     read: () => true, // ✅ Make "GET /api/packages" public
     create: () => true, // ✅ Allow public to add data (optional)
@@ -17,6 +17,14 @@ export const Packages: CollectionConfig = {
     {
       name: 'package',
       type: 'text',
+    },
+    {
+      name: 'start_date',
+      type: 'date',
+    },
+    {
+      name: 'end_date',
+      type: 'date',
     },
     {
       name: 'cost',
