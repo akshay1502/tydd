@@ -58,7 +58,7 @@ export function NextJsImage({ slide, offset, rect }: any) {
   )
 }
 
-export default function LightBoxWrapper({ slides }) {
+export default function LightBoxWrapper({ slides }: any) {
   const [open, setOpen] = useState(false)
   return (
     <>
