@@ -1,9 +1,55 @@
 import IconExperStar from '@/assets/icons/expertStar'
 import Image from 'next/image'
 
+const standings = [
+  {
+    id: 1,
+    title: 'Personalisation',
+    description:
+      'Your journey, your way—every itinerary is crafted to match your unique preferences and desires.',
+  },
+  {
+    id: 2,
+    title: 'Trust',
+    description:
+      'Count on us for reliable service, seamless planning, and unforgettable travel experiences.',
+  },
+  {
+    id: 3,
+    title: 'Passion',
+    description:
+      'Our love for travel fuels our dedication to creating unforgettable journeys for every explorer.',
+  },
+  {
+    id: 4,
+    title: 'Excellence',
+    description:
+      'From start to finish, we aim for perfection, delivering top-notch service and memorable experiences.',
+  },
+]
+
+const luxuries = [
+  {
+    id: 1,
+    title: 'Affordable Luxury',
+  },
+  {
+    id: 2,
+    title: 'Custom Itineraries',
+  },
+  {
+    id: 3,
+    title: 'Seamless Planning',
+  },
+  {
+    id: 4,
+    title: 'Trusted Quality',
+  },
+]
+
 export default function AboutPage() {
   return (
-    <div className="px-20 pt-10 flex flex-col gap-28">
+    <div className="px-20 py-10 flex flex-col gap-28">
       <div className="w-full h-[508px] relative rounded-3xl overflow-hidden">
         <Image src="/contact.jpg" alt="image" fill className="object-cover" />
         <div className="absolute top-1/2 -translate-y-1/2 left-24 w-[848px]">
@@ -59,14 +105,11 @@ export default function AboutPage() {
       <div>
         <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Why TYDD</h2>
         <div className="mt-12 flex gap-6">
-          {[...Array(4)].map((_, index) => (
-            <div key={index} className="p-6 flex gap-6 bg-skin flex-col shadow-about rounded-xl">
+          {standings.map((item) => (
+            <div key={item?.id} className="p-6 flex gap-6 bg-skin flex-col shadow-about rounded-xl">
               <IconExperStar />
-              <h4 className="text-black font-bold text-2xl">Affordable Luxury</h4>
-              <p className="text-black text-xl">
-                Your journey, your way—every itinerary is crafted to match your unique preferences
-                and desires.
-              </p>
+              <h4 className="text-black font-bold text-2xl">{item?.title}</h4>
+              <p className="text-black text-xl">{item?.description}</p>
             </div>
           ))}
         </div>
@@ -83,10 +126,10 @@ export default function AboutPage() {
               and memorable.
             </p>
             <div className="grid grid-cols-2 gap-y-10 gap-x-16">
-              {[...Array(4)].map((_, index) => (
-                <div key={index} className="py-2 flex items-center gap-6">
+              {luxuries.map((item) => (
+                <div key={item?.id} className="py-2 flex items-center gap-6">
                   <IconExperStar />
-                  <h4 className="text-black font-bold text-2xl">Affordable Luxury</h4>
+                  <h4 className="text-black font-bold text-2xl">{item?.title}</h4>
                 </div>
               ))}
             </div>
