@@ -14,6 +14,7 @@ import { Inquiry } from './collections/Inquiry'
 import { FixedPackages } from './collections/FixedPackages'
 import { LastMinutePackages } from './collections/LastMinutePackages'
 import { Contact } from './collections/Contact'
+import { Home } from './globals/home'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,6 +27,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Packages, Inquiry, FixedPackages, LastMinutePackages, Contact],
+  globals: [Home],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
