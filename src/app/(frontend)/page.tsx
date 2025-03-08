@@ -7,26 +7,34 @@ import SwiperLastMinutePackages from '@/components/Swiper/lastMinutePackages'
 import SwiperHeroPackages from '@/components/Swiper/heroPackages'
 import IconExperStar from '@/assets/icons/expertStar'
 import Image from 'next/image'
-import { getFixedPackages, getLastMinutePackages, getPackages } from '@/payload'
+import { getFixedPackages, getHomeData, getLastMinutePackages, getPackages } from '@/payload'
+import Marquee from 'react-fast-marquee'
 
 // swiper navigation and pagination css files
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import CircularSlider from '@/components/ImageCircularSlider'
 
 export default async function HomePage() {
   const packages = await getPackages()
   const fixedPackages = await getFixedPackages()
   const lastMinutePackages = await getLastMinutePackages()
+  const homeData = await getHomeData()
 
   return (
     <div className="flex flex-col gap-28 pt-10 pb-20">
+      {/* <CircularSlider /> */}
       {/* Hero packages will redirect to same as popular packages */}
-      <SwiperHeroPackages />
+      <SwiperHeroPackages data={homeData?.hero_Packages} />
       {/* packages with popular boolean marked as true */}
       <SwiperPopularPackages title="Popular Packages" data={packages} />
       {/* last minute date packages with discount */}
-      <SwiperLastMinutePackages title="Last Minute Deals" data={lastMinutePackages} />
+      <SwiperLastMinutePackages
+        title="Last Minute Deals"
+        data={lastMinutePackages}
+        dates={homeData?.last_minute_date}
+      />
       {/* fixed date packages */}
       <SwiperFixedPackages title="Fixed Departures" data={fixedPackages} />
       {/* packages with international type */}
@@ -56,38 +64,52 @@ export default async function HomePage() {
           </div>
         </div>
       </div>
-      <div className="px-20">
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Our Partners</h2>
-        <div className="flex justify-between gap-20 flex-wrap mt-14">
+      <div>
+        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold px-20">Our Partners</h2>
+        <Marquee style={{ marginTop: '56px' }}>
           <Image
             src="/partner1.png"
             alt="image"
             width={0}
             height={156}
-            className="h-[156px] w-auto object-contain"
+            className="mx-10 h-[156px] w-auto object-contain"
           />
           <Image
             src="/partner2.png"
             alt="image"
             width={0}
             height={156}
-            className="h-[156px] w-auto object-contain"
+            className="mx-10 h-[156px] w-auto object-contain"
           />
           <Image
             src="/partner3.png"
             alt="image"
             width={0}
             height={156}
-            className="h-[156px] w-auto object-contain"
+            className="mx-10 h-[156px] w-auto object-contain"
           />
           <Image
             src="/partner4.png"
             alt="image"
             width={0}
             height={156}
-            className="h-[156px] w-auto object-contain"
+            className="mx-10 h-[156px] w-auto object-contain"
           />
-        </div>
+          <Image
+            src="/partner2.png"
+            alt="image"
+            width={0}
+            height={156}
+            className="mx-10 h-[156px] w-auto object-contain"
+          />
+          <Image
+            src="/partner3.png"
+            alt="image"
+            width={0}
+            height={156}
+            className="mx-10 h-[156px] w-auto object-contain"
+          />
+        </Marquee>
       </div>
     </div>
   )

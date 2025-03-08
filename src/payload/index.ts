@@ -45,3 +45,26 @@ export const getLastMinutePackages = async () => {
   })
   return result?.docs as LastMinutePackage[]
 }
+
+export const getHomeData = async () => {
+  // get the home page data
+  const homeData = await payload.findGlobal({
+    slug: 'home',
+    depth: 0,
+  })
+
+  // populate hero packages with necessary field to be shown on UI
+  const heroPackagesData = await payload.find({
+    collection: 'packages',
+    where: {
+      id: { in: homeData?.hero_Packages }, // Fetch only the selected package IDs
+    },
+    depth: 1, // Prevents excessive nesting
+    select: { destination: true, image: true, updatedAt: true, createdAt: true }, // Fetch only required fields
+  })
+
+  return {
+    ...homeData,
+    hero_Packages: heroPackagesData?.docs,
+  }
+}
