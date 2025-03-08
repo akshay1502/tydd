@@ -4,14 +4,17 @@ import Link from 'next/link'
 
 export default function Packages({ data }: { data: Package }) {
   return (
-    <Link href={`/package/packages/${data?.destination}`} className="flex flex-col gap-2 w-48">
+    <Link
+      href={`/package/packages/${data?.destination}`}
+      className="group flex flex-col gap-2 w-48"
+    >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
         <div className="w-48 h-48">
           <Image
             src={typeof data.image === 'object' && data.image?.url ? data.image.url : ''}
             alt={typeof data.image === 'object' && data.image?.alt ? data.image.alt : ''}
             fill
-            className="object-cover"
+            className="object-cover group-hover:scale-110 ease-linear duration-300"
           />
         </div>
         <p className="absolute bottom-3 left-3 text-white font-semibold text-xl">
