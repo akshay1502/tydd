@@ -127,4 +127,7 @@ export const Packages: CollectionConfig = {
       ],
     },
   ],
+  admin: {
+    useAsTitle: 'destination',
+  },
 }
