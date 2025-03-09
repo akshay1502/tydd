@@ -1,9 +1,10 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { gsap } from 'gsap'
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
 import Image from 'next/image'
 import { Media } from '@/payload-types'
+import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(MotionPathPlugin)
 
@@ -18,7 +19,7 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 
-  useEffect(() => {
+  useGSAP(() => {
     const items = gsap.utils.toArray('.item') as HTMLElement[]
     const numItems = items.length
 
@@ -110,6 +111,10 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
     }
     // 🟢 Ensure first image is scaled properly on mount
     scaleActiveImage(0)
+
+    return () => {
+      tl.kill() // cleanup GSAP animation
+    }
   }, [])
 
   return (
@@ -142,7 +147,7 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
             ref={(el) => {
               imageRefs.current[index] = el
             }}
-            className="h-40 w-40 absolute rounded-full overflow-hidden item"
+            className="h-40 w-40 absolute rounded-full overflow-hidden item cursor-pointer"
             key={index}
           >
             <Image
