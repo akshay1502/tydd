@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Packages({ data }: { data: Package }) {
   return (
     <Link
-      href={`/package/packages/${data?.destination}`}
+      href={`/package/packages/${data?.destination?.replace(/\s+/g, '-')}`}
       className="group flex flex-col gap-2 w-48"
     >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
