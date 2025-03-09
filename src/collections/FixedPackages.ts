@@ -36,9 +36,16 @@ export const FixedPackages: CollectionConfig = {
       relationTo: 'media',
     },
     {
+      name: 'order',
+      type: 'number',
+      defaultValue: 0,
+      min: 0,
+      max: 10,
+    },
+    {
       name: 'category',
       type: 'select',
-      options: ['Solo', 'Adventure', 'Honeymoon'],
+      options: ['Group'],
     },
     {
       name: 'gallery',
@@ -89,6 +96,10 @@ export const FixedPackages: CollectionConfig = {
               type: 'text',
             },
             {
+              name: 'date',
+              type: 'date',
+            },
+            {
               name: 'break_up',
               type: 'array',
               fields: [
@@ -111,11 +122,15 @@ export const FixedPackages: CollectionConfig = {
       type: 'group',
       fields: [
         {
-          name: 'location',
+          name: 'locations',
           type: 'array',
           fields: [
             {
               name: 'name',
+              type: 'text',
+            },
+            {
+              name: 'location',
               type: 'text',
             },
             {
