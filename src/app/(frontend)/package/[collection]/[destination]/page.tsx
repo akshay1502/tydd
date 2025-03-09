@@ -23,7 +23,7 @@ type DetailPageProps = Promise<{
 export default async function DetailPage({ params }: { params: DetailPageProps }) {
   const { collection, destination } = await params
 
-  const data = await getDetailPage(collection, destination)
+  const data = await getDetailPage(collection, destination?.replace(/-/g, ' '))
 
   const slides = data?.gallery?.map((image) => {
     if (typeof image === 'object' && image !== null) {
@@ -35,7 +35,8 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
   return (
     <div className="px-20 flex flex-col gap-28 pt-10 pb-20">
       <div>
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-8">
+        <p className="text-darkBlue text-xs capitalize">{`Home > ${collection.replaceAll('-', ' ')} > ${destination.replaceAll('-', ' ')}`}</p>
+        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mt-6 mb-8">
           {data?.destination}
         </h2>
 
@@ -117,7 +118,16 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
                   <AccordionItem value={`item-${index}`}>
                     <AccordionTrigger>
                       <p>
-                        <b className="mr-2">Day {index + 1}: </b>
+                        <b className="mr-2">
+                          {'date' in day && day.date
+                            ? new Date(day.date).toLocaleDateString('en-GB', {
+                                weekday: 'short',
+                                day: 'numeric',
+                                month: 'short',
+                              })
+                            : `Day ${index + 1}`}
+                          :{' '}
+                        </b>
                         {day?.title}
                       </p>
                     </AccordionTrigger>
@@ -141,7 +151,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
         </div>
         <DetailPageForm
           destination={data?.destination ?? ''}
-          discount={'discount' in data ? (data.discount ?? 0) : 0}
+          discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
           cost={data?.cost as number}
           type={collection}
         />
@@ -150,14 +160,13 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
       <div>
         <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-10">Accommodations</h2>
         <div className="flex gap-6 flex-wrap">
-          {data?.accomodations?.location?.map((accomodation) => (
+          {data?.accomodations?.locations?.map((accomodation) => (
             <Link
               key={accomodation?.id}
               href={accomodation?.link as string}
               className="border border-offWhite rounded-xl"
             >
               <div className="w-[412px] h-[232px] rounded-lg overflow-hidden relative">
-                {/* <Image src="/destination.jpg" alt="image" fill className="object-cover" /> */}
                 <iframe
                   src={accomodation?.link as string}
                   style={{ width: '100%', height: '100%', border: 0 }}
@@ -169,7 +178,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
               <div className="flex flex-col gap-4 p-4">
                 <div className="flex flex-col gap-2">
                   <p className="text-black font-bold text-2xl">{accomodation?.name}</p>
-                  <p className="text-black text-xl">Maldives</p>
+                  <p className="text-black text-xl">{accomodation?.location}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <IconFeature color="#1A1A1A" />

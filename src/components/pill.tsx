@@ -1,14 +1,14 @@
 type PillProps = {
   text: string
   isActive: boolean
-  setActivePopularCategory: React.Dispatch<React.SetStateAction<string>>
+  setActivePill: React.Dispatch<React.SetStateAction<string>>
 }
 
-export default function Pill({ text, isActive, setActivePopularCategory }: PillProps) {
+export default function Pill({ text, isActive, setActivePill }: PillProps) {
   return (
     <button
       className={`text-xl leading-6 font-semibold py-2 px-4 rounded-full ${isActive ? 'bg-blue text-white' : 'bg-none text-subTitle border border-borderStroke'}`}
-      onClick={() => setActivePopularCategory(text)}
+      onClick={() => setActivePill(text)}
     >
       {text}
     </button>

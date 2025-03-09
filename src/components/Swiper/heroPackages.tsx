@@ -6,8 +6,9 @@ import Image from 'next/image'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 import IconHeroSwiperRight from '@/assets/icons/heroSwiperRight'
+import { Package } from '@/payload-types'
 
-export default function SwiperHeroPackages() {
+export default function SwiperHeroPackages({ data }: { data: Package[] }) {
   return (
     <div className="mx-20">
       <Swiper
@@ -17,17 +18,22 @@ export default function SwiperHeroPackages() {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {[...Array(3)].map((_, index) => (
+        {data?.map((item: Package) => (
           <SwiperSlide
-            key={index}
+            key={item?.id}
             className="!w-full !h-[700px] relative rounded-3xl overflow-hidden"
           >
-            <Image src="/image1.png" alt="image" fill className="object-cover -z-10" />
+            <Image
+              src={typeof item.image === 'object' && item.image?.url ? item.image.url : ''}
+              alt={typeof item.image === 'object' && item.image?.alt ? item.image.alt : ''}
+              fill
+              className="object-cover -z-10"
+            />
             <div className="flex flex-col gap-5 absolute left-24 top-1/2 -translate-y-1/2">
-              <h4 className="text-white font-bold text-2xl">Turquoise Treasure of Asia</h4>
-              <h1 className="text-white font-bold text-5xl">Maldives</h1>
+              <h4 className="text-white font-bold text-2xl">{item?.title}</h4>
+              <h1 className="text-white font-bold text-5xl">{item?.destination}</h1>
               <Button variant="explore" size="sm" asChild>
-                <Link href="/">
+                <Link href={`/package/packages/${item?.destination}`}>
                   Explore Now <IconHeroSwiperRight />
                 </Link>
               </Button>

@@ -10,9 +10,15 @@ import { LastMinutePackage } from '@/payload-types'
 export default function SwiperLastMinutePackages({
   title,
   data,
+  dates = {},
 }: {
   title: string
   data: LastMinutePackage[]
+  dates?: {
+    show_last_minute_packages?: boolean | null
+    start_date?: string | null
+    end_date?: string | null
+  }
 }) {
   return (
     <div className="mx-20">
@@ -30,7 +36,19 @@ export default function SwiperLastMinutePackages({
           </div>
         </div>
         <h2 className="px-16 text-white text-2xl font-bold mt-6 mb-8">
-          Deals for : <b>25 Dec - 29 Dec 2024</b>
+          Deals for :{' '}
+          <b>
+            {new Date(dates?.start_date as string).toLocaleDateString('en-GB', {
+              day: '2-digit',
+              month: 'short',
+            })}{' '}
+            -{' '}
+            {new Date(dates?.end_date as string).toLocaleDateString('en-GB', {
+              day: '2-digit',
+              month: 'short',
+              year: 'numeric',
+            })}
+          </b>
         </h2>
         <Swiper
           spaceBetween={24}

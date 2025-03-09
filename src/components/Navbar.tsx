@@ -5,19 +5,33 @@ import { Button } from './ui/button'
 export default function Navbar() {
   return (
     <nav className="px-20 flex justify-between items-center">
-      <div>
+      <Link href="/">
         <Image src="/logo.png" alt="tydd" width={64} height={64} className="h-16 w-16" />
-      </div>
+      </Link>
       <ul className="flex gap-12 items-center">
         <li>
           <Link href="/" className="text-black font-semibold">
             Home
           </Link>
         </li>
-        <li>
-          <Link href="/all-packages" className="text-black font-semibold">
+        <li className="group relative">
+          <Link href="/all-packages?type=domestic" className="text-black font-semibold">
             Packages
           </Link>
+          {/* Below ui was not given in figma */}
+          <div className="absolute pt-3 z-10 hidden group-hover:block">
+            <div className="bg-[#737373cc] rounded-lg">
+              <Link href="/all-packages?type=domestic" className="block text-white px-4 py-2">
+                Domestic
+              </Link>
+              <Link href="/all-packages?type=international" className="block text-white px-4 py-2">
+                International
+              </Link>
+              <Link href="/all-packages?type=cruise" className="block text-white px-4 py-2">
+                Cruise
+              </Link>
+            </div>
+          </div>
         </li>
         <li>
           <Link href="/about" className="text-black font-semibold">

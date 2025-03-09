@@ -3,7 +3,7 @@ import config from '@/payload.config'
 import { FixedPackage, LastMinutePackage, Package } from '@/payload-types'
 
 // initializing payload to be used for local queries
-const payload = await getPayload({ config })
+export const payload = await getPayload({ config })
 
 export const getDetailPage = async (collection: CollectionSlug, destination: string) => {
   const result = await payload.find({
@@ -19,11 +19,23 @@ export const getDetailPage = async (collection: CollectionSlug, destination: str
   return result?.docs[0] as Package | LastMinutePackage | FixedPackage
 }
 
-export const getPackages = async () => {
+export const getPackages = async (limit?: number) => {
   const result = await payload.find({
     collection: 'packages', // required
     depth: 1,
     pagination: false, // If you want to disable pagination count, etc.
+    limit: limit ?? 0,
+    select: {
+      destination: true,
+      package: true,
+      cost: true,
+      image: true,
+      type: true,
+      updatedAt: true,
+      createdAt: true,
+      category: true,
+    }, // Fetch only required fields
+    sort: '-order',
   })
   return result?.docs as Package[]
 }
@@ -33,6 +45,18 @@ export const getFixedPackages = async () => {
     collection: 'fixed-packages', // required
     depth: 1,
     pagination: false, // If you want to disable pagination count, etc.
+    select: {
+      destination: true,
+      package: true,
+      cost: true,
+      image: true,
+      start_date: true,
+      end_date: true,
+      category: true,
+      updatedAt: true,
+      createdAt: true,
+    }, // Fetch only required fields
+    sort: '-order',
   })
   return result?.docs as FixedPackage[]
 }
@@ -42,6 +66,36 @@ export const getLastMinutePackages = async () => {
     collection: 'last-minute-packages', // required
     depth: 1,
     pagination: false, // If you want to disable pagination count, etc.
+    select: {
+      destination: true,
+      package: true,
+      cost: true,
+      image: true,
+      discount: true,
+      features: true,
+      updatedAt: true,
+      createdAt: true,
+    }, // Fetch only required fields
+    sort: '-order',
   })
   return result?.docs as LastMinutePackage[]
+}
+
+export const getHomeData = async (depth: number) => {
+  // get the home page data
+  const homeData = await payload.findGlobal({
+    slug: 'home',
+    depth,
+    populate: {
+      packages: {
+        destination: true,
+        image: true,
+        updatedAt: true,
+        createdAt: true,
+        title: true,
+      },
+    },
+  })
+
+  return homeData
 }

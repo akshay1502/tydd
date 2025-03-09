@@ -13,7 +13,9 @@ type SwiperPopularPackagesProps = {
   data: Package[]
 }
 export default function SwiperPopularPackages({ title, data }: SwiperPopularPackagesProps) {
-  const [activePopularCategory, setActivePopularCategory] = useState('All')
+  const [activePill, setActivePill] = useState('All')
+
+  const setOfCategories = [...new Set(data.flatMap((item) => item.category || []))]
 
   return (
     <div className="px-20">
@@ -29,17 +31,13 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
         </div>
       </div>
       <div className="flex gap-6 mt-10 mb-8">
-        <Pill
-          text="All"
-          isActive={'All' === activePopularCategory}
-          setActivePopularCategory={setActivePopularCategory}
-        />
-        {data?.map((data: Package) => (
+        <Pill text="All" isActive={'All' === activePill} setActivePill={setActivePill} />
+        {setOfCategories?.map((category: string, index: number) => (
           <Pill
-            key={data?.id}
-            text={data?.category ?? ''}
-            setActivePopularCategory={setActivePopularCategory}
-            isActive={data?.category === activePopularCategory}
+            key={index}
+            text={category ?? ''}
+            setActivePill={setActivePill}
+            isActive={category === activePill}
           />
         ))}
       </div>
@@ -65,10 +63,7 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
         className="mySwiper"
       >
         {data
-          ?.filter(
-            (packages: Package) =>
-              activePopularCategory === 'All' || packages?.category === activePopularCategory,
-          )
+          ?.filter((packages: Package) => activePill === 'All' || packages?.category === activePill)
           .map((data: Package) => (
             <SwiperSlide key={data?.id} className="!w-auto">
               <Packages data={data} />

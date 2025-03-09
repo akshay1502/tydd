@@ -51,8 +51,8 @@ export default function ContactUsForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // The created Post document is returned
-      const response = await fetch('http://localhost:3000/api/contact', {
+      // Create an entry in contact collection and send email
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,6 +61,8 @@ export default function ContactUsForm() {
           ...data,
         }),
       })
+      const res = await response.json()
+      console.log(res)
     } catch (error) {
       console.log('ERR ', error)
     } finally {

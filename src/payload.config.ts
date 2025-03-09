@@ -14,6 +14,8 @@ import { Inquiry } from './collections/Inquiry'
 import { FixedPackages } from './collections/FixedPackages'
 import { LastMinutePackages } from './collections/LastMinutePackages'
 import { Contact } from './collections/Contact'
+import { Home } from './globals/home'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,6 +28,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Packages, Inquiry, FixedPackages, LastMinutePackages, Contact],
+  globals: [Home],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -36,6 +39,19 @@ export default buildConfig({
     // `pool` is required.
     pool: {
       connectionString: process.env.DATABASE_URI,
+    },
+  }),
+  email: nodemailerAdapter({
+    defaultFromName: 'Akshay Shinde',
+    defaultFromAddress: 'akshay.shinde@ly.design',
+    transportOptions: {
+      host: process.env.SMTP_HOST,
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
     },
   }),
   sharp,

@@ -48,9 +48,7 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
           <p className="text-white text-xs line-through">₹{data?.cost?.toLocaleString('en-IN')}</p>
         </div>
       </div>
-      <Button asChild>
-        <Link href="/">Explore</Link>
-      </Button>
+      <Button>Explore</Button>
     </Link>
   )
 }
