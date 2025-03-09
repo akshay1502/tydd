@@ -59,7 +59,9 @@ export default async function AllPackagesPage() {
           </div>
         </div>
       </div>
-      <FilterPackages allPackages={allPackages} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <FilterPackages allPackages={allPackages} />
+      </Suspense>
       <CircularSlider data={homeData?.testimonials_domestic ?? []} />
     </div>
   )
