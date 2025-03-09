@@ -36,5 +36,43 @@ export const Home: GlobalConfig = {
       name: 'show_fixed_departures_packages',
       type: 'checkbox',
     },
+    {
+      name: 'testimonials_home',
+      type: 'array',
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+        },
+        {
+          name: 'review',
+          type: 'text',
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+        },
+      ],
+    },
+    {
+      name: 'testimonials_domestic',
+      type: 'array',
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+        },
+        {
+          name: 'review',
+          type: 'text',
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+        },
+      ],
+    },
   ],
 }

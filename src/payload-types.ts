@@ -760,6 +760,22 @@ export interface Home {
     end_date?: string | null;
   };
   show_fixed_departures_packages?: boolean | null;
+  testimonials_home?:
+    | {
+        name?: string | null;
+        review?: string | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  testimonials_domestic?:
+    | {
+        name?: string | null;
+        review?: string | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -777,6 +793,22 @@ export interface HomeSelect<T extends boolean = true> {
         end_date?: T;
       };
   show_fixed_departures_packages?: T;
+  testimonials_home?:
+    | T
+    | {
+        name?: T;
+        review?: T;
+        image?: T;
+        id?: T;
+      };
+  testimonials_domestic?:
+    | T
+    | {
+        name?: T;
+        review?: T;
+        image?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
