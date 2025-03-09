@@ -1,15 +1,12 @@
-// import Packages from '@/components/cards/package'
-// import Pill from '@/components/pill'
-// commenting above for deployment
-import Packages from '@/components/cards/package'
-import PackagesTab from '@/components/PackagesTab'
+import PackagesTab from '@/app/(frontend)/all-packages/PackagesTab'
 import { getPackages } from '@/payload'
 import Image from 'next/image'
+import FilterPackages from './FilterPackages'
 
 export default async function AllPackagesPage() {
   const allPackages = await getPackages()
   return (
-    <div className="px-20 flex flex-col gap-28 pt-10">
+    <div className="px-20 flex flex-col gap-28 pt-10 pb-20">
       {/* image gallery section */}
       <div className="h-[516px] flex gap-4 relative">
         <PackagesTab />
@@ -57,21 +54,7 @@ export default async function AllPackagesPage() {
           </div>
         </div>
       </div>
-      <div>
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-8">Explore India</h2>
-        <div className="flex gap-6 my-9">
-          {/* <Pill text="All" isActive />
-          <Pill text="All" />
-          <Pill text="All" />
-          <Pill text="All" /> */}
-        </div>
-        {/* <div className="flex flex-wrap gap-6 justify-between"> */}
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(193px,1fr))] gap-6">
-          {allPackages.map((item) => (
-            <Packages key={item?.id} data={item} />
-          ))}
-        </div>
-      </div>
+      <FilterPackages allPackages={allPackages} />
     </div>
   )
 }
