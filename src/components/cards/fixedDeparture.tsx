@@ -14,7 +14,7 @@ export default function FixedDeparture({ data }: { data: FixedPackage }) {
       href={`/package/fixed-packages/${data?.destination}`}
       className="flex flex-col w-[300px] border border-offWhite rounded-lg"
     >
-      <div className="relative rounded-lg overflow-hidden shadow-packages">
+      <div className="relative rounded-lg overflow-hidden">
         <div className="w-[300] h-56">
           <Image
             src={typeof data.image === 'object' && data.image?.url ? data.image.url : ''}
@@ -30,7 +30,7 @@ export default function FixedDeparture({ data }: { data: FixedPackage }) {
       <div className="flex flex-col gap-2 p-2">
         <div className="flexCenter">
           <p className="text-black">{data?.package}</p>
-          {/* <Pill text="Group" /> */}
+          <Pill text={data?.category as string} />
         </div>
         <p className="text-black font-semibold">
           ₹{data?.cost?.toLocaleString('en-IN')} per person
