@@ -23,32 +23,32 @@ export default function Footer() {
           <h4 className="text-white">Destination</h4>
           <ul className="mt-4">
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 Maldives
               </Link>
             </li>
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 Turkey
               </Link>
             </li>
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 Vietnam
               </Link>
             </li>
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 Greece
               </Link>
             </li>
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 Dubai
               </Link>
             </li>
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 Switzerland
               </Link>
             </li>
@@ -58,27 +58,27 @@ export default function Footer() {
           <h4 className="text-white">General</h4>
           <ul className="mt-4">
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 National packages
               </Link>
             </li>
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 International packages
               </Link>
             </li>
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 Blogs
               </Link>
             </li>
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 About us
               </Link>
             </li>
             <li>
-              <Link href="/" className="py-2 text-offWhite">
+              <Link href="/" className="my-2 text-offWhite">
                 Contact us
               </Link>
             </li>
