@@ -8,7 +8,7 @@ export default function FilterPackages({ allPackages }: { allPackages: Package[]
   const activeTab = searchParams.get('type') || 'domestic'
 
   return (
-    <div>
+    <div className="px-20">
       <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-8 capitalize">
         Explore {activeTab}
       </h2>

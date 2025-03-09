@@ -1,14 +1,16 @@
 import PackagesTab from '@/app/(frontend)/all-packages/PackagesTab'
-import { getPackages } from '@/payload'
+import { getHomeData, getPackages } from '@/payload'
 import Image from 'next/image'
 import FilterPackages from './FilterPackages'
+import CircularSlider from '@/components/ImageCircularSlider'
 
 export default async function AllPackagesPage() {
   const allPackages = await getPackages()
+  const homeData = await getHomeData(1)
   return (
-    <div className="px-20 flex flex-col gap-28 pt-10 pb-20">
+    <div className="flex flex-col gap-28 pt-10 pb-20">
       {/* image gallery section */}
-      <div className="h-[516px] flex gap-4 relative">
+      <div className="h-[516px] flex gap-4 relative px-20">
         <PackagesTab />
         <div className="flex-[1.5] h-full grid grid-cols-2 grid-rows-[7fr_10fr] gap-4 relative">
           {/* Image 1 */}
@@ -55,6 +57,7 @@ export default async function AllPackagesPage() {
         </div>
       </div>
       <FilterPackages allPackages={allPackages} />
+      <CircularSlider data={homeData?.testimonials_domestic ?? []} />
     </div>
   )
 }
