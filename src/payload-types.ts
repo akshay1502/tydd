@@ -170,10 +170,13 @@ export interface Media {
 export interface Package {
   id: number;
   destination?: string | null;
+  title?: string | null;
   package?: string | null;
   cost?: number | null;
   image?: (number | null) | Media;
-  category?: ('Solo' | 'Adventure' | 'Honeymoon') | null;
+  order?: number | null;
+  type?: ('domestic' | 'international' | 'cruise') | null;
+  category?: ('Solo' | 'Adventure' | 'Honeymoon' | 'Group' | 'Friends' | 'Family' | 'Religious') | null;
   gallery?: (number | Media)[] | null;
   overview?: string | null;
   highlights?: {
@@ -206,9 +209,10 @@ export interface Package {
       | null;
   };
   accomodations?: {
-    location?:
+    locations?:
       | {
           name?: string | null;
+          location?: string | null;
           type?: string | null;
           whats_included?: string | null;
           link?: string | null;
@@ -246,7 +250,8 @@ export interface FixedPackage {
   end_date?: string | null;
   cost?: number | null;
   image?: (number | null) | Media;
-  category?: ('Solo' | 'Adventure' | 'Honeymoon') | null;
+  order?: number | null;
+  category?: 'Group' | null;
   gallery?: (number | Media)[] | null;
   overview?: string | null;
   highlights?: {
@@ -267,6 +272,7 @@ export interface FixedPackage {
     days?:
       | {
           title?: string | null;
+          date?: string | null;
           break_up?:
             | {
                 title?: string | null;
@@ -279,9 +285,10 @@ export interface FixedPackage {
       | null;
   };
   accomodations?: {
-    location?:
+    locations?:
       | {
           name?: string | null;
+          location?: string | null;
           type?: string | null;
           whats_included?: string | null;
           link?: string | null;
@@ -301,6 +308,7 @@ export interface LastMinutePackage {
   destination?: string | null;
   package?: string | null;
   discount?: number | null;
+  order?: number | null;
   features?:
     | {
         feature?: string | null;
@@ -309,7 +317,6 @@ export interface LastMinutePackage {
     | null;
   cost?: number | null;
   image?: (number | null) | Media;
-  category?: ('Solo' | 'Adventure' | 'Honeymoon') | null;
   gallery?: (number | Media)[] | null;
   overview?: string | null;
   highlights?: {
@@ -342,9 +349,10 @@ export interface LastMinutePackage {
       | null;
   };
   accomodations?: {
-    location?:
+    locations?:
       | {
           name?: string | null;
+          location?: string | null;
           type?: string | null;
           whats_included?: string | null;
           link?: string | null;
@@ -486,9 +494,12 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface PackagesSelect<T extends boolean = true> {
   destination?: T;
+  title?: T;
   package?: T;
   cost?: T;
   image?: T;
+  order?: T;
+  type?: T;
   category?: T;
   gallery?: T;
   overview?: T;
@@ -528,10 +539,11 @@ export interface PackagesSelect<T extends boolean = true> {
   accomodations?:
     | T
     | {
-        location?:
+        locations?:
           | T
           | {
               name?: T;
+              location?: T;
               type?: T;
               whats_included?: T;
               link?: T;
@@ -566,6 +578,7 @@ export interface FixedPackagesSelect<T extends boolean = true> {
   end_date?: T;
   cost?: T;
   image?: T;
+  order?: T;
   category?: T;
   gallery?: T;
   overview?: T;
@@ -592,6 +605,7 @@ export interface FixedPackagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
+              date?: T;
               break_up?:
                 | T
                 | {
@@ -605,10 +619,11 @@ export interface FixedPackagesSelect<T extends boolean = true> {
   accomodations?:
     | T
     | {
-        location?:
+        locations?:
           | T
           | {
               name?: T;
+              location?: T;
               type?: T;
               whats_included?: T;
               link?: T;
@@ -626,6 +641,7 @@ export interface LastMinutePackagesSelect<T extends boolean = true> {
   destination?: T;
   package?: T;
   discount?: T;
+  order?: T;
   features?:
     | T
     | {
@@ -634,7 +650,6 @@ export interface LastMinutePackagesSelect<T extends boolean = true> {
       };
   cost?: T;
   image?: T;
-  category?: T;
   gallery?: T;
   overview?: T;
   highlights?:
@@ -673,10 +688,11 @@ export interface LastMinutePackagesSelect<T extends boolean = true> {
   accomodations?:
     | T
     | {
-        location?:
+        locations?:
           | T
           | {
               name?: T;
+              location?: T;
               type?: T;
               whats_included?: T;
               link?: T;
