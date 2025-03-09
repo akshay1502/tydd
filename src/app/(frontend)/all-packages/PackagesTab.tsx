@@ -5,7 +5,6 @@ export default function PackagesTab() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const activeTab = searchParams.get('type') || 'domestic'
-  // const [activeTab, setActiveTab] = useState('domestic')
 
   const tabs = [
     {

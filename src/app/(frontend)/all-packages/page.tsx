@@ -3,6 +3,7 @@ import { getHomeData, getPackages } from '@/payload'
 import Image from 'next/image'
 import FilterPackages from './FilterPackages'
 import CircularSlider from '@/components/ImageCircularSlider'
+import { Suspense } from 'react'
 
 export default async function AllPackagesPage() {
   const allPackages = await getPackages()
@@ -11,7 +12,9 @@ export default async function AllPackagesPage() {
     <div className="flex flex-col gap-28 pt-10 pb-20">
       {/* image gallery section */}
       <div className="h-[516px] flex gap-4 relative px-20">
-        <PackagesTab />
+        <Suspense fallback={<div>Loading...</div>}>
+          <PackagesTab />
+        </Suspense>
         <div className="flex-[1.5] h-full grid grid-cols-2 grid-rows-[7fr_10fr] gap-4 relative">
           {/* Image 1 */}
           <div className="relative col-span-2 row-span-1">
