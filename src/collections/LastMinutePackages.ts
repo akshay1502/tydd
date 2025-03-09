@@ -23,6 +23,13 @@ export const LastMinutePackages: CollectionConfig = {
       type: 'number',
     },
     {
+      name: 'order',
+      type: 'number',
+      defaultValue: 0,
+      min: 0,
+      max: 10,
+    },
+    {
       name: 'features',
       type: 'array',
       fields: [
@@ -40,11 +47,6 @@ export const LastMinutePackages: CollectionConfig = {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
-    },
-    {
-      name: 'category',
-      type: 'select',
-      options: ['Solo', 'Adventure', 'Honeymoon'],
     },
     {
       name: 'gallery',
@@ -117,11 +119,15 @@ export const LastMinutePackages: CollectionConfig = {
       type: 'group',
       fields: [
         {
-          name: 'location',
+          name: 'locations',
           type: 'array',
           fields: [
             {
               name: 'name',
+              type: 'text',
+            },
+            {
+              name: 'location',
               type: 'text',
             },
             {
