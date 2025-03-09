@@ -15,6 +15,10 @@ export const Packages: CollectionConfig = {
       unique: true,
     },
     {
+      name: 'title',
+      type: 'text',
+    },
+    {
       name: 'package',
       type: 'text',
     },
@@ -28,9 +32,21 @@ export const Packages: CollectionConfig = {
       relationTo: 'media',
     },
     {
+      name: 'order',
+      type: 'number',
+      defaultValue: 0,
+      min: 0,
+      max: 10,
+    },
+    {
+      name: 'type',
+      type: 'select',
+      options: ['domestic', 'international', 'cruise'],
+    },
+    {
       name: 'category',
       type: 'select',
-      options: ['Solo', 'Adventure', 'Honeymoon'],
+      options: ['Solo', 'Adventure', 'Honeymoon', 'Group', 'Friends', 'Family', 'Religious'],
     },
     {
       name: 'gallery',
@@ -103,11 +119,15 @@ export const Packages: CollectionConfig = {
       type: 'group',
       fields: [
         {
-          name: 'location',
+          name: 'locations',
           type: 'array',
           fields: [
             {
               name: 'name',
+              type: 'text',
+            },
+            {
+              name: 'location',
               type: 'text',
             },
             {
