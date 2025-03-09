@@ -62,8 +62,8 @@ export default function DetailPageForm({
 
   const onSubmit = async (data: InquiryFormData) => {
     try {
-      // The created Post document is returned
-      const res = await fetch('http://localhost:3000/api/inquiry', {
+      // Create an entry in contact collection and send email
+      const res = await fetch('/api/inquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,6 +78,8 @@ export default function DetailPageForm({
       console.log(result)
     } catch (error) {
       console.log('ERR ', error)
+    } finally {
+      form.reset()
     }
   }
 
