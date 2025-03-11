@@ -70,23 +70,23 @@ export default function HeroImageSlider() {
 
         {/* Image 2 */}
         <div className="relative col-span-1 row-span-1 rounded-tr-lg overflow-hidden bg-[#1E1F23]">
-          <Image src="/image1.png" alt="Image 2" fill className="secondImage object-cover" />
+          <Image src="/image2.png" alt="Image 2" fill className="secondImage object-cover" />
         </div>
 
         {/* Image 3 */}
         <div className="relative col-span-1 row-span-1 rounded-t-lg overflow-hidden bg-[#1E1F23]">
-          <Image src="/image1.png" alt="Image 3" fill className="thirdImage object-cover" />
+          <Image src="/image3.png" alt="Image 3" fill className="thirdImage object-cover" />
         </div>
       </div>
       <div className="flex-[1.5] h-full grid grid-cols-2 grid-rows-[10fr_7fr] gap-4 relative">
         {/* Image 1 */}
         <div className="relative col-span-1 row-span-1 rounded-b-lg overflow-hidden bg-[#1E1F23]">
-          <Image src="/image1.png" alt="Image 1" fill className="fourthImage object-cover" />
+          <Image src="/image3.png" alt="Image 1" fill className="fourthImage object-cover" />
         </div>
 
         {/* Image 2 */}
         <div className="relative col-span-1 row-span-1 rounded-b-lg overflow-hidden bg-[#1E1F23]">
-          <Image src="/image1.png" alt="Image 2" fill className="fifthImage object-cover" />
+          <Image src="/image2.png" alt="Image 2" fill className="fifthImage object-cover" />
         </div>
 
         {/* Image 3 */}
@@ -97,12 +97,12 @@ export default function HeroImageSlider() {
       <div className="flex-1 h-full grid grid-cols-1 grid-rows-2 gap-4 relative">
         {/* Image 1 */}
         <div className="relative col-span-1 row-span-1 rounded-bl-lg overflow-hidden bg-[#1E1F23]">
-          <Image src="/image1.png" alt="Image 1" fill className="seventhImage object-cover" />
+          <Image src="/image2.png" alt="Image 1" fill className="seventhImage object-cover" />
         </div>
 
         {/* Image 2 */}
         <div className="relative col-span-1 row-span-1 rounded-tl-lg overflow-hidden bg-[#1E1F23]">
-          <Image src="/image1.png" alt="Image 2" fill className="eightImage object-cover" />
+          <Image src="/image3.png" alt="Image 2" fill className="eightImage object-cover" />
         </div>
       </div>
       <div className="bg-all-packages-images-gradient z-10 absolute w-full h-full top-0 bottom-0 left-0 right-0"></div>
