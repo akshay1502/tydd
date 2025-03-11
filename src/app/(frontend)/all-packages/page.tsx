@@ -10,7 +10,9 @@ export default async function AllPackagesPage() {
   return (
     <div className="flex flex-col gap-28 pt-10 pb-20">
       {/* image gallery section */}
-      <HeroImageSlider />
+      <Suspense fallback={<div>Loading...</div>}>
+        <HeroImageSlider />
+      </Suspense>
       <Suspense fallback={<div>Loading...</div>}>
         <FilterPackages allPackages={allPackages} />
       </Suspense>
