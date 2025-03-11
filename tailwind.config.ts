@@ -79,6 +79,8 @@ const config = {
           'linear-gradient(113deg, rgba(255, 255, 255, 0.32) -3.49%, rgba(255, 255, 255, 0.10) 114.11%)',
         'all-packages-buttons':
           'linear-gradient(112deg, rgba(115, 115, 115, 0.32) -3.56%, rgba(59, 59, 59, 0.10) 98.92%)',
+        'all-packages-images-gradient':
+          'linear-gradient(98deg, rgba(16, 23, 32, 0.70) 13.2%, rgba(0, 0, 0, 0.20) 101.92%)',
       },
       keyframes: {
         'accordion-down': {

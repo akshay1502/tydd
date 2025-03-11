@@ -15,6 +15,7 @@ export default function Packages({ data }: { data: Package }) {
             alt={typeof data.image === 'object' && data.image?.alt ? data.image.alt : ''}
             fill
             className="object-cover group-hover:scale-110 ease-linear duration-300"
+            sizes="(min-width: 1280px) 20vw"
           />
         </div>
         <p className="absolute bottom-3 left-3 text-white font-semibold text-xl">

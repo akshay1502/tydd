@@ -21,6 +21,7 @@ export default function FixedDeparture({ data }: { data: FixedPackage }) {
             alt={typeof data.image === 'object' && data.image?.alt ? data.image.alt : ''}
             fill
             className="object-cover"
+            sizes="(min-width: 1280px) 30vw"
           />
         </div>
         <p className="absolute bottom-3 left-3 text-white font-semibold text-xl">

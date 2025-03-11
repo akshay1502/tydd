@@ -63,7 +63,13 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="w-[412px] h-[468px] relative shrink-0">
-            <Image src="/whytydd.png" alt="image" fill className="object-cover" />
+            <Image
+              src="/whytydd.png"
+              alt="image"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1280px) 40vw"
+            />
           </div>
         </div>
       </div>
@@ -76,6 +82,7 @@ export default async function HomePage() {
             width={0}
             height={156}
             className="mx-10 h-[156px] w-auto object-contain"
+            sizes="(min-width: 1280px) 30vw"
           />
           <Image
             src="/partner2.png"
@@ -83,6 +90,7 @@ export default async function HomePage() {
             width={0}
             height={156}
             className="mx-10 h-[156px] w-auto object-contain"
+            sizes="(min-width: 1280px) 30vw"
           />
           <Image
             src="/partner3.png"
@@ -90,6 +98,7 @@ export default async function HomePage() {
             width={0}
             height={156}
             className="mx-10 h-[156px] w-auto object-contain"
+            sizes="(min-width: 1280px) 30vw"
           />
           <Image
             src="/partner4.png"
@@ -97,6 +106,7 @@ export default async function HomePage() {
             width={0}
             height={156}
             className="mx-10 h-[156px] w-auto object-contain"
+            sizes="(min-width: 1280px) 30vw"
           />
           <Image
             src="/partner2.png"
@@ -104,6 +114,7 @@ export default async function HomePage() {
             width={0}
             height={156}
             className="mx-10 h-[156px] w-auto object-contain"
+            sizes="(min-width: 1280px) 30vw"
           />
           <Image
             src="/partner3.png"
@@ -111,6 +122,7 @@ export default async function HomePage() {
             width={0}
             height={156}
             className="mx-10 h-[156px] w-auto object-contain"
+            sizes="(min-width: 1280px) 30vw"
           />
         </Marquee>
       </div>

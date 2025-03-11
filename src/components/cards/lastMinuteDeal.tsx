@@ -17,6 +17,7 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
             alt={typeof data.image === 'object' && data.image?.alt ? data.image.alt : ''}
             fill
             className="object-cover"
+            sizes="(min-width: 1280px) 25vw"
           />
         </div>
         <p className="rounded-br-lg py-1 px-2 text-white text-xs font-semibold absolute top-0 left-0 bg-last-minute-discount-gradient">
