@@ -1,10 +1,8 @@
 'use client'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
-export default function PackagesTab() {
+export default function PackagesTab({ activeTab }: { activeTab: string }) {
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const activeTab = searchParams.get('type') || 'domestic'
 
   const tabs = [
     {
