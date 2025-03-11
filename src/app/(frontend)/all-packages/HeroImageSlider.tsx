@@ -4,12 +4,8 @@ import gsap from 'gsap'
 import Image from 'next/image'
 import { Suspense } from 'react'
 import PackagesTab from './PackagesTab'
-import { useSearchParams } from 'next/navigation'
 
 export default function HeroImageSlider() {
-  const searchParams = useSearchParams()
-  const activeTab = searchParams.get('type') || 'domestic'
-
   useGSAP(() => {
     gsap.fromTo(
       '.firstImage',
@@ -107,17 +103,8 @@ export default function HeroImageSlider() {
       </div>
       <div className="bg-all-packages-images-gradient z-10 absolute w-full h-full top-0 bottom-0 left-0 right-0"></div>
       <Suspense fallback={<div>Loading...</div>}>
-        <PackagesTab activeTab={activeTab} />
+        <PackagesTab />
       </Suspense>
-      <div className="absolute left-28 top-32 z-10 w-[512px]">
-        <h2 className="text-white text-[40px] leading-[48px] font-bold mb-4 capitalize">
-          {activeTab}
-        </h2>
-        <p className="text-white text-xl">
-          Discover the beauty of India with our curated travel packages, covering breathtaking
-          destinations from the Himalayas to the beaches of Goa.
-        </p>
-      </div>
     </div>
   )
 }
