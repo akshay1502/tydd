@@ -117,6 +117,19 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
     }
   }, [])
 
+  useGSAP(() => {
+    gsap.fromTo(
+      '.testimonial-name',
+      { height: 0 },
+      { height: 'auto', duration: 0.6, ease: 'power2.inOut' },
+    )
+    gsap.fromTo(
+      '.testimonial-review',
+      { height: 0 },
+      { height: 'auto', duration: 0.6, ease: 'power2.inOut' },
+    )
+  }, [activeIndex])
+
   return (
     <div className="relative h-[730px] items-center overflow-hidden">
       <div className="absolute w-full h-full -z-10 opacity-10">
@@ -125,11 +138,15 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
       <h2 className="px-20 text-darkBlue text-[40px] leading-[48px] font-bold">
         What our customer says
       </h2>
-      <div className="absolute top-1/2 left-20 -translate-y-1/2 w-1/2">
-        <h3 className="text-black text-[32px] leading-[40px] font-semibold">
-          {data[activeIndex]?.name}
-        </h3>
-        <p className="text-black text-2xl tracking-wide mt-8">{data[activeIndex]?.review}</p>
+      <div className="absolute top-[300px] left-20 w-1/2">
+        <div className="mb-8 h-10">
+          <h3 className="testimonial-name overflow-hidden text-black text-[32px] leading-[40px] font-semibold">
+            {data[activeIndex]?.name}
+          </h3>
+        </div>
+        <p className="testimonial-review overflow-hidden text-black text-2xl tracking-wide">
+          {data[activeIndex]?.review}
+        </p>
       </div>
       <div className="wrapper absolute right-0 translate-x-[40%] top-1/2 -translate-y-1/2 flex h-[550px] w-[550px]">
         <svg width="550" height="550">
@@ -155,6 +172,7 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
               alt={typeof testimonial?.image === 'object' ? (testimonial?.image?.alt ?? '') : ''}
               fill
               className="object-cover"
+              sizes="(min-width: 1280px) 30vw"
             />
           </div>
         ))}
