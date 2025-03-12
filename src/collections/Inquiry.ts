@@ -1,12 +1,13 @@
+import { isAdmin, isAdminOrEditor } from '@/access/isAdmin'
 import type { CollectionConfig } from 'payload'
 
 export const Inquiry: CollectionConfig = {
   slug: 'inquiry',
   access: {
-    read: () => true, // ✅ Make "GET /api/packages" public
+    read: isAdminOrEditor, // ✅ Make "GET /api/packages" admin specific
     create: () => true, // ✅ Allow public to add data (optional)
-    update: () => true, // ❌ Prevent public updates (optional)
-    delete: () => true, // ❌ Prevent public deletes (optional)
+    update: isAdmin, // ❌ Prevent public updates (only for admin)
+    delete: isAdmin, // ❌ Prevent public deletes (only for admin)
   },
   fields: [
     {
