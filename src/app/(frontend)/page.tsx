@@ -16,6 +16,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Package } from '@/payload-types'
 import CircularSlider from '@/components/ImageCircularSlider'
+import { IconItineraries, IconLuxury, IconPlanning, IconTrust } from '@/assets/icons/IconsWhyTydd'
 
 export default async function HomePage() {
   const packages = await getPackages(10)
@@ -54,12 +55,22 @@ export default async function HomePage() {
               and memorable.
             </p>
             <div className="grid grid-cols-2 gap-y-10 gap-x-16">
-              {[...Array(4)].map((_, index) => (
-                <div key={index} className="py-2 flex items-center gap-6">
-                  <IconExperStar />
-                  <h4 className="text-black font-bold text-2xl">Affordable Luxury</h4>
-                </div>
-              ))}
+              <div className="py-2 flex items-center gap-6">
+                <IconLuxury />
+                <h4 className="text-black font-bold text-2xl">Affordable Luxury</h4>
+              </div>
+              <div className="py-2 flex items-center gap-6">
+                <IconItineraries />
+                <h4 className="text-black font-bold text-2xl">Custom Itineraries</h4>
+              </div>
+              <div className="py-2 flex items-center gap-6">
+                <IconPlanning />
+                <h4 className="text-black font-bold text-2xl">Seamless Planning</h4>
+              </div>
+              <div className="py-2 flex items-center gap-6">
+                <IconTrust />
+                <h4 className="text-black font-bold text-2xl">Trusted Quality</h4>
+              </div>
             </div>
           </div>
           <div className="w-[412px] h-[468px] relative shrink-0">

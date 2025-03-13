@@ -1,9 +1,11 @@
+import { isAdminOrEditor } from '@/access/isAdmin'
 import type { GlobalConfig } from 'payload'
 
 export const Home: GlobalConfig = {
   slug: 'home',
   access: {
     read: () => true,
+    update: isAdminOrEditor, // Only Admin & Editor can update
   },
   fields: [
     {

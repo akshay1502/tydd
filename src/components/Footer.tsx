@@ -10,9 +10,9 @@ export default function Footer() {
       <Image src="/footerBackground.jpg" alt="footer" fill className="object-cover -z-10" />
       <div className="flex justify-between">
         <div>
-          <div>
-            <Image src="/logo.png" alt="tydd" width={120} height={120} className="h-16 w-16" />
-          </div>
+          <Link href="/">
+            <Image src="/logo.png" alt="tydd" width={172} height={56} className="h-14 w-44" />
+          </Link>
           <div className="mt-8 flex gap-10">
             <IconFaceBook />
             <IconInstagram />

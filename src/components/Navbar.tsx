@@ -4,9 +4,9 @@ import { Button } from './ui/button'
 
 export default function Navbar() {
   return (
-    <nav className="px-20 flex justify-between items-center">
+    <nav className="px-20 py-1 flex justify-between items-center">
       <Link href="/">
-        <Image src="/logo.png" alt="tydd" width={64} height={64} className="h-16 w-16" />
+        <Image src="/logo.png" alt="tydd" width={172} height={56} className="h-14 w-44" />
       </Link>
       <ul className="flex gap-12 items-center">
         <li>
