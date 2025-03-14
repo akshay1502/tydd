@@ -26,7 +26,7 @@ export default function SwiperLastMinutePackages({
         <Image src="/last_minute_bg.jpg" alt="image" fill className="object-cover -z-10" />
         <div className="absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-[#000] opacity-60 -z-10"></div>
         <div className="px-16 flexCenter">
-          <h2 className="text-white text-[40px] leading-[48px] font-bold">{title}</h2>
+          <h2 className="text-white ">{title}</h2>
           <div className="flex gap-6">
             <button className="lastMinuteSwiperLeft">
               <IconLastMinuteSwiperLeft />
@@ -36,7 +36,7 @@ export default function SwiperLastMinutePackages({
             </button>
           </div>
         </div>
-        <h2 className="px-16 text-white text-2xl font-bold mt-6 mb-8">
+        <h4 className="px-16 text-white mt-6 mb-8">
           Deals for :{' '}
           <b>
             {new Date(dates?.start_date as string).toLocaleDateString('en-GB', {
@@ -50,7 +50,7 @@ export default function SwiperLastMinutePackages({
               year: 'numeric',
             })}
           </b>
-        </h2>
+        </h4>
         <Swiper
           spaceBetween={24}
           modules={[Navigation]}

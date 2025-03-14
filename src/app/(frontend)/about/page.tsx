@@ -49,11 +49,11 @@ const luxuries = [
 
 export default function AboutPage() {
   return (
-    <div className="px-20 py-10 flex flex-col gap-28">
+    <div className="px-20 layout">
       <div className="w-full h-[508px] relative rounded-3xl overflow-hidden">
         <Image src="/contact.jpg" alt="image" fill className="object-cover" />
         <div className="absolute top-1/2 -translate-y-1/2 left-24 w-[848px]">
-          <h2 className="text-white text-[40px] leading-[48px] font-bold mb-5">About us</h2>
+          <h2 className="text-white  mb-5">About us</h2>
           <p className="text-xl text-white">
             At Travel Your Dream Destination (TYDD), we turn your travel dreams into reality with
             affordable yet luxurious experiences. Based in Mumbai, we specialize in personalized
@@ -65,7 +65,7 @@ export default function AboutPage() {
       </div>
       <div className="flex gap-24">
         <div>
-          <h2 className="text-black text-[40px] leading-[48px] font-bold">Meet the founder</h2>
+          <h2 className="text-black ">Meet the founder</h2>
           <p className="text-3xl text-black font-semibold mt-8 mb-12">Eshant</p>
           <p className="text-2xl text-black">
             Eshant, the visionary founder of Travel Your Dream Destination (TYDD), is a passionate
@@ -88,7 +88,7 @@ export default function AboutPage() {
           <Image src="/contact.jpg" alt="image" fill className="object-cover" />
         </div>
         <div>
-          <h2 className="text-black text-[40px] leading-[48px] font-bold">Meet the founder</h2>
+          <h2 className="text-black ">Meet the founder</h2>
           <p className="text-3xl text-black font-semibold mt-8 mb-12">Eshant</p>
           <p className="text-2xl text-black">
             Eshant, the visionary founder of Travel Your Dream Destination (TYDD), is a passionate
@@ -103,19 +103,19 @@ export default function AboutPage() {
         </div>
       </div>
       <div>
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Why TYDD</h2>
+        <h2 className="text-darkBlue ">Why TYDD</h2>
         <div className="mt-12 flex gap-6">
           {standings.map((item) => (
             <div key={item?.id} className="p-6 flex gap-6 bg-skin flex-col shadow-about rounded-xl">
               <IconExperStar />
-              <h4 className="text-black font-bold text-2xl">{item?.title}</h4>
+              <h4 className="text-black">{item?.title}</h4>
               <p className="text-black text-xl">{item?.description}</p>
             </div>
           ))}
         </div>
       </div>
       <div>
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Why TYDD</h2>
+        <h2 className="text-darkBlue ">Why TYDD</h2>
         <div className="mt-14 flex gap-32">
           <div className="flex flex-col gap-14">
             <p className="text-xl">
@@ -129,7 +129,7 @@ export default function AboutPage() {
               {luxuries.map((item) => (
                 <div key={item?.id} className="py-2 flex items-center gap-6">
                   <IconExperStar />
-                  <h4 className="text-black font-bold text-2xl">{item?.title}</h4>
+                  <h4 className="text-black">{item?.title}</h4>
                 </div>
               ))}
             </div>

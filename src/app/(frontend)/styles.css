@@ -34,6 +34,9 @@ body {
 }
 
 @layer base {
+  h2 {
+    @apply text-[40px] leading-[48px] font-bold;
+  }
   h4 {
     @apply text-2xl font-bold;
   }
@@ -92,7 +95,10 @@ body {
   }
 }
 
-@layer utilities {
+@layer components {
+  .layout {
+    @apply flex flex-col gap-28 pt-10 pb-20;
+  }
   .flexCenter {
     @apply flex justify-between items-center;
   }

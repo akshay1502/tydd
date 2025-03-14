@@ -109,9 +109,7 @@ export default function HeroImageSlider() {
         <PackagesTab activeTab={activeTab} />
       </Suspense>
       <div className="absolute left-28 top-32 z-10 w-[512px]">
-        <h2 className="text-white text-[40px] leading-[48px] font-bold mb-4 capitalize">
-          {activeTab}
-        </h2>
+        <h2 className="text-white  mb-4 capitalize">{activeTab}</h2>
         <p className="text-white text-xl">
           Discover the beauty of India with our curated travel packages, covering breathtaking
           destinations from the Himalayas to the beaches of Goa.

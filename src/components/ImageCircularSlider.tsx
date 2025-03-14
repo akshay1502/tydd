@@ -135,9 +135,7 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
       <div className="absolute w-full h-full -z-10 opacity-10">
         <Image src="/map.png" alt="dummy" fill className="object-cover" />
       </div>
-      <h2 className="px-20 text-darkBlue text-[40px] leading-[48px] font-bold">
-        What our customer says
-      </h2>
+      <h2 className="px-20 text-darkBlue ">What our customer says</h2>
       <div className="absolute top-[300px] left-20 w-1/2">
         <div className="mb-8 h-10">
           <h3 className="testimonial-name overflow-hidden text-black text-[32px] leading-[40px] font-semibold">

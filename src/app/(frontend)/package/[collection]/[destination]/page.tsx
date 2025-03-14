@@ -33,12 +33,10 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
   })
 
   return (
-    <div className="px-20 flex flex-col gap-28 pt-10 pb-20">
+    <div className="px-20 layout">
       <div>
         <p className="text-darkBlue text-xs capitalize">{`Home > ${collection.replaceAll('-', ' ')} > ${destination.replaceAll('-', ' ')}`}</p>
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mt-6 mb-8">
-          {data?.destination}
-        </h2>
+        <h2 className="text-darkBlue  mt-6 mb-8">{data?.destination}</h2>
 
         {/* Image section */}
         <div className="grid grid-cols-4 grid-rows-[250px_250px] gap-6 relative">
@@ -89,12 +87,12 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
       <div className="flex gap-24">
         <div className="flex flex-col gap-16">
           <div>
-            <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Overview</h2>
+            <h2 className="text-darkBlue ">Overview</h2>
             <p className="text-xl text-black mt-8">{data?.overview}</p>
           </div>
 
           <div className="flex flex-col gap-8">
-            <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Highlights</h2>
+            <h2 className="text-darkBlue ">Highlights</h2>
             <div className="flex gap-6 flex-wrap">
               {data?.highlights?.chips?.map((chip) => (
                 <HighlightPill key={chip?.id} text={chip?.chip ?? ''} />
@@ -110,7 +108,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           </div>
 
           <div>
-            <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-10">Day-Wise</h2>
+            <h2 className="text-darkBlue  mb-10">Day-Wise</h2>
             <Accordion type="single" collapsible className="w-full">
               {data?.day_breakup?.days?.map((day, index) => (
                 <div key={day?.id} className="flex w-full">
@@ -158,7 +156,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
       </div>
 
       <div>
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-10">Accommodations</h2>
+        <h2 className="text-darkBlue  mb-10">Accommodations</h2>
         <div className="flex gap-6 flex-wrap">
           {data?.accomodations?.locations?.map((accomodation) => (
             <Link
@@ -177,7 +175,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
               </div>
               <div className="flex flex-col gap-4 p-4">
                 <div className="flex flex-col gap-2">
-                  <p className="text-black font-bold text-2xl">{accomodation?.name}</p>
+                  <h4 className="text-black">{accomodation?.name}</h4>
                   <p className="text-black text-xl">{accomodation?.location}</p>
                 </div>
                 <div className="flex items-center gap-2">

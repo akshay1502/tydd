@@ -30,7 +30,7 @@ export default function SwiperHeroPackages({ data }: { data: Package[] }) {
               className="object-cover -z-10"
             />
             <div className="flex flex-col gap-5 absolute left-24 top-1/2 -translate-y-1/2">
-              <h4 className="text-white font-bold text-2xl">{item?.title}</h4>
+              <h4 className="text-white">{item?.title}</h4>
               <h1 className="text-white font-bold text-5xl">{item?.destination}</h1>
               <Button variant="explore" size="sm" asChild>
                 <Link href={`/package/packages/${item?.destination}`}>

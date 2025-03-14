@@ -9,9 +9,7 @@ export default function FilterPackages({ allPackages }: { allPackages: Package[]
 
   return (
     <div className="px-20">
-      <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-8 capitalize">
-        Explore {activeTab}
-      </h2>
+      <h2 className="text-darkBlue  mb-8 capitalize">Explore {activeTab}</h2>
       <div className="flex gap-6 my-9">
         {/* <Pill text="All" isActive />
           <Pill text="All" />

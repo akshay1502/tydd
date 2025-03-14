@@ -90,7 +90,7 @@ export default function DetailPageForm({
         className="space-y-6 bg-skin rounded-xl p-6 shrink-0 self-start"
       >
         <div>
-          <h3 className="text-darkBlue text-2xl font-bold mb-2">Personalize Your Adventure</h3>
+          <h4 className="text-darkBlue mb-2">Personalize Your Adventure</h4>
           <p className="text-black text-lg">Plan a trip that’s uniquely yours.</p>
         </div>
         <FormField

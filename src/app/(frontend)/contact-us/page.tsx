@@ -10,7 +10,7 @@ export default function ContactUsPage() {
       <div className="w-full h-96 relative">
         <Image src="/contact.jpg" alt="image" fill className="object-cover" />
         <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[1062px]">
-          <h2 className="text-white text-[40px] leading-[48px] font-bold mb-2">Get in touch</h2>
+          <h2 className="text-white  mb-2">Get in touch</h2>
           <p className="text-lg text-white">Say Hello to New Adventures</p>
         </div>
       </div>
@@ -19,13 +19,13 @@ export default function ContactUsPage() {
           <h3 className="text-white text-4xl font-semibold mb-10">Contact Information</h3>
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <h4 className="text-white text-2xl font-bold">Address</h4>
+              <h4 className="text-white">Address</h4>
               <p className="text-xl text-white">
                 Vihang Valley phase 3, Thane West, Maharashtra (400615)
               </p>
             </div>
             <div className="flex flex-col gap-4">
-              <h4 className="text-white text-2xl font-bold">Contact</h4>
+              <h4 className="text-white">Contact</h4>
               <div className="flex items-center gap-2">
                 <IconEmail />
                 <p className="text-xl text-white">- info@tydd.in</p>
@@ -36,7 +36,7 @@ export default function ContactUsPage() {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <h4 className="text-white text-2xl font-bold">Find us on</h4>
+              <h4 className="text-white">Find us on</h4>
               <div className="flex gap-2">
                 {[...Array(4)].map((_, index) => (
                   <Link key={index} href="/">

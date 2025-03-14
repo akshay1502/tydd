@@ -18,7 +18,7 @@ export default function SwiperInternationalPackages({
   return (
     <div className="px-20">
       <div className="flexCenter mb-10">
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">{title}</h2>
+        <h2 className="text-darkBlue ">{title}</h2>
         <div className="flex gap-6">
           <button className="internationalSwiperLeft">
             <IconSwiperLeft />
