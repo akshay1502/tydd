@@ -71,10 +71,12 @@ export default function ContactUsForm() {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="lg:space-y-6 space-y-4">
         <div>
-          <h3 className="text-darkBlue text-4xl font-semibold mb-2">Do you have any questions?</h3>
-          <p className="text-darkBlue text-2xl">Please fill out the form below.</p>
+          <h3 className="text-darkBlue lg:text-4xl text-2xl font-semibold mb-2">
+            Do you have any questions?
+          </h3>
+          <p className="text-darkBlue lg:text-2xl text-lg">Please fill out the form below.</p>
         </div>
         <FormField
           control={form.control}

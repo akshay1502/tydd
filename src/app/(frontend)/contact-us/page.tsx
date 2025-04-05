@@ -9,22 +9,24 @@ export default function ContactUsPage() {
     <div>
       <div className="w-full h-96 relative">
         <Image src="/contact.jpg" alt="image" fill className="object-cover" />
-        <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[1062px]">
+        <div className="absolute top-1/2 -translate-y-1/2 lg:left-1/2 left-4 lg:-translate-x-1/2 lg:w-[1062px]">
           <h2 className="text-white  mb-2">Get in touch</h2>
           <p className="text-lg text-white">Say Hello to New Adventures</p>
         </div>
       </div>
-      <div className="rounded-2xl p-6 w-[1062px] flex gap-10 shadow-[0px_4px_13px_4px_rgba(0,0,0,0.15)] mx-auto -translate-y-20 bg-white">
-        <div className="bg-[#6CC1E8] p-8 rounded-lg flex-1">
-          <h3 className="text-white text-4xl font-semibold mb-10">Contact Information</h3>
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-4">
+      <div className="rounded-2xl lg:p-6 p-4 lg:w-[1062px] flex flex-col lg:flex-row gap-10 lg:shadow-[0px_4px_13px_4px_rgba(0,0,0,0.15)] mx-auto -translate-y-20 lg:bg-white bg-transparent">
+        <div className="bg-[#6CC1E8] lg:p-8 px-4 py-6 rounded-lg flex-1">
+          <h3 className="text-white lg:text-4xl text-2xl font-semibold lg:mb-10 mb-5">
+            Contact Information
+          </h3>
+          <div className="flex flex-col lg:gap-8 gap-4">
+            <div className="flex flex-col lg:gap-4 gap-2">
               <h4 className="text-white">Address</h4>
               <p className="text-xl text-white">
                 Vihang Valley phase 3, Thane West, Maharashtra (400615)
               </p>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col lg:gap-4 gap-2">
               <h4 className="text-white">Contact</h4>
               <div className="flex items-center gap-2">
                 <IconEmail />
@@ -35,7 +37,7 @@ export default function ContactUsPage() {
                 <p className="text-xl text-white">- +91 789123456</p>
               </div>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col lg:gap-4 gap-2">
               <h4 className="text-white">Find us on</h4>
               <div className="flex gap-2">
                 {[...Array(4)].map((_, index) => (
