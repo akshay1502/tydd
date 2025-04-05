@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="hidden px-20 py-1 lg:flex justify-between items-center">
-        <Link href="/">
+        <Link href="/" aria-label="Home">
           <IconLogo />
         </Link>
         <ul className="flex gap-12 items-center">

@@ -11,7 +11,7 @@ export default function Footer() {
       <Image src="/footerBackground.jpg" alt="footer" fill className="object-cover -z-10" />
       <div className="flex justify-between flex-col lg:flex-row gap-8 lg:gap-0">
         <div>
-          <Link href="/">
+          <Link href="/" aria-label="Home">
             <IconLogo />
           </Link>
           <div className="mt-4 lg:mt-8 flex gap-10">

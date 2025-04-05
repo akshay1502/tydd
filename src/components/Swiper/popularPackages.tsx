@@ -22,10 +22,10 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
       <div className="flexCenter">
         <h2 className="text-darkBlue ">{title}</h2>
         <div className="flex gap-6">
-          <button className="custom-prev">
+          <button className="custom-prev" aria-label="Previous Slide">
             <IconSwiperLeft />
           </button>
-          <button className="custom-next rotate-180">
+          <button className="custom-next rotate-180" aria-label="Next Slide">
             <IconSwiperLeft />
           </button>
         </div>
