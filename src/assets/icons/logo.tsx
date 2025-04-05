@@ -130,8 +130,8 @@ export default function IconLogo() {
           y2="-161.671"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="#2D99B8" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="#2D99B8" />
         </linearGradient>
         <clipPath id="clip0_886_2176">
           <rect width="123.529" height="40" fill="white" />

@@ -60,7 +60,7 @@ export default function HeroImageSlider() {
   }, [activeTab])
 
   return (
-    <div className="h-[516px] flex gap-4 relative mx-20 rounded-3xl overflow-hidden bg-[#373535]">
+    <div className="lg:h-[516px] h-[260px] flex gap-4 relative lg:mx-20 lg:rounded-3xl overflow-hidden bg-[#373535]">
       <div className="flex-[1.5] h-full grid grid-cols-2 grid-rows-[7fr_10fr] gap-4 relative">
         {/* Image 1 */}
         <div className="relative col-span-2 row-span-1 rounded-br-lg overflow-hidden bg-[#1E1F23]">
@@ -93,7 +93,7 @@ export default function HeroImageSlider() {
           <Image src="/image1.png" alt="Image 3" fill className="sixthImage object-cover" />
         </div>
       </div>
-      <div className="flex-1 h-full grid grid-cols-1 grid-rows-2 gap-4 relative">
+      <div className="hidden flex-1 h-full lg:grid grid-cols-1 grid-rows-2 gap-4 relative">
         {/* Image 1 */}
         <div className="relative col-span-1 row-span-1 rounded-bl-lg overflow-hidden bg-[#1E1F23]">
           <Image src="/image2.png" alt="Image 1" fill className="seventhImage object-cover" />
@@ -108,9 +108,9 @@ export default function HeroImageSlider() {
       <Suspense fallback={<div>Loading...</div>}>
         <PackagesTab activeTab={activeTab} />
       </Suspense>
-      <div className="absolute left-28 top-32 z-10 w-[512px]">
-        <h2 className="text-white  mb-4 capitalize">{activeTab}</h2>
-        <p className="text-white text-xl">
+      <div className="absolute lg:left-28 left-4 top-32 z-10 lg:w-[512px]">
+        <h2 className="text-white text-xl mb-4 capitalize">{activeTab}</h2>
+        <p className="text-white lg:text-xl text-xs">
           Discover the beauty of India with our curated travel packages, covering breathtaking
           destinations from the Himalayas to the beaches of Goa.
         </p>

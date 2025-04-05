@@ -2,14 +2,20 @@ import { Package } from '@/payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Packages({ data }: { data: Package }) {
+export default function Packages({
+  data,
+  smallVariant,
+}: {
+  data: Package
+  smallVariant?: boolean
+}) {
   return (
     <Link
       href={`/package/packages/${data?.destination?.replace(/\s+/g, '-')}`}
-      className="group flex flex-col gap-2 w-48"
+      className={`group flex flex-col lg:gap-2 gap-1 ${smallVariant ? 'w-auto' : 'w-48'}`}
     >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
-        <div className="w-48 h-48">
+        <div className={`${smallVariant ? 'w-full aspect-square' : 'w-48 h-48'}`}>
           <Image
             src={typeof data.image === 'object' && data.image?.url ? data.image.url : ''}
             alt={typeof data.image === 'object' && data.image?.alt ? data.image.alt : ''}
@@ -22,8 +28,10 @@ export default function Packages({ data }: { data: Package }) {
           {data?.destination}
         </p>
       </div>
-      <p className="text-black">{data?.package}</p>
-      <p className="text-black font-semibold">₹{data?.cost?.toLocaleString('en-IN')} per person</p>
+      <p className="text-black lg:text-base text-xs mt-1 lg:mt-0">{data?.package}</p>
+      <p className="text-black font-semibold lg:text-base text-sm">
+        ₹{data?.cost?.toLocaleString('en-IN')} per person
+      </p>
     </Link>
   )
 }
