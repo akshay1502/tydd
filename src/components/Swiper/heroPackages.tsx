@@ -28,6 +28,7 @@ export default function SwiperHeroPackages({ data }: { data: Package[] }) {
               alt={typeof item.image === 'object' && item.image?.alt ? item.image.alt : ''}
               fill
               className="object-cover -z-10"
+              priority
             />
             <div className="flex flex-col gap-5 absolute left-4 lg:left-24 top-1/2 -translate-y-1/2">
               <h4 className="text-white">{item?.title}</h4>

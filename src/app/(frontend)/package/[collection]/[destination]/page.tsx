@@ -155,7 +155,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
             </Accordion>
           </div>
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:block shrink-0">
           <DetailPageForm
             destination={data?.destination ?? ''}
             discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
