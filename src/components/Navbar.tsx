@@ -1,14 +1,15 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from './ui/button'
+import IconLogo from '@/assets/icons/logo'
+import IconHamburger from '@/assets/icons/hamburger'
 
 export default function Navbar() {
   return (
-    <nav className="px-20 py-1 flex justify-between items-center">
+    <nav className="px-4 py-2 lg:px-20 lg:py-1 flex justify-between items-center">
       <Link href="/">
-        <Image src="/logo.png" alt="tydd" width={172} height={56} className="h-14 w-44" />
+        <IconLogo />
       </Link>
-      <ul className="flex gap-12 items-center">
+      <ul className="hidden lg:flex gap-12 items-center">
         <li>
           <Link href="/" className="text-black font-semibold">
             Home
@@ -44,6 +45,9 @@ export default function Navbar() {
           </Button>
         </li>
       </ul>
+      <button className="block lg:hidden">
+        <IconHamburger />
+      </button>
     </nav>
   )
 }

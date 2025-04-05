@@ -18,7 +18,7 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
   const setOfCategories = [...new Set(data.flatMap((item) => item.category || []))]
 
   return (
-    <div className="px-20">
+    <div className="px-4 lg:px-20">
       <div className="flexCenter">
         <h2 className="text-darkBlue ">{title}</h2>
         <div className="flex gap-6">
@@ -30,7 +30,7 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
           </button>
         </div>
       </div>
-      <div className="flex gap-6 mt-10 mb-8">
+      <div className="flex gap-4  mt-8 mb-6 lg:gap-6 lg:mt-10 lg:mb-8 overflow-x-scroll">
         <Pill text="All" isActive={'All' === activePill} setActivePill={setActivePill} />
         {setOfCategories?.map((category: string, index: number) => (
           <Pill
@@ -42,7 +42,7 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
         ))}
       </div>
       <Swiper
-        spaceBetween={24}
+        // spaceBetween={24}
         modules={[Navigation]}
         slidesPerView="auto"
         slidesPerGroup={1}
@@ -52,7 +52,7 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
         }}
         breakpoints={{
           // When the window width is 640px or smaller (mobile)
-          425: {
+          320: {
             spaceBetween: 12, // 10px space between slides
           },
           // For larger screens (desktop)

@@ -10,7 +10,7 @@ import { Package } from '@/payload-types'
 
 export default function SwiperHeroPackages({ data }: { data: Package[] }) {
   return (
-    <div className="mx-20">
+    <div className="lg:mx-20">
       <Swiper
         pagination={{
           clickable: true,
@@ -21,7 +21,7 @@ export default function SwiperHeroPackages({ data }: { data: Package[] }) {
         {data?.map((item: Package) => (
           <SwiperSlide
             key={item?.id}
-            className="!w-full !h-[700px] relative rounded-3xl overflow-hidden"
+            className="!w-full !h-[700px] relative lg:rounded-3xl overflow-hidden"
           >
             <Image
               src={typeof item.image === 'object' && item.image?.url ? item.image.url : ''}
@@ -29,7 +29,7 @@ export default function SwiperHeroPackages({ data }: { data: Package[] }) {
               fill
               className="object-cover -z-10"
             />
-            <div className="flex flex-col gap-5 absolute left-24 top-1/2 -translate-y-1/2">
+            <div className="flex flex-col gap-5 absolute left-4 lg:left-24 top-1/2 -translate-y-1/2">
               <h4 className="text-white">{item?.title}</h4>
               <h1 className="text-white font-bold text-5xl">{item?.destination}</h1>
               <Button variant="explore" size="sm" asChild>
