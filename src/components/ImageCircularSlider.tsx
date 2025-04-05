@@ -105,6 +105,7 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
     function scaleActiveImage(index: number) {
       gsap.to(items, {
         scale: (i) => (i === index ? 1.5 : 1),
+        filter: (i) => (i === index ? 'grayscale(0)' : 'grayscale(1)'),
         duration: 0.3,
         ease: 'power2.out',
       })
@@ -136,7 +137,7 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
         <Image src="/map.png" alt="dummy" fill className="object-cover" />
       </div>
       <h2 className="px-4 lg:px-20 text-darkBlue ">What our customer says</h2>
-      <div className="absolute lg:top-[300px] top-[80px] left-4 lg:left-20 w-1/2">
+      <div className="absolute lg:top-[250px] top-[80px] left-4 lg:left-20 w-1/2">
         <div className="lg:mb-8 mb-4 lg:h-10 h-5">
           <h3 className="testimonial-name overflow-hidden text-black lg:text-[32px] lg:leading-[40px] text-sm font-semibold">
             {data[activeIndex]?.name}
@@ -162,7 +163,7 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
             ref={(el) => {
               imageRefs.current[index] = el
             }}
-            className="lg:h-40 lg:w-40 w-12 h-12 absolute rounded-full overflow-hidden item cursor-pointer"
+            className="lg:h-40 lg:w-40 w-12 h-12 absolute rounded-full overflow-hidden item cursor-pointer grayscale"
             key={index}
           >
             <Image
