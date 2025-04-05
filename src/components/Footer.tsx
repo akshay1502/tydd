@@ -94,7 +94,7 @@ export default function Footer() {
             </li>
             <li className="pt-2 lg:py-2">
               <Link
-                href="/"
+                href="/about"
                 className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
               >
                 About us
@@ -102,7 +102,7 @@ export default function Footer() {
             </li>
             <li className="pt-2 lg:py-2">
               <Link
-                href="/"
+                href="/contact-us"
                 className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
               >
                 Contact us
