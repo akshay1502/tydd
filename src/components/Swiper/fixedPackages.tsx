@@ -18,10 +18,10 @@ export default function SwiperFixedPackages({
       <div className="flexCenter mb-8 lg:mb-10">
         <h2 className="text-darkBlue ">{title}</h2>
         <div className="flex gap-6">
-          <button className="fixedSwiperLeft">
+          <button className="fixedSwiperLeft" aria-label="Previous Slide">
             <IconSwiperLeft />
           </button>
-          <button className="fixedSwiperRight rotate-180">
+          <button className="fixedSwiperRight rotate-180" aria-label="Next Slide">
             <IconSwiperLeft />
           </button>
         </div>

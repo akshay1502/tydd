@@ -1,5 +1,4 @@
 // storage-adapter-import-placeholder
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -29,7 +28,6 @@ export default buildConfig({
   },
   collections: [Users, Media, Packages, Inquiry, FixedPackages, LastMinutePackages, Contact],
   globals: [Home],
-  editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

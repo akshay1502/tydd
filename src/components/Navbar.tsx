@@ -71,7 +71,7 @@ export default function Navbar() {
           className={`flex flex-col gap-4 p-4 w-full fixed left-0 h-screen z-50 transition-transform duration-300 bg-white ${
             isOpen ? 'translate-y-0 top-14' : '-translate-y-full top-0'
           }`}
-          onClick={(e) => {
+          onClick={() => {
             setIsOpen(false)
           }}
         >

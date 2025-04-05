@@ -28,10 +28,10 @@ export default function SwiperLastMinutePackages({
         <div className="lg:px-16 px-4 flexCenter">
           <h2 className="text-white ">{title}</h2>
           <div className="flex gap-6">
-            <button className="lastMinuteSwiperLeft">
+            <button className="lastMinuteSwiperLeft" aria-label="Previous Slide">
               <IconLastMinuteSwiperLeft />
             </button>
-            <button className="lastMinuteSwiperRight rotate-180">
+            <button className="lastMinuteSwiperRight rotate-180" aria-label="Next Slide">
               <IconLastMinuteSwiperLeft />
             </button>
           </div>

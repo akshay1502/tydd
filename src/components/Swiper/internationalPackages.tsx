@@ -20,10 +20,10 @@ export default function SwiperInternationalPackages({
       <div className="flexCenter mb-8 lg:mb-10">
         <h2 className="text-darkBlue ">{title}</h2>
         <div className="flex gap-6">
-          <button className="internationalSwiperLeft">
+          <button className="internationalSwiperLeft" aria-label="Previous Slide">
             <IconSwiperLeft />
           </button>
-          <button className="internationalSwiperRight rotate-180">
+          <button className="internationalSwiperRight rotate-180" aria-label="Next Slide">
             <IconSwiperLeft />
           </button>
         </div>
