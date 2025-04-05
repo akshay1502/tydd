@@ -49,10 +49,10 @@ const luxuries = [
 
 export default function AboutPage() {
   return (
-    <div className="px-20 layout">
+    <div className="lg:px-20 px-4 layout">
       <div className="w-full h-[508px] relative rounded-3xl overflow-hidden">
         <Image src="/contact.jpg" alt="image" fill className="object-cover" />
-        <div className="absolute top-1/2 -translate-y-1/2 left-24 w-[848px]">
+        <div className="absolute top-1/2 -translate-y-1/2 lg:left-24 left-4 right-4 lg:right-0 lg:w-[848px]">
           <h2 className="text-white  mb-5">About us</h2>
           <p className="text-xl text-white">
             At Travel Your Dream Destination (TYDD), we turn your travel dreams into reality with
@@ -63,11 +63,11 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
-      <div className="flex gap-24">
+      <div className="flex lg:gap-24 gap-6 lg:flex-row flex-col">
         <div>
-          <h2 className="text-black ">Meet the founder</h2>
-          <p className="text-3xl text-black font-semibold mt-8 mb-12">Eshant</p>
-          <p className="text-2xl text-black">
+          <h2 className="text-black">Meet the founder</h2>
+          <p className="text-3xl text-black font-semibold lg:mt-8 lg:mb-12 my-4">Eshant</p>
+          <p className="lg:text-2xl text-base text-black">
             Eshant, the visionary founder of Travel Your Dream Destination (TYDD), is a passionate
             traveler with a mission to make dream vacations accessible to all. With years of
             experience in curating personalized travel experiences, he brings expertise and a deep
@@ -78,19 +78,19 @@ export default function AboutPage() {
             for every client.
           </p>
         </div>
-        <div className="w-[508px] h-[508px] relative rounded-2xl overflow-hidden shrink-0 self-center">
+        <div className="lg:w-[508px] lg:h-[508px] w-full aspect-square relative rounded-2xl overflow-hidden shrink-0 self-center">
           <Image src="/contact.jpg" alt="image" fill className="object-cover" />
         </div>
       </div>
 
-      <div className="flex gap-24">
-        <div className="w-[508px] h-[508px] relative rounded-2xl overflow-hidden shrink-0 self-center">
+      <div className="flex lg:gap-24 gap-6 lg:flex-row flex-col">
+        <div className="lg:w-[508px] lg:h-[508px] w-full aspect-square relative rounded-2xl overflow-hidden shrink-0 self-center order-2 lg:order-1">
           <Image src="/contact.jpg" alt="image" fill className="object-cover" />
         </div>
-        <div>
+        <div className="order-1 lg:order-2">
           <h2 className="text-black ">Meet the founder</h2>
-          <p className="text-3xl text-black font-semibold mt-8 mb-12">Eshant</p>
-          <p className="text-2xl text-black">
+          <p className="text-3xl text-black font-semibold lg:mt-8 lg:mb-12 my-4">Eshant</p>
+          <p className="lg:text-2xl text-base text-black">
             Eshant, the visionary founder of Travel Your Dream Destination (TYDD), is a passionate
             traveler with a mission to make dream vacations accessible to all. With years of
             experience in curating personalized travel experiences, he brings expertise and a deep
@@ -103,10 +103,13 @@ export default function AboutPage() {
         </div>
       </div>
       <div>
-        <h2 className="text-darkBlue ">Why TYDD</h2>
-        <div className="mt-12 flex gap-6">
+        <h2 className="text-darkBlue">Why TYDD</h2>
+        <div className="lg:mt-12 mt-6 flex gap-6 lg:flex-row flex-col">
           {standings.map((item) => (
-            <div key={item?.id} className="p-6 flex gap-6 bg-skin flex-col shadow-about rounded-xl">
+            <div
+              key={item?.id}
+              className="lg:p-6 p-4 flex lg:gap-6 gap-4 bg-skin flex-col shadow-about rounded-xl"
+            >
               <IconExperStar />
               <h4 className="text-black">{item?.title}</h4>
               <p className="text-black text-xl">{item?.description}</p>
@@ -116,25 +119,25 @@ export default function AboutPage() {
       </div>
       <div>
         <h2 className="text-darkBlue ">Why TYDD</h2>
-        <div className="mt-14 flex gap-32">
-          <div className="flex flex-col gap-14">
-            <p className="text-xl">
+        <div className="lg:mt-14 mt-8 flex lg:gap-32 gap-6 lg:flex-row flex-col">
+          <div className="flex flex-col lg:gap-14 gap-6">
+            <p className="lg:text-xl text-sm">
               At TYDD, we go beyond ordinary travel experiences to create extraordinary memories.
               Our dedication to personalized service and seamless journeys ensures your trip is
               unforgettable. With expert planning and attention to detail, every aspect of your
               travel is in safe hands. Let us turn your dream vacation into a reality, stress-free
               and memorable.
             </p>
-            <div className="grid grid-cols-2 gap-y-10 gap-x-16">
+            <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-y-10 gap-y-4 gap-x-16">
               {luxuries.map((item) => (
-                <div key={item?.id} className="py-2 flex items-center gap-6">
+                <div key={item?.id} className="lg:py-2 flex items-center lg:gap-6 gap-2">
                   <IconExperStar />
                   <h4 className="text-black">{item?.title}</h4>
                 </div>
               ))}
             </div>
           </div>
-          <div className="w-[412px] h-[468px] relative shrink-0">
+          <div className="lg:w-[412px] h-[468px] w-full relative shrink-0">
             <Image src="/whytydd.png" alt="image" fill className="object-cover" />
           </div>
         </div>
