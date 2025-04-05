@@ -17,7 +17,7 @@ export default function Pill({ text, isActive, setActivePill }: PillProps) {
 
 export function HighlightPill({ text }: { text: string }) {
   return (
-    <button className="font-bold text-2xl text-white bg-orange  rounded-full py-2 px-4">
+    <button className="font-bold lg:text-2xl text-base text-white bg-orange  rounded-full py-2 px-4 whitespace-nowrap">
       {text}
     </button>
   )

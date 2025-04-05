@@ -8,7 +8,7 @@ export default async function AllPackagesPage() {
   const allPackages = await getPackages()
   const homeData = await getHomeData(1)
   return (
-    <div className="flex flex-col gap-28 pt-10 pb-20">
+    <div className="layout">
       {/* image gallery section */}
       <Suspense fallback={<div>Loading...</div>}>
         <HeroImageSlider />

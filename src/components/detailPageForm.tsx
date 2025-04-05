@@ -87,11 +87,11 @@ export default function DetailPageForm({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 bg-skin rounded-xl p-6 shrink-0 self-start"
+        className="lg:space-y-6 space-y-4 bg-skin rounded-xl p-6 shrink-0 self-start w-full"
       >
         <div>
-          <h3 className="text-darkBlue text-2xl font-bold mb-2">Personalize Your Adventure</h3>
-          <p className="text-black text-lg">Plan a trip that’s uniquely yours.</p>
+          <h4 className="text-darkBlue mb-2">Personalize Your Adventure</h4>
+          <p className="text-black lg:text-lg text-base">Plan a trip that’s uniquely yours.</p>
         </div>
         <FormField
           control={form.control}

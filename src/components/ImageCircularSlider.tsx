@@ -105,6 +105,7 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
     function scaleActiveImage(index: number) {
       gsap.to(items, {
         scale: (i) => (i === index ? 1.5 : 1),
+        filter: (i) => (i === index ? 'grayscale(0)' : 'grayscale(1)'),
         duration: 0.3,
         ease: 'power2.out',
       })
@@ -131,25 +132,23 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
   }, [activeIndex])
 
   return (
-    <div className="relative h-[730px] items-center overflow-hidden">
+    <div className="relative lg:h-[730px] h-[320px] items-center overflow-hidden">
       <div className="absolute w-full h-full -z-10 opacity-10">
         <Image src="/map.png" alt="dummy" fill className="object-cover" />
       </div>
-      <h2 className="px-20 text-darkBlue text-[40px] leading-[48px] font-bold">
-        What our customer says
-      </h2>
-      <div className="absolute top-[300px] left-20 w-1/2">
-        <div className="mb-8 h-10">
-          <h3 className="testimonial-name overflow-hidden text-black text-[32px] leading-[40px] font-semibold">
+      <h2 className="px-4 lg:px-20 text-darkBlue ">What our customer says</h2>
+      <div className="absolute lg:top-[250px] top-[80px] left-4 lg:left-20 w-1/2">
+        <div className="lg:mb-8 mb-4 lg:h-10 h-5">
+          <h3 className="testimonial-name overflow-hidden text-black lg:text-[32px] lg:leading-[40px] text-sm font-semibold">
             {data[activeIndex]?.name}
           </h3>
         </div>
-        <p className="testimonial-review overflow-hidden text-black text-2xl tracking-wide">
+        <p className="testimonial-review overflow-hidden text-black lg:text-2xl text-xs tracking-wide">
           {data[activeIndex]?.review}
         </p>
       </div>
-      <div className="wrapper absolute right-0 translate-x-[40%] top-1/2 -translate-y-1/2 flex h-[550px] w-[550px]">
-        <svg width="550" height="550">
+      <div className="wrapper absolute right-0 translate-x-[40%] top-1/2 -translate-y-1/2 flex lg:h-[550px] lg:w-[550px] h-[164px] w-[164px]">
+        <svg viewBox="0 0 550 550" className="lg:w-[550px] lg:h-[550px] w-[164px] h-[164px]">
           <path
             d="M 549,275 A 274,274 0 1,1 1,275 A 274,274 0 1,1 549,275"
             stroke="black"
@@ -164,7 +163,7 @@ export default function CircularSlider({ data }: { data: Testimonial[] }) {
             ref={(el) => {
               imageRefs.current[index] = el
             }}
-            className="h-40 w-40 absolute rounded-full overflow-hidden item cursor-pointer"
+            className="lg:h-40 lg:w-40 w-12 h-12 absolute rounded-full overflow-hidden item cursor-pointer grayscale"
             key={index}
           >
             <Image

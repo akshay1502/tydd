@@ -16,14 +16,14 @@ export default function SwiperInternationalPackages({
   data,
 }: SwiperInternationalPackagesProps) {
   return (
-    <div className="px-20">
-      <div className="flexCenter mb-10">
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">{title}</h2>
+    <div className="px-4 lg:px-20">
+      <div className="flexCenter mb-8 lg:mb-10">
+        <h2 className="text-darkBlue ">{title}</h2>
         <div className="flex gap-6">
-          <button className="internationalSwiperLeft">
+          <button className="internationalSwiperLeft" aria-label="Previous Slide">
             <IconSwiperLeft />
           </button>
-          <button className="internationalSwiperRight rotate-180">
+          <button className="internationalSwiperRight rotate-180" aria-label="Next Slide">
             <IconSwiperLeft />
           </button>
         </div>
@@ -39,7 +39,7 @@ export default function SwiperInternationalPackages({
         }}
         breakpoints={{
           // When the window width is 640px or smaller (mobile)
-          425: {
+          320: {
             spaceBetween: 12, // 10px space between slides
           },
           // For larger screens (desktop)

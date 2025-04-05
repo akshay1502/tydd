@@ -5,14 +5,14 @@ export async function POST(req: Request) {
     const data = await req.json()
 
     // The created Post document is returned
-    const createEntry = await payload.create({
+    await payload.create({
       collection: 'inquiry', // required
       data: {
         ...data,
       },
     })
 
-    const sendMail = await payload.sendEmail({
+    await payload.sendEmail({
       to: data?.email,
       subject: `New Inquiry for ${data?.destination}`,
       text: `

@@ -5,8 +5,9 @@ import Footer from '@/components/Footer'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description:
+    'Explore the world with TYDD! Based in Mumbai, we offer personalized, affordable luxury trips—national & international. Travel made hassle-free.',
+  title: 'Travel Your Dream Destination',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {

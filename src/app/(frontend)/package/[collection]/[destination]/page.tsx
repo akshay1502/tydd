@@ -8,15 +8,17 @@ import {
 } from '@/components/ui/accordion'
 import IconLocation from '@/assets/icons/location'
 import Link from 'next/link'
-import { CollectionSlug } from 'payload'
 import { getDetailPage } from '@/payload'
 import IconFeature from '@/assets/icons/feature'
 import IconBreakFast from '@/assets/icons/breakfast'
 import DetailPageForm from '@/components/detailPageForm'
 import LightBoxWrapper from '@/components/Lightbox'
+import OpenForm from './OpenForm'
+
+type CustomCollectionSlug = 'packages' | 'fixed-packages' | 'last-minute-packages'
 
 type DetailPageProps = Promise<{
-  collection: CollectionSlug
+  collection: CustomCollectionSlug
   destination: string
 }>
 
@@ -33,15 +35,19 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
   })
 
   return (
-    <div className="px-20 flex flex-col gap-28 pt-10 pb-20">
+    <div className="px-4 lg:px-20 layout">
+      <OpenForm
+        destination={data?.destination ?? ''}
+        discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
+        cost={data?.cost as number}
+        type={collection}
+      />
       <div>
         <p className="text-darkBlue text-xs capitalize">{`Home > ${collection.replaceAll('-', ' ')} > ${destination.replaceAll('-', ' ')}`}</p>
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mt-6 mb-8">
-          {data?.destination}
-        </h2>
+        <h2 className="text-darkBlue lg:mt-6 lg:mb-8 my-4">{data?.destination}</h2>
 
         {/* Image section */}
-        <div className="grid grid-cols-4 grid-rows-[250px_250px] gap-6 relative">
+        <div className="grid lg:grid-cols-4 grid-cols-1 lg:grid-rows-[250px_250px] grid-rows-[250px] gap-6 relative">
           {/* Image 1 */}
           <div className="relative col-span-2 row-span-2">
             <Image
@@ -53,7 +59,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           </div>
 
           {/* Image 2 */}
-          <div className="relative col-span-2 row-span-1">
+          <div className="relative col-span-2 row-span-1 hidden lg:block">
             <Image
               src={typeof data?.gallery?.[1] === 'object' ? (data.gallery[1]?.url ?? '') : ''}
               alt={typeof data?.gallery?.[1] === 'object' ? (data.gallery[1]?.alt ?? '') : ''}
@@ -63,7 +69,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           </div>
 
           {/* Image 3 */}
-          <div className="relative col-span-1 row-span-1">
+          <div className="relative col-span-1 row-span-1 hidden lg:block ">
             <Image
               src={typeof data?.gallery?.[2] === 'object' ? (data.gallery[2]?.url ?? '') : ''}
               alt={typeof data?.gallery?.[2] === 'object' ? (data.gallery[2]?.alt ?? '') : ''}
@@ -73,7 +79,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           </div>
 
           {/* Image 4 */}
-          <div className="relative col-span-1 row-span-1">
+          <div className="relative col-span-1 row-span-1 hidden lg:block">
             <Image
               src={typeof data?.gallery?.[3] === 'object' ? (data.gallery[3]?.url ?? '') : ''}
               alt={typeof data?.gallery?.[3] === 'object' ? (data.gallery[3]?.alt ?? '') : ''}
@@ -86,21 +92,21 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
         </div>
       </div>
 
-      <div className="flex gap-24">
-        <div className="flex flex-col gap-16">
+      <div className="flex lg:gap-24">
+        <div className="flex flex-col gap-16 overflow-hidden">
           <div>
-            <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Overview</h2>
-            <p className="text-xl text-black mt-8">{data?.overview}</p>
+            <h2 className="text-darkBlue ">Overview</h2>
+            <p className="lg:text-xl text-sm text-black lg:mt-8 mt-6">{data?.overview}</p>
           </div>
 
-          <div className="flex flex-col gap-8">
-            <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">Highlights</h2>
-            <div className="flex gap-6 flex-wrap">
+          <div className="flex flex-col lg:gap-8 gap-4">
+            <h2 className="text-darkBlue ">Highlights</h2>
+            <div className="flex lg:gap-6 gap-2 lg:flex-wrap overflow-x-scroll lg:overflow-hidden">
               {data?.highlights?.chips?.map((chip) => (
                 <HighlightPill key={chip?.id} text={chip?.chip ?? ''} />
               ))}
             </div>
-            <ul className="flex flex-col gap-4 list-disc list-inside">
+            <ul className="flex flex-col lg:gap-4 gap-2 list-disc list-outisde pl-6">
               {data?.highlights?.pointers?.map((pointer) => (
                 <li key={pointer?.id} className="text-darkBlue text-lg">
                   {pointer?.pointer}
@@ -110,7 +116,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           </div>
 
           <div>
-            <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-10">Day-Wise</h2>
+            <h2 className="text-darkBlue lg:mb-10 mb-6">Day-Wise</h2>
             <Accordion type="single" collapsible className="w-full">
               {data?.day_breakup?.days?.map((day, index) => (
                 <div key={day?.id} className="flex w-full">
@@ -135,7 +141,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
                       <div className="flex flex-col gap-4">
                         {day?.break_up?.map((breakup) => (
                           <div key={breakup?.id}>
-                            <p className="text-darkBlue font-semibold text-xl mb-3">
+                            <p className="text-darkBlue font-semibold lg:text-xl text-sm mb-3">
                               {breakup?.title}
                             </p>
                             <p className="text-black">{breakup?.subtitle}</p>
@@ -149,24 +155,26 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
             </Accordion>
           </div>
         </div>
-        <DetailPageForm
-          destination={data?.destination ?? ''}
-          discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
-          cost={data?.cost as number}
-          type={collection}
-        />
+        <div className="hidden md:block shrink-0">
+          <DetailPageForm
+            destination={data?.destination ?? ''}
+            discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
+            cost={data?.cost as number}
+            type={collection}
+          />
+        </div>
       </div>
 
       <div>
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold mb-10">Accommodations</h2>
-        <div className="flex gap-6 flex-wrap">
+        <h2 className="text-darkBlue lg:mb-10 mb-6">Accommodations</h2>
+        <div className="flex lg:gap-6 gap-4 lg:flex-wrap overflow-x-scroll lg:overflow-hidden">
           {data?.accomodations?.locations?.map((accomodation) => (
             <Link
               key={accomodation?.id}
               href={accomodation?.link as string}
               className="border border-offWhite rounded-xl"
             >
-              <div className="w-[412px] h-[232px] rounded-lg overflow-hidden relative">
+              <div className="lg:w-[412px] lg:h-[232px] w-[250px] h-[140px] rounded-lg overflow-hidden relative">
                 <iframe
                   src={accomodation?.link as string}
                   style={{ width: '100%', height: '100%', border: 0 }}
@@ -177,7 +185,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
               </div>
               <div className="flex flex-col gap-4 p-4">
                 <div className="flex flex-col gap-2">
-                  <p className="text-black font-bold text-2xl">{accomodation?.name}</p>
+                  <h4 className="text-black">{accomodation?.name}</h4>
                   <p className="text-black text-xl">{accomodation?.location}</p>
                 </div>
                 <div className="flex items-center gap-2">

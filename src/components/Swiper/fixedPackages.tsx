@@ -14,20 +14,19 @@ export default function SwiperFixedPackages({
   data: FixedPackage[]
 }) {
   return (
-    <div className="px-20">
-      <div className="flexCenter mb-10">
-        <h2 className="text-darkBlue text-[40px] leading-[48px] font-bold">{title}</h2>
+    <div className="px-4 lg:px-20">
+      <div className="flexCenter mb-8 lg:mb-10">
+        <h2 className="text-darkBlue ">{title}</h2>
         <div className="flex gap-6">
-          <button className="fixedSwiperLeft">
+          <button className="fixedSwiperLeft" aria-label="Previous Slide">
             <IconSwiperLeft />
           </button>
-          <button className="fixedSwiperRight rotate-180">
+          <button className="fixedSwiperRight rotate-180" aria-label="Next Slide">
             <IconSwiperLeft />
           </button>
         </div>
       </div>
       <Swiper
-        spaceBetween={24}
         modules={[Navigation]}
         slidesPerView="auto"
         slidesPerGroup={1}
@@ -37,8 +36,8 @@ export default function SwiperFixedPackages({
         }}
         breakpoints={{
           // When the window width is 640px or smaller (mobile)
-          425: {
-            spaceBetween: 12, // 10px space between slides
+          320: {
+            spaceBetween: 16, // 10px space between slides
           },
           // For larger screens (desktop)
           1024: {
