@@ -5,7 +5,7 @@ import IconHamburger from '@/assets/icons/hamburger'
 
 export default function Navbar() {
   return (
-    <nav className="px-4 py-2 lg:px-20 lg:py-1 flex justify-between items-center">
+    <nav className="px-4 py-2 lg:px-20 lg:py-1 flex justify-between items-center shadow-[0px_2px_10px_4px_#00000014] lg:shadow-none">
       <Link href="/">
         <IconLogo />
       </Link>
