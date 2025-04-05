@@ -8,17 +8,17 @@ import {
 } from '@/components/ui/accordion'
 import IconLocation from '@/assets/icons/location'
 import Link from 'next/link'
-import { CollectionSlug } from 'payload'
 import { getDetailPage } from '@/payload'
 import IconFeature from '@/assets/icons/feature'
 import IconBreakFast from '@/assets/icons/breakfast'
 import DetailPageForm from '@/components/detailPageForm'
 import LightBoxWrapper from '@/components/Lightbox'
-import { Button } from '@/components/ui/button'
 import OpenForm from './OpenForm'
 
+type CustomCollectionSlug = 'packages' | 'fixed-packages' | 'last-minute-packages'
+
 type DetailPageProps = Promise<{
-  collection: CollectionSlug
+  collection: CustomCollectionSlug
   destination: string
 }>
 
@@ -101,7 +101,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
 
           <div className="flex flex-col lg:gap-8 gap-4">
             <h2 className="text-darkBlue ">Highlights</h2>
-            <div className="flex lg:gap-6 gap-2 lg:flex-wrap overflow-x-scroll">
+            <div className="flex lg:gap-6 gap-2 lg:flex-wrap overflow-x-scroll lg:overflow-hidden">
               {data?.highlights?.chips?.map((chip) => (
                 <HighlightPill key={chip?.id} text={chip?.chip ?? ''} />
               ))}
@@ -167,7 +167,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
 
       <div>
         <h2 className="text-darkBlue lg:mb-10 mb-6">Accommodations</h2>
-        <div className="flex lg:gap-6 gap-4 lg:flex-wrap overflow-x-scroll">
+        <div className="flex lg:gap-6 gap-4 lg:flex-wrap overflow-x-scroll lg:overflow-hidden">
           {data?.accomodations?.locations?.map((accomodation) => (
             <Link
               key={accomodation?.id}
