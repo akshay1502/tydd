@@ -19,7 +19,7 @@ export default function OpenForm({
     <>
       {!isOpen && (
         <Button
-          className="fixed z-10 bottom-6 w-[calc(100vw-32px)]"
+          className="fixed z-10 bottom-6 w-[calc(100vw-32px)] lg:hidden block"
           onClick={() => setIsOpen(true)}
         >
           Enquire Now
@@ -57,7 +57,6 @@ export default function OpenForm({
         </button>
         <DetailPageForm destination={destination} discount={discount} cost={cost} type={type} />
       </div>
-      {/* )} */}
     </>
   )
 }
