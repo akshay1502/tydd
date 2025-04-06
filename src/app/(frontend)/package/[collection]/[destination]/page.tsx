@@ -55,6 +55,8 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
               alt={typeof data?.gallery?.[0] === 'object' ? (data.gallery[0]?.alt ?? '') : ''}
               fill
               className="object-cover rounded-xl"
+              priority
+              sizes="(min-width: 1280px) 70vw, 100vw"
             />
           </div>
 
@@ -65,6 +67,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
               alt={typeof data?.gallery?.[1] === 'object' ? (data.gallery[1]?.alt ?? '') : ''}
               fill
               className="object-cover rounded-xl"
+              sizes="(min-width: 1280px) 70vw, 100vw"
             />
           </div>
 
@@ -75,6 +78,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
               alt={typeof data?.gallery?.[2] === 'object' ? (data.gallery[2]?.alt ?? '') : ''}
               fill
               className="object-cover rounded-xl"
+              sizes="(min-width: 1280px) 70vw, 100vw"
             />
           </div>
 
@@ -85,6 +89,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
               alt={typeof data?.gallery?.[3] === 'object' ? (data.gallery[3]?.alt ?? '') : ''}
               fill
               className="object-cover rounded-xl"
+              sizes="(min-width: 1280px) 70vw, 100vw"
             />
           </div>
 
@@ -181,6 +186,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  title={`Google maps for ${accomodation?.name}`}
                 ></iframe>
               </div>
               <div className="flex flex-col gap-4 p-4">
