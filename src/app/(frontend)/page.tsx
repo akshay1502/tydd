@@ -74,7 +74,7 @@ export default async function HomePage() {
           </div>
           <div className="w-full lg:w-[412px] h-[468px] relative shrink-0">
             <Image
-              src="/whytydd.png"
+              src="/whytydd.webp"
               alt="image"
               fill
               className="object-cover"
@@ -87,12 +87,12 @@ export default async function HomePage() {
         <h2 className="text-darkBlue px-4 lg:px-20">Our Partners</h2>
         <Marquee className="marqueeContainer">
           {[
-            '/partner1.png',
-            '/partner2.png',
-            '/partner3.png',
-            '/partner4.png',
-            '/partner2.png',
-            '/partner3.png',
+            '/partner1.webp',
+            '/partner2.webp',
+            '/partner3.webp',
+            '/partner4.webp',
+            '/partner2.webp',
+            '/partner3.webp',
           ]?.map((src, index) => (
             <Image
               key={index}

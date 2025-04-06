@@ -25,9 +25,8 @@ export default function OpenForm({
           Enquire Now
         </Button>
       )}
-      {/* {isOpen && ( */}
       <div
-        className={`fixed bottom-0 left-0 w-full z-10 flex items-end flex-col transition-transform duration-300 ${
+        className={`lg:hidden fixed bottom-0 left-0 w-full z-10 flex items-end flex-col transition-transform duration-300 ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
       >

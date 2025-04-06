@@ -51,7 +51,7 @@ export default function AboutPage() {
   return (
     <div className="lg:px-20 px-4 layout">
       <div className="w-full h-[508px] relative rounded-3xl overflow-hidden">
-        <Image src="/contact.jpg" alt="image" fill className="object-cover" />
+        <Image src="/contact.webp" alt="image" fill className="object-cover" />
         <div className="absolute top-1/2 -translate-y-1/2 lg:left-24 left-4 right-4 lg:right-0 lg:w-[848px]">
           <h2 className="text-white  mb-5">About us</h2>
           <p className="text-xl text-white">
@@ -79,13 +79,13 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="lg:w-[508px] lg:h-[508px] w-full aspect-square relative rounded-2xl overflow-hidden shrink-0 self-center">
-          <Image src="/contact.jpg" alt="image" fill className="object-cover" />
+          <Image src="/contact.webp" alt="image" fill className="object-cover" />
         </div>
       </div>
 
       <div className="flex lg:gap-24 gap-6 lg:flex-row flex-col">
         <div className="lg:w-[508px] lg:h-[508px] w-full aspect-square relative rounded-2xl overflow-hidden shrink-0 self-center order-2 lg:order-1">
-          <Image src="/contact.jpg" alt="image" fill className="object-cover" />
+          <Image src="/contact.webp" alt="image" fill className="object-cover" />
         </div>
         <div className="order-1 lg:order-2">
           <h2 className="text-black ">Meet the founder</h2>
@@ -138,7 +138,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="lg:w-[412px] h-[468px] w-full relative shrink-0">
-            <Image src="/whytydd.png" alt="image" fill className="object-cover" />
+            <Image src="/whytydd.webp" alt="image" fill className="object-cover" />
           </div>
         </div>
       </div>
