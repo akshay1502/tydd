@@ -25,7 +25,7 @@ export default function Footer() {
           <ul className="mt-4">
             <li className="lg:py-2">
               <Link
-                href="/"
+                href="/package/packages/Maldives"
                 className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
               >
                 Maldives
@@ -33,42 +33,18 @@ export default function Footer() {
             </li>
             <li className="pt-2 lg:py-2">
               <Link
-                href="/"
+                href="/package/packages/Mauritius"
                 className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
               >
-                Turkey
+                Mauritius
               </Link>
             </li>
             <li className="pt-2 lg:py-2">
               <Link
-                href="/"
+                href="/package/packages/Sri-Lanka"
                 className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
               >
-                Vietnam
-              </Link>
-            </li>
-            <li className="pt-2 lg:py-2">
-              <Link
-                href="/"
-                className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
-              >
-                Greece
-              </Link>
-            </li>
-            <li className="pt-2 lg:py-2">
-              <Link
-                href="/"
-                className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
-              >
-                Dubai
-              </Link>
-            </li>
-            <li className="pt-2 lg:py-2">
-              <Link
-                href="/"
-                className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
-              >
-                Switzerland
+                Sri Lanka
               </Link>
             </li>
           </ul>
@@ -78,18 +54,26 @@ export default function Footer() {
           <ul className="mt-4">
             <li className="lg:py-2">
               <Link
-                href="/"
+                href="/all-packages?type=domestic"
                 className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
               >
-                National packages
+                Domestic packages
               </Link>
             </li>
             <li className="pt-2 lg:py-2">
               <Link
-                href="/"
+                href="/all-packages?type=international"
                 className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
               >
                 International packages
+              </Link>
+            </li>
+            <li className="pt-2 lg:py-2">
+              <Link
+                href="/all-packages?type=cruise"
+                className="text-lg font-semibold lg:font-normal lg:text-xl text-offWhite"
+              >
+                Cruise packages
               </Link>
             </li>
             <li className="pt-2 lg:py-2">
