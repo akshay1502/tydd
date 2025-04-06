@@ -8,7 +8,7 @@ export default function ContactUsPage() {
   return (
     <div>
       <div className="w-full h-96 relative">
-        <Image src="/contact.jpg" alt="image" fill className="object-cover" />
+        <Image src="/contact.webp" alt="image" fill className="object-cover" />
         <div className="absolute top-1/2 -translate-y-1/2 lg:left-1/2 left-4 lg:-translate-x-1/2 lg:w-[1062px]">
           <h2 className="text-white  mb-2">Get in touch</h2>
           <p className="text-lg text-white">Say Hello to New Adventures</p>
