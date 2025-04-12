@@ -1,5 +1,6 @@
 import IconExperStar from '@/assets/icons/expertStar'
 import Image from 'next/image'
+import Services from './services'
 
 const standings = [
   {
@@ -83,25 +84,8 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="flex lg:gap-24 gap-6 lg:flex-row flex-col">
-        <div className="lg:w-[508px] lg:h-[508px] w-full aspect-square relative rounded-2xl overflow-hidden shrink-0 self-center order-2 lg:order-1">
-          <Image src="/contact.webp" alt="image" fill className="object-cover" />
-        </div>
-        <div className="order-1 lg:order-2">
-          <h2 className="text-black ">Meet the founder</h2>
-          <p className="text-3xl text-black font-semibold lg:mt-8 lg:mb-12 my-4">Eshant</p>
-          <p className="lg:text-2xl text-base text-black">
-            Eshant, the visionary founder of Travel Your Dream Destination (TYDD), is a passionate
-            traveler with a mission to make dream vacations accessible to all. With years of
-            experience in curating personalized travel experiences, he brings expertise and a deep
-            understanding of what makes a journey truly memorable. Based in Mumbai, Eshant founded
-            TYDD to blend affordability with luxury, ensuring every traveler enjoys a unique and
-            seamless experience. His commitment to quality and customer satisfaction drives the
-            agency&apos;s success. Eshant believes in turning travel dreams into lifelong memories
-            for every client.
-          </p>
-        </div>
-      </div>
+      <Services />
+
       <div>
         <h2 className="text-darkBlue">Why TYDD</h2>
         <div className="lg:mt-12 mt-6 flex gap-6 lg:flex-row flex-col">
