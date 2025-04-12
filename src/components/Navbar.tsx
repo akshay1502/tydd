@@ -10,11 +10,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <>
-      <nav className="hidden px-20 py-1 lg:flex justify-between items-center">
+      <nav className="fixed top-0 w-full z-[100] bg-white lg:px-20 lg:py-1 px-4 py-2  flex justify-between items-center shadow-[0px_2px_10px_4px_#00000014]">
         <Link href="/" aria-label="Home">
           <IconLogo />
         </Link>
-        <ul className="flex gap-12 items-center">
+        <ul className="hidden lg:flex gap-12 items-center">
           <li>
             <Link href="/" className="text-black font-semibold">
               Home
@@ -48,29 +48,21 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Button asChild>
+            <Button asChild className="b3reg py-1 px-4 font-normal">
               <Link href="/contact-us">Contact Us</Link>
             </Button>
           </li>
         </ul>
+        <button className="block lg:hidden" onClick={() => setIsOpen((prev) => !prev)}>
+          {isOpen ? <IconCross /> : <IconHamburger />}
+        </button>
       </nav>
-      <nav className="bg-white z-50 lg:hidden">
-        <div
-          className={`px-4 py-2 flex justify-between items-center shadow-[0px_2px_10px_4px_#00000014] z-[60] ${
-            isOpen ? 'fixed top-0 w-full bg-white' : 'relative'
-          }`}
-        >
-          <Link href="/">
-            <IconLogo />
-          </Link>
-          <button className="block" onClick={() => setIsOpen((prev) => !prev)}>
-            {isOpen ? <IconCross /> : <IconHamburger />}
-          </button>
-        </div>
+      <div
+        className={`bg-white transition-transform z-[90] duration-300 fixed w-full overflow-hidden ${isOpen ? 'translate-y-0 top-14' : '-translate-y-full top-0'}`}
+        style={{ height: 'calc(100vh - 56px)' }}
+      >
         <ul
-          className={`flex flex-col gap-4 p-4 w-full fixed left-0 h-screen z-50 transition-transform duration-300 bg-white ${
-            isOpen ? 'translate-y-0 top-14' : '-translate-y-full top-0'
-          }`}
+          className="flex flex-col gap-4 p-4 w-full"
           onClick={() => {
             setIsOpen(false)
           }}
@@ -108,7 +100,7 @@ export default function Navbar() {
             </Button>
           </li>
         </ul>
-      </nav>
+      </div>
     </>
   )
 }

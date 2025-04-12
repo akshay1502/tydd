@@ -97,10 +97,45 @@ body {
 
 @layer components {
   .layout {
-    @apply flex flex-col gap-16 lg:gap-28 lg:pt-10 pt-3 pb-20;
+    @apply flex flex-col gap-16 lg:gap-28 lg:pt-10 pt-0 pb-20 lg:mt-16 mt-14;
   }
   .flexCenter {
     @apply flex justify-between items-center;
+  }
+}
+
+@layer utilities {
+  .h1b {
+    @apply lg:text-[56x] lg:leading-[68px] text-[40x] leading-[48px] font-bold;
+  }
+  .h2b {
+    @apply lg:text-[40x] lg:leading-[48px] text-[24x] leading-[32px] font-bold;
+  }
+  .h3 {
+    @apply lg:text-[32px] lg:leading-[40px] text-[20px] leading-[24px];
+  }
+  .h4sb {
+    @apply lg:text-[24px] lg:leading-[32px] text-[16px] leading-[20px];
+  }
+
+  .b1reg {
+    @apply lg:text-[24px] lg:leading-[32px] text-[18px] leading-[24px];
+  }
+  .b2reg {
+    @apply lg:text-[20px] lg:leading-[28px] text-[16px] leading-[20px];
+  }
+  .b3reg {
+    @apply lg:text-[18px] lg:leading-[24px] text-[14px] leading-[18px];
+  }
+  .b4reg {
+    @apply lg:text-[20px] lg:leading-[20px] text-[12px] leading-[18px];
+  }
+  .b5reg {
+    @apply text-[14px] leading-[20px];
+  }
+
+  .cta {
+    @apply lg:text-[20px] lg:leading-[24px] text-[16px] leading-[20px];
   }
 }
 

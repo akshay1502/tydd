@@ -6,6 +6,7 @@ export default function IconLogo() {
       viewBox="0 0 124 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="lg:w-[172px] lg:h-[56px] w-[120px] h-[40px]"
     >
       <g clipPath="url(#clip0_886_2176)">
         <path

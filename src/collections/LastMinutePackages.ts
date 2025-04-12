@@ -124,6 +124,11 @@ export const LastMinutePackages: CollectionConfig = {
           type: 'array',
           fields: [
             {
+              name: 'image',
+              type: 'upload',
+              relationTo: 'media',
+            },
+            {
               name: 'name',
               type: 'text',
             },

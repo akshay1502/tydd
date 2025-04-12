@@ -14,6 +14,7 @@ import IconBreakFast from '@/assets/icons/breakfast'
 import DetailPageForm from '@/components/detailPageForm'
 import LightBoxWrapper from '@/components/Lightbox'
 import OpenForm from './OpenForm'
+import IconMapLocation from '@/assets/icons/mapLocation'
 
 type CustomCollectionSlug = 'packages' | 'fixed-packages' | 'last-minute-packages'
 
@@ -35,7 +36,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
   })
 
   return (
-    <div className="px-4 lg:px-20 layout">
+    <div className="px-4 lg:px-20 lg:pt-4 pt-3 layout">
       <OpenForm
         destination={data?.destination ?? ''}
         discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
@@ -174,24 +175,31 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
         <h2 className="text-darkBlue lg:mb-10 mb-6">Accommodations</h2>
         <div className="flex lg:gap-6 gap-4 lg:flex-wrap overflow-x-scroll lg:overflow-hidden">
           {data?.accomodations?.locations?.map((accomodation) => (
-            <Link
-              key={accomodation?.id}
-              href={accomodation?.link as string}
-              className="border border-offWhite rounded-xl"
-            >
+            <div key={accomodation?.id} className="border border-offWhite rounded-xl">
               <div className="lg:w-[412px] lg:h-[232px] w-[250px] h-[140px] rounded-lg overflow-hidden relative">
-                <iframe
-                  src={accomodation?.link as string}
-                  style={{ width: '100%', height: '100%', border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`Google maps for ${accomodation?.name}`}
-                ></iframe>
+                <Image
+                  src={
+                    typeof accomodation.image === 'object' && accomodation.image?.url
+                      ? accomodation.image.url
+                      : ''
+                  }
+                  alt={
+                    typeof accomodation.image === 'object' && accomodation.image?.alt
+                      ? accomodation.image.alt
+                      : ''
+                  }
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="flex flex-col gap-4 p-4">
                 <div className="flex flex-col gap-2">
-                  <h4 className="text-black">{accomodation?.name}</h4>
+                  <div className="flex justify-between items-center">
+                    <h4 className="text-black">{accomodation?.name}</h4>
+                    <Link href={accomodation?.link as string}>
+                      <IconMapLocation />
+                    </Link>
+                  </div>
                   <p className="text-black text-xl">{accomodation?.location}</p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -203,7 +211,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
                   <p className="text-black text-sm">{accomodation?.whats_included}</p>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
