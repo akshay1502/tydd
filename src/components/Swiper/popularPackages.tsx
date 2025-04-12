@@ -7,6 +7,7 @@ import Pill from '../pill'
 import Packages from '../cards/package'
 import { useState } from 'react'
 import { Package } from '@/payload-types'
+import IconRight from '@/assets/icons/swiperRight'
 
 type SwiperPopularPackagesProps = {
   title: string
@@ -22,11 +23,17 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
       <div className="flexCenter">
         <h2 className="text-darkBlue ">{title}</h2>
         <div className="flex gap-6">
-          <button className="custom-prev" aria-label="Previous Slide">
-            <IconSwiperLeft />
+          <button
+            className="custom-prev flex justify-center items-center lg:h-12 lg:w-12 h-8 w-8 bg-white rounded-full shadow-[1.33px_1.33px_8px_2.67px_rgba(0,0,0,0.2)] lg:shadow-[2px_2px_12px_4px_rgba(0,0,0,0.1)]  rotate-180"
+            aria-label="Previous Slide"
+          >
+            <IconRight />
           </button>
-          <button className="custom-next rotate-180" aria-label="Next Slide">
-            <IconSwiperLeft />
+          <button
+            className="custom-next flex justify-center items-center lg:h-12 lg:w-12 h-8 w-8 bg-white rounded-full shadow-[1.33px_1.33px_8px_2.67px_rgba(0,0,0,0.2)] lg:shadow-[2px_2px_12px_4px_rgba(0,0,0,0.1)]"
+            aria-label="Next Slide"
+          >
+            <IconRight />
           </button>
         </div>
       </div>

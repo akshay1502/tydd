@@ -10,7 +10,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <>
-      <nav className="hidden px-20 py-1 lg:flex justify-between items-center">
+      <nav className="fixed top-0 w-full z-[100] bg-white px-20 py-1 flex justify-between items-center shadow-[0px_2px_10px_4px_#00000014]">
         <Link href="/" aria-label="Home">
           <IconLogo />
         </Link>
@@ -48,7 +48,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Button asChild>
+            <Button asChild className="b3reg py-1 px-4 font-normal">
               <Link href="/contact-us">Contact Us</Link>
             </Button>
           </li>
@@ -56,7 +56,7 @@ export default function Navbar() {
       </nav>
       <nav className="bg-white z-50 lg:hidden">
         <div
-          className={`px-4 py-2 flex justify-between items-center shadow-[0px_2px_10px_4px_#00000014] z-[60] ${
+          className={`px-4 py-2 flex justify-between items-center  z-[60] ${
             isOpen ? 'fixed top-0 w-full bg-white' : 'relative'
           }`}
         >
