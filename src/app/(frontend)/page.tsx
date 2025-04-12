@@ -24,7 +24,7 @@ export default async function HomePage() {
   const homeData = await getHomeData(2)
 
   return (
-    <div className="layout pt-0">
+    <div className="layout">
       {/* Hero packages will redirect to same as popular packages */}
       <SwiperHeroPackages data={(homeData?.hero_Packages as Package[]) || []} />
       {/* packages with popular boolean marked as true */}
