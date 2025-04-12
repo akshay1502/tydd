@@ -8,7 +8,7 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
   return (
     <Link
       href={`/package/last-minute-packages/${data?.destination}`}
-      className="flex flex-col w-[300px] p-2 border border-offWhite rounded-2xl bg-last-minute-card-gradient"
+      className="flex flex-col w-[300px] p-2 border border-offWhite backdrop-blur-md rounded-2xl bg-last-minute-card-gradient"
     >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
         <div className="w-[284px] h-52">

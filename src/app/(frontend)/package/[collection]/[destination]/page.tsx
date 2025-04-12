@@ -36,7 +36,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
   })
 
   return (
-    <div className="px-4 lg:px-20 layout">
+    <div className="px-4 lg:px-20 lg:pt-4 pt-3 layout">
       <OpenForm
         destination={data?.destination ?? ''}
         discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
