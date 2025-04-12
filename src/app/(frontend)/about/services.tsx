@@ -67,7 +67,7 @@ export default function Services() {
     <div>
       <h2 className="mb-14">Services we offer</h2>
       <div className="flex flex-row gap-44 items-end">
-        <div>
+        <div className="grow">
           <Accordion
             type="single"
             collapsible

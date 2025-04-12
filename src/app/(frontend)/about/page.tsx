@@ -1,6 +1,17 @@
-import IconExperStar from '@/assets/icons/expertStar'
 import Image from 'next/image'
 import Services from './services'
+import {
+  IconExcellence,
+  IconPassion,
+  IconPersonalisation,
+  IconTrust,
+} from '@/assets/icons/standings'
+import {
+  IconItineraries,
+  IconLuxury,
+  IconPlanning,
+  IconTrust as IconTrust2,
+} from '@/assets/icons/IconsWhyTydd'
 
 const standings = [
   {
@@ -8,24 +19,32 @@ const standings = [
     title: 'Personalisation',
     description:
       'Your journey, your way—every itinerary is crafted to match your unique preferences and desires.',
+    background: '#FFCB0014',
+    icon: <IconPersonalisation />,
   },
   {
     id: 2,
     title: 'Trust',
     description:
       'Count on us for reliable service, seamless planning, and unforgettable travel experiences.',
+    background: '#e300161a',
+    icon: <IconTrust />,
   },
   {
     id: 3,
     title: 'Passion',
     description:
       'Our love for travel fuels our dedication to creating unforgettable journeys for every explorer.',
+    background: '#6d91c61f',
+    icon: <IconPassion />,
   },
   {
     id: 4,
     title: 'Excellence',
     description:
       'From start to finish, we aim for perfection, delivering top-notch service and memorable experiences.',
+    background: '#0090351a',
+    icon: <IconExcellence />,
   },
 ]
 
@@ -92,11 +111,14 @@ export default function AboutPage() {
           {standings.map((item) => (
             <div
               key={item?.id}
-              className="lg:p-6 p-4 flex lg:gap-6 gap-4 bg-skin flex-col shadow-about rounded-xl"
+              className="lg:p-6 p-4 flex lg:gap-6 gap-4 flex-col items-center shadow-about rounded-xl"
+              style={{
+                background: item?.background,
+              }}
             >
-              <IconExperStar />
+              {item?.icon}
               <h4 className="text-black">{item?.title}</h4>
-              <p className="text-black text-xl">{item?.description}</p>
+              <p className="text-black text-xl text-center">{item?.description}</p>
             </div>
           ))}
         </div>
@@ -113,12 +135,22 @@ export default function AboutPage() {
               and memorable.
             </p>
             <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-y-10 gap-y-4 gap-x-16">
-              {luxuries.map((item) => (
-                <div key={item?.id} className="lg:py-2 flex items-center lg:gap-6 gap-2">
-                  <IconExperStar />
-                  <h4 className="text-black">{item?.title}</h4>
-                </div>
-              ))}
+              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
+                <IconLuxury />
+                <h4 className="text-black">Affordable Luxury</h4>
+              </div>
+              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
+                <IconItineraries />
+                <h4 className="text-black">Custom Itineraries</h4>
+              </div>
+              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
+                <IconPlanning />
+                <h4 className="text-black">Seamless Planning</h4>
+              </div>
+              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
+                <IconTrust2 />
+                <h4 className="text-black">Trusted Quality</h4>
+              </div>
             </div>
           </div>
           <div className="lg:w-[412px] h-[468px] w-full relative shrink-0">
