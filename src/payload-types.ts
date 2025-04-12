@@ -213,6 +213,7 @@ export interface Package {
   accomodations?: {
     locations?:
       | {
+          image?: (number | null) | Media;
           name?: string | null;
           location?: string | null;
           type?: string | null;
@@ -289,6 +290,7 @@ export interface FixedPackage {
   accomodations?: {
     locations?:
       | {
+          image?: (number | null) | Media;
           name?: string | null;
           location?: string | null;
           type?: string | null;
@@ -353,6 +355,7 @@ export interface LastMinutePackage {
   accomodations?: {
     locations?:
       | {
+          image?: (number | null) | Media;
           name?: string | null;
           location?: string | null;
           type?: string | null;
@@ -545,6 +548,7 @@ export interface PackagesSelect<T extends boolean = true> {
         locations?:
           | T
           | {
+              image?: T;
               name?: T;
               location?: T;
               type?: T;
@@ -625,6 +629,7 @@ export interface FixedPackagesSelect<T extends boolean = true> {
         locations?:
           | T
           | {
+              image?: T;
               name?: T;
               location?: T;
               type?: T;
@@ -694,6 +699,7 @@ export interface LastMinutePackagesSelect<T extends boolean = true> {
         locations?:
           | T
           | {
+              image?: T;
               name?: T;
               location?: T;
               type?: T;
