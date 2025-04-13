@@ -123,7 +123,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
 
           <div>
             <h2 className="text-darkBlue lg:mb-10 mb-6">Day-Wise</h2>
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
               {data?.day_breakup?.days?.map((day, index) => (
                 <div key={day?.id} className="flex w-full">
                   <IconLocation />
@@ -162,12 +162,14 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           </div>
         </div>
         <div className="hidden md:block shrink-0">
-          <DetailPageForm
-            destination={data?.destination ?? ''}
-            discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
-            cost={data?.cost as number}
-            type={collection}
-          />
+          <div className="sticky top-16">
+            <DetailPageForm
+              destination={data?.destination ?? ''}
+              discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
+              cost={data?.cost as number}
+              type={collection}
+            />
+          </div>
         </div>
       </div>
 
