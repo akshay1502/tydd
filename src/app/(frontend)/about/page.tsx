@@ -48,33 +48,33 @@ const standings = [
   },
 ]
 
-const luxuries = [
+const whyTydd = [
   {
-    id: 1,
     title: 'Affordable Luxury',
+    icon: <IconLuxury />,
   },
   {
-    id: 2,
     title: 'Custom Itineraries',
+    icon: <IconItineraries />,
   },
   {
-    id: 3,
     title: 'Seamless Planning',
+    icon: <IconPlanning />,
   },
   {
-    id: 4,
-    title: 'Trusted Quality',
+    title: 'Affordable Luxury',
+    icon: <IconTrust2 />,
   },
 ]
 
 export default function AboutPage() {
   return (
-    <div className="lg:px-20 px-4 layout">
+    <div className="lg:px-20 px-4 pt-3 lg:pt-0 layout">
       <div className="w-full h-[508px] relative rounded-3xl overflow-hidden">
         <Image src="/contact.webp" alt="image" fill className="object-cover" />
         <div className="absolute top-1/2 -translate-y-1/2 lg:left-24 left-4 right-4 lg:right-0 lg:w-[848px]">
           <h2 className="text-white  mb-5">About us</h2>
-          <p className="text-xl text-white">
+          <p className="b2reg text-white">
             At Travel Your Dream Destination (TYDD), we turn your travel dreams into reality with
             affordable yet luxurious experiences. Based in Mumbai, we specialize in personalized
             national and international trips crafted to suit your preferences. Our passion lies in
@@ -135,22 +135,12 @@ export default function AboutPage() {
               and memorable.
             </p>
             <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-y-10 gap-y-4 gap-x-16">
-              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
-                <IconLuxury />
-                <h4 className="text-black">Affordable Luxury</h4>
-              </div>
-              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
-                <IconItineraries />
-                <h4 className="text-black">Custom Itineraries</h4>
-              </div>
-              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
-                <IconPlanning />
-                <h4 className="text-black">Seamless Planning</h4>
-              </div>
-              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
-                <IconTrust2 />
-                <h4 className="text-black">Trusted Quality</h4>
-              </div>
+              {whyTydd?.map((item, index) => (
+                <div key={index} className="lg:py-2 flex items-center gap-2 lg:gap-6">
+                  {item.icon}
+                  <h4 className="text-black h4 font-bold">{item.title}</h4>
+                </div>
+              ))}
             </div>
           </div>
           <div className="lg:w-[412px] h-[468px] w-full relative shrink-0">
