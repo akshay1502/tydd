@@ -20,43 +20,43 @@ const services = [
       'Exclusive group booking discounts',
       'Customized corporate travel management',
     ],
-    image: '/image1.webp',
+    image: '/services1.webp',
   },
   {
     id: 2,
     title: 'Packages & Cruises',
     description:
-      'Specialized booking services for corporate events, team retreats, and large group travel with customized itineraries and exclusive rates.',
+      'Comprehensive international and domestic travel packages including luxury cruise experiences to destinations worldwide.',
     points: [
-      'Corporate team building retreats',
-      'Exclusive group booking discounts',
-      'Customized corporate travel management',
+      'Luxury cruise experiences worldwide',
+      'All-inclusive international packages',
+      'Domestic heritage and adventure tours',
     ],
-    image: '/image2.webp',
+    image: '/services2.webp',
   },
   {
     id: 3,
     title: 'Flight Booking',
     description:
-      'Specialized booking services for corporate events, team retreats, and large group travel with customized itineraries and exclusive rates.',
+      'Seamless international and domestic flight booking services with access to exclusive deals and premium airline partnerships.',
     points: [
-      'Corporate team building retreats',
-      'Exclusive group booking discounts',
-      'Customized corporate travel management',
+      'International flight booking with premium airlines',
+      'Domestic air travel at competitive rates',
+      'Special airfare deals and seasonal promotions',
     ],
-    image: '/image3.webp',
+    image: '/services3.webp',
   },
   {
     id: 4,
     title: 'Travel Documentation',
     description:
-      'Specialized booking services for corporate events, team retreats, and large group travel with customized itineraries and exclusive rates.',
+      'Expert assistance with visa applications, passport renewals, and all travel documentation requirements for hassle-free international travel.',
     points: [
-      'Corporate team building retreats',
-      'Exclusive group booking discounts',
-      'Customized corporate travel management',
+      'Visa application assistance for all countries',
+      'Passport renewal and application support',
+      'Travel insurance and documentation guidance',
     ],
-    image: '/contact.webp',
+    image: '/services4.webp',
   },
 ]
 
