@@ -1,6 +1,13 @@
 export default function IconLastMinuteSwiperLeft() {
   return (
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="48"
+      height="48"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="lg:w-12 lg:h-12 w-8"
+    >
       <rect width="48" height="48" rx="24" fill="url(#paint0_linear_360_5101)" />
       <path
         d="M21.165 16.9185L14.0834 24.0001L21.165 31.0818"

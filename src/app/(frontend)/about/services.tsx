@@ -66,8 +66,8 @@ export default function Services() {
   return (
     <div>
       <h2 className="mb-14">Services we offer</h2>
-      <div className="flex flex-row gap-44 items-end">
-        <div className="grow">
+      <div className="flex lg:flex-row flex-col lg:gap-44 gap-6 items-end">
+        <div className="grow order-2 lg:order-1">
           <Accordion
             type="single"
             collapsible
@@ -102,14 +102,14 @@ export default function Services() {
             ))}
           </Accordion>
         </div>
-        <div className="relative w-[360px] h-[360px] shrink-0">
+        <div className="relative w-[320px] h-[320px] shrink-0 order-1 lg:order-2 self-center lg:self-end mt-8 lg:mt-0">
           {services.map((service, index) => {
             const isHidden = index < activeIndex
 
             return (
               <div
                 key={index}
-                className={`w-[360px] h-[360px] absolute transition-all duration-700 overflow-hidden`}
+                className={`w-[320px] h-[320px] absolute transition-all duration-700 overflow-hidden`}
                 style={{
                   bottom: `${(3 - index) * 16}px`,
                   transform: isHidden

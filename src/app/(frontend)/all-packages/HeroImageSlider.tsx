@@ -108,8 +108,8 @@ export default function HeroImageSlider() {
       <Suspense fallback={<div>Loading...</div>}>
         <PackagesTab activeTab={activeTab} />
       </Suspense>
-      <div className="absolute lg:left-28 left-4 top-32 z-10 lg:w-[512px]">
-        <h2 className="text-white text-xl mb-4 capitalize">{activeTab}</h2>
+      <div className="absolute lg:left-28 left-4 top-32 z-10 lg:w-[512px] lg:top-1/2 lg:-translate-y-1/2">
+        <h2 className="text-white mb-4 capitalize">{activeTab}</h2>
         <p className="text-white lg:text-xl text-xs">
           Discover the beauty of India with our curated travel packages, covering breathtaking
           destinations from the Himalayas to the beaches of Goa.
