@@ -77,14 +77,14 @@ export default function HeroImageSlider() {
           <Image src="/image3.webp" alt="Image 3" fill className="thirdImage object-cover" />
         </div>
       </div>
-      <div className="flex-[1.5] h-full grid grid-cols-2 grid-rows-[10fr_7fr] gap-4 relative">
+      <div className="lg:flex-[1.5] flex-[1] h-full grid grid-cols-1 lg:grid-cols-2 grid-rows-[10fr_7fr] gap-4 relative">
         {/* Image 1 */}
-        <div className="relative col-span-1 row-span-1 rounded-b-lg overflow-hidden bg-[#1E1F23]">
+        <div className="relative col-span-2 lg:col-span-1 row-span-1 rounded-b-lg overflow-hidden bg-[#1E1F23]">
           <Image src="/image3.webp" alt="Image 1" fill className="fourthImage object-cover" />
         </div>
 
         {/* Image 2 */}
-        <div className="relative col-span-1 row-span-1 rounded-b-lg overflow-hidden bg-[#1E1F23]">
+        <div className="hidden lg:block relative col-span-1 row-span-1 rounded-b-lg overflow-hidden bg-[#1E1F23]">
           <Image src="/image2.webp" alt="Image 2" fill className="fifthImage object-cover" />
         </div>
 
@@ -109,7 +109,7 @@ export default function HeroImageSlider() {
         <PackagesTab activeTab={activeTab} />
       </Suspense>
       <div className="absolute lg:left-28 left-4 top-32 z-10 lg:w-[512px] lg:top-1/2 lg:-translate-y-1/2">
-        <h2 className="text-white mb-4 capitalize">{activeTab}</h2>
+        <h2 className="text-white lg:mb-4 mb-2 capitalize">{activeTab}</h2>
         <p className="text-white lg:text-xl text-xs">
           Discover the beauty of India with our curated travel packages, covering breathtaking
           destinations from the Himalayas to the beaches of Goa.
