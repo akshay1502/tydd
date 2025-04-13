@@ -24,7 +24,7 @@ export default function Packages({
             sizes="(min-width: 1280px) 20vw"
           />
         </div>
-        <p className="absolute bottom-3 left-3 text-white font-semibold text-xl">
+        <p className="absolute bottom-3 left-3 text-white font-semibold b2reg">
           {data?.destination}
         </p>
       </div>
