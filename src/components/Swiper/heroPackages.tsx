@@ -33,7 +33,7 @@ export default function SwiperHeroPackages({ data }: { data: Package[] }) {
             <div className="flex flex-col gap-5 absolute left-4 lg:left-24 top-1/2 -translate-y-1/2">
               <h4 className="text-white">{item?.title}</h4>
               <h1 className="text-white font-bold text-5xl">{item?.destination}</h1>
-              <Button variant="explore" size="sm" asChild>
+              <Button variant="explore" size="sm" asChild className="cta">
                 <Link href={`/package/packages/${item?.destination}`}>
                   Explore Now <IconHeroSwiperRight />
                 </Link>

@@ -95,7 +95,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Button asChild>
+            <Button asChild className="text-base py-1 px-4 font-normal">
               <Link href="/contact-us">Contact Us</Link>
             </Button>
           </li>

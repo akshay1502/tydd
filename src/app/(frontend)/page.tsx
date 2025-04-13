@@ -17,12 +17,32 @@ import { Package } from '@/payload-types'
 import CircularSlider from '@/components/ImageCircularSlider'
 import { IconItineraries, IconLuxury, IconPlanning, IconTrust } from '@/assets/icons/IconsWhyTydd'
 
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage() {
   const packages = await getPackages(10)
   const fixedPackages = await getFixedPackages()
   const lastMinutePackages = await getLastMinutePackages()
   const homeData = await getHomeData(2)
 
+  const whyTydd = [
+    {
+      title: 'Affordable Luxury',
+      icon: <IconLuxury />,
+    },
+    {
+      title: 'Custom Itineraries',
+      icon: <IconItineraries />,
+    },
+    {
+      title: 'Seamless Planning',
+      icon: <IconPlanning />,
+    },
+    {
+      title: 'Affordable Luxury',
+      icon: <IconTrust />,
+    },
+  ]
   return (
     <div className="layout">
       {/* Hero packages will redirect to same as popular packages */}
@@ -54,22 +74,12 @@ export default async function HomePage() {
               and memorable.
             </p>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-y-4 lg:gap-y-10 gap-x-16">
-              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
-                <IconLuxury />
-                <h4 className="text-black">Affordable Luxury</h4>
-              </div>
-              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
-                <IconItineraries />
-                <h4 className="text-black">Custom Itineraries</h4>
-              </div>
-              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
-                <IconPlanning />
-                <h4 className="text-black">Seamless Planning</h4>
-              </div>
-              <div className="lg:py-2 flex items-center gap-2 lg:gap-6">
-                <IconTrust />
-                <h4 className="text-black">Trusted Quality</h4>
-              </div>
+              {whyTydd?.map((item, index) => (
+                <div key={index} className="lg:py-2 flex items-center gap-2 lg:gap-6">
+                  {item.icon}
+                  <h4 className="text-black h4 font-bold">{item.title}</h4>
+                </div>
+              ))}
             </div>
           </div>
           <div className="w-full lg:w-[412px] h-[468px] relative shrink-0">

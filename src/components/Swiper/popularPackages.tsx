@@ -37,7 +37,7 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
           </button>
         </div>
       </div>
-      <div className="flex gap-4  mt-8 mb-6 lg:gap-6 lg:mt-10 lg:mb-8 overflow-x-scroll lg:overflow-hidden">
+      <div className="flex gap-4 mt-6 mb-6 lg:gap-6 lg:mt-10 lg:mb-8 overflow-x-scroll lg:overflow-hidden">
         <Pill text="All" isActive={'All' === activePill} setActivePill={setActivePill} />
         {setOfCategories?.map((category: string, index: number) => (
           <Pill

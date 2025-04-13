@@ -114,7 +114,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
             </div>
             <ul className="flex flex-col lg:gap-4 gap-2 list-disc list-outisde pl-6">
               {data?.highlights?.pointers?.map((pointer) => (
-                <li key={pointer?.id} className="text-darkBlue text-lg">
+                <li key={pointer?.id} className="text-darkBlue b3reg">
                   {pointer?.pointer}
                 </li>
               ))}
@@ -123,7 +123,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
 
           <div>
             <h2 className="text-darkBlue lg:mb-10 mb-6">Day-Wise</h2>
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
               {data?.day_breakup?.days?.map((day, index) => (
                 <div key={day?.id} className="flex w-full">
                   <IconLocation />
@@ -162,12 +162,14 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
           </div>
         </div>
         <div className="hidden md:block shrink-0">
-          <DetailPageForm
-            destination={data?.destination ?? ''}
-            discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
-            cost={data?.cost as number}
-            type={collection}
-          />
+          <div className="sticky top-16">
+            <DetailPageForm
+              destination={data?.destination ?? ''}
+              discount={data && 'discount' in data ? (data.discount ?? 0) : 0}
+              cost={data?.cost as number}
+              type={collection}
+            />
+          </div>
         </div>
       </div>
 
@@ -192,15 +194,15 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
                   className="object-cover"
                 />
               </div>
-              <div className="flex flex-col gap-4 p-4">
-                <div className="flex flex-col gap-2">
+              <div className="flex flex-col lg:gap-4 gap-2 lg:p-4 p-2">
+                <div className="flex flex-col lg:gap-2 gap-1">
                   <div className="flex justify-between items-center">
-                    <h4 className="text-black">{accomodation?.name}</h4>
+                    <h4 className="text-black font-bold h4">{accomodation?.name}</h4>
                     <Link href={accomodation?.link as string}>
                       <IconMapLocation />
                     </Link>
                   </div>
-                  <p className="text-black text-xl">{accomodation?.location}</p>
+                  <p className="text-black b2reg">{accomodation?.location}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <IconFeature color="#1A1A1A" />

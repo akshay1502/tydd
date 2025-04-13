@@ -8,7 +8,7 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
   return (
     <Link
       href={`/package/last-minute-packages/${data?.destination}`}
-      className="flex flex-col w-[300px] p-2 border border-offWhite backdrop-blur-md rounded-2xl bg-last-minute-card-gradient"
+      className="flex flex-col lg:w-[300px] w-[250px] p-2 border border-offWhite backdrop-blur-md rounded-2xl bg-last-minute-card-gradient"
     >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
         <div className="w-[284px] h-52">
@@ -23,7 +23,7 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
         <p className="rounded-br-lg py-1 px-2 text-white text-xs font-semibold absolute top-0 left-0 bg-last-minute-discount-gradient">
           {data?.discount}% OFF
         </p>
-        <p className="absolute bottom-6 left-4 text-white font-semibold text-xl">
+        <p className="absolute lg:bottom-6 bottom-2 lg:left-4 left-2 text-white font-semibold b2reg">
           {data?.destination}
         </p>
       </div>
@@ -49,7 +49,7 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
           <p className="text-white text-xs line-through">₹{data?.cost?.toLocaleString('en-IN')}</p>
         </div>
       </div>
-      <Button>Explore</Button>
+      <Button className="cta">Explore</Button>
     </Link>
   )
 }

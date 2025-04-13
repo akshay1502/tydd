@@ -33,6 +33,7 @@
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
     "gsap": "^3.12.7",
+    "lottie-react": "^2.4.1",
     "next": "15.1.5",
     "nodemailer": "^6.10.0",
     "payload": "^3.24.0",

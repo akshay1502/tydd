@@ -27,7 +27,7 @@ export default function SwiperLastMinutePackages({
         <div className="absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-[#000] opacity-60 -z-10"></div>
         <div className="lg:px-16 px-4 flexCenter">
           <h2 className="text-white ">{title}</h2>
-          <div className="flex gap-6">
+          <div className="flex lg:gap-6 gap-4">
             <button className="lastMinuteSwiperLeft" aria-label="Previous Slide">
               <IconLastMinuteSwiperLeft />
             </button>

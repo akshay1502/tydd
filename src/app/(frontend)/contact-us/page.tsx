@@ -22,7 +22,7 @@ export default function ContactUsPage() {
           <div className="flex flex-col lg:gap-8 gap-4">
             <div className="flex flex-col lg:gap-4 gap-2">
               <h4 className="text-white">Address</h4>
-              <p className="text-xl text-white">
+              <p className="b2reg text-white">
                 Vihang Valley phase 3, Thane West, Maharashtra (400615)
               </p>
             </div>
@@ -30,11 +30,11 @@ export default function ContactUsPage() {
               <h4 className="text-white">Contact</h4>
               <div className="flex items-center gap-2">
                 <IconEmail />
-                <p className="text-xl text-white">- info@tydd.in</p>
+                <p className="b2reg text-white">- info@tydd.in</p>
               </div>
               <div className="flex items-center gap-2">
                 <IconCall />
-                <p className="text-xl text-white">- +91 789123456</p>
+                <p className="b2reg text-white">- +91 789123456</p>
               </div>
             </div>
             <div className="flex flex-col lg:gap-4 gap-2">

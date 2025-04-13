@@ -20,43 +20,43 @@ const services = [
       'Exclusive group booking discounts',
       'Customized corporate travel management',
     ],
-    image: '/image1.webp',
+    image: '/services1.webp',
   },
   {
     id: 2,
     title: 'Packages & Cruises',
     description:
-      'Specialized booking services for corporate events, team retreats, and large group travel with customized itineraries and exclusive rates.',
+      'Comprehensive international and domestic travel packages including luxury cruise experiences to destinations worldwide.',
     points: [
-      'Corporate team building retreats',
-      'Exclusive group booking discounts',
-      'Customized corporate travel management',
+      'Luxury cruise experiences worldwide',
+      'All-inclusive international packages',
+      'Domestic heritage and adventure tours',
     ],
-    image: '/image2.webp',
+    image: '/services2.webp',
   },
   {
     id: 3,
     title: 'Flight Booking',
     description:
-      'Specialized booking services for corporate events, team retreats, and large group travel with customized itineraries and exclusive rates.',
+      'Seamless international and domestic flight booking services with access to exclusive deals and premium airline partnerships.',
     points: [
-      'Corporate team building retreats',
-      'Exclusive group booking discounts',
-      'Customized corporate travel management',
+      'International flight booking with premium airlines',
+      'Domestic air travel at competitive rates',
+      'Special airfare deals and seasonal promotions',
     ],
-    image: '/image3.webp',
+    image: '/services3.webp',
   },
   {
     id: 4,
     title: 'Travel Documentation',
     description:
-      'Specialized booking services for corporate events, team retreats, and large group travel with customized itineraries and exclusive rates.',
+      'Expert assistance with visa applications, passport renewals, and all travel documentation requirements for hassle-free international travel.',
     points: [
-      'Corporate team building retreats',
-      'Exclusive group booking discounts',
-      'Customized corporate travel management',
+      'Visa application assistance for all countries',
+      'Passport renewal and application support',
+      'Travel insurance and documentation guidance',
     ],
-    image: '/contact.webp',
+    image: '/services4.webp',
   },
 ]
 
@@ -66,8 +66,8 @@ export default function Services() {
   return (
     <div>
       <h2 className="mb-14">Services we offer</h2>
-      <div className="flex flex-row gap-44 items-end">
-        <div className="grow">
+      <div className="flex lg:flex-row flex-col lg:gap-44 gap-6 items-end">
+        <div className="grow order-2 lg:order-1">
           <Accordion
             type="single"
             collapsible
@@ -102,14 +102,14 @@ export default function Services() {
             ))}
           </Accordion>
         </div>
-        <div className="relative w-[360px] h-[360px] shrink-0">
+        <div className="relative w-[320px] h-[320px] shrink-0 order-1 lg:order-2 self-center lg:self-end mt-8 lg:mt-0">
           {services.map((service, index) => {
             const isHidden = index < activeIndex
 
             return (
               <div
                 key={index}
-                className={`w-[360px] h-[360px] absolute transition-all duration-700 overflow-hidden`}
+                className={`w-[320px] h-[320px] absolute transition-all duration-700 overflow-hidden`}
                 style={{
                   bottom: `${(3 - index) * 16}px`,
                   transform: isHidden

@@ -12,7 +12,7 @@ export default function FixedDeparture({ data }: { data: FixedPackage }) {
   return (
     <Link
       href={`/package/fixed-packages/${data?.destination}`}
-      className="flex flex-col w-[300px] border border-offWhite rounded-lg"
+      className="flex flex-col lg:w-[300px] w-[260px] border border-offWhite rounded-lg"
     >
       <div className="relative rounded-lg overflow-hidden">
         <div className="w-[300] h-56">
@@ -24,7 +24,7 @@ export default function FixedDeparture({ data }: { data: FixedPackage }) {
             sizes="(min-width: 1280px) 30vw"
           />
         </div>
-        <p className="absolute bottom-3 left-3 text-white font-semibold text-xl">
+        <p className="absolute bottom-3 left-3 text-white font-semibold b2reg">
           {data?.destination}
         </p>
       </div>
