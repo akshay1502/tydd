@@ -69,7 +69,7 @@ const whyTydd = [
 
 export default function AboutPage() {
   return (
-    <div className="lg:px-20 px-4 pt-3 lg:pt-0 layout">
+    <div className="lg:px-20 px-4 pt-3 lg:pt-10 layout">
       <div className="w-full h-[508px] relative rounded-3xl overflow-hidden">
         <Image src="/contact.webp" alt="image" fill className="object-cover" />
         <div className="absolute top-1/2 -translate-y-1/2 lg:left-24 left-4 right-4 lg:right-0 lg:w-[848px]">

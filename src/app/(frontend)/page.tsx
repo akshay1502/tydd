@@ -17,6 +17,8 @@ import { Package } from '@/payload-types'
 import CircularSlider from '@/components/ImageCircularSlider'
 import { IconItineraries, IconLuxury, IconPlanning, IconTrust } from '@/assets/icons/IconsWhyTydd'
 
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage() {
   const packages = await getPackages(10)
   const fixedPackages = await getFixedPackages()

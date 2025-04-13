@@ -4,6 +4,8 @@ import CircularSlider from '@/components/ImageCircularSlider'
 import { Suspense } from 'react'
 import HeroImageSlider from './HeroImageSlider'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AllPackagesPage() {
   const allPackages = await getPackages()
   const homeData = await getHomeData(1)
