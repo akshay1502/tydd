@@ -20,10 +20,12 @@ import { IconItineraries, IconLuxury, IconPlanning, IconTrust } from '@/assets/i
 export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
-  const packages = await getPackages(10)
-  const fixedPackages = await getFixedPackages()
-  const lastMinutePackages = await getLastMinutePackages()
-  const homeData = await getHomeData(2)
+  const [packages, fixedPackages, lastMinutePackages, homeData] = await Promise.all([
+    getPackages(10),
+    getFixedPackages(),
+    getLastMinutePackages(),
+    getHomeData(2),
+  ])
 
   const whyTydd = [
     {
