@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../ui/button'
-import IconFeature from '@/assets/icons/feature'
 import { LastMinutePackage } from '@/payload-types'
+import IconLastMinuteFeature from '@/assets/icons/lastMinuteFeature'
 
 export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
   return (
@@ -37,7 +37,7 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
         {data?.features?.map((item) => {
           return (
             <div className="text-white font-semibold flex items-center gap-2" key={item?.id}>
-              <IconFeature color="white" />
+              <IconLastMinuteFeature />
               <p className="text-white text-sm">{item?.feature}</p>
             </div>
           )

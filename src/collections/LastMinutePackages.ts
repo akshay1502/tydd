@@ -33,6 +33,8 @@ export const LastMinutePackages: CollectionConfig = {
     {
       name: 'features',
       type: 'array',
+      minRows: 2,
+      maxRows: 2,
       fields: [
         {
           name: 'feature',

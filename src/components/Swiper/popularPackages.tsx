@@ -2,7 +2,6 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
-import IconSwiperLeft from '@/assets/icons/swiperLeft'
 import Pill from '../pill'
 import Packages from '../cards/package'
 import { useState } from 'react'
