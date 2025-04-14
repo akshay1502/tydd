@@ -99,3 +99,18 @@ export const getHomeData = async (depth: number) => {
 
   return homeData
 }
+
+export const getAllPackagesTestimonials = async (depth: number) => {
+  // get the All Packages testimonial data [domestic, international, cruise] data
+  const homeData = await payload.findGlobal({
+    slug: 'home',
+    depth,
+    select: {
+      testimonials_domestic: true,
+      testimonials_international: true,
+      testimonials_cruise: true,
+    },
+  })
+
+  return homeData
+}

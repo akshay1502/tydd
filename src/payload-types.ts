@@ -785,6 +785,22 @@ export interface Home {
         id?: string | null;
       }[]
     | null;
+  testimonials_international?:
+    | {
+        name?: string | null;
+        review?: string | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  testimonials_cruise?:
+    | {
+        name?: string | null;
+        review?: string | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -811,6 +827,22 @@ export interface HomeSelect<T extends boolean = true> {
         id?: T;
       };
   testimonials_domestic?:
+    | T
+    | {
+        name?: T;
+        review?: T;
+        image?: T;
+        id?: T;
+      };
+  testimonials_international?:
+    | T
+    | {
+        name?: T;
+        review?: T;
+        image?: T;
+        id?: T;
+      };
+  testimonials_cruise?:
     | T
     | {
         name?: T;

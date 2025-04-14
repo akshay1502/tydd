@@ -1,6 +1,5 @@
-import { getHomeData, getPackages } from '@/payload'
+import { getAllPackagesTestimonials, getPackages } from '@/payload'
 import FilterPackages from './FilterPackages'
-import CircularSlider from '@/components/ImageCircularSlider'
 import { Suspense } from 'react'
 import HeroImageSlider from './HeroImageSlider'
 
@@ -8,7 +7,8 @@ export const dynamic = 'force-dynamic'
 
 export default async function AllPackagesPage() {
   const allPackages = await getPackages()
-  const homeData = await getHomeData(1)
+  const testimonial_data = await getAllPackagesTestimonials(1)
+
   return (
     <div className="layout">
       {/* image gallery section */}
@@ -16,9 +16,8 @@ export default async function AllPackagesPage() {
         <HeroImageSlider />
       </Suspense>
       <Suspense fallback={<div>Loading...</div>}>
-        <FilterPackages allPackages={allPackages} />
+        <FilterPackages allPackages={allPackages} testimonial_data={testimonial_data} />
       </Suspense>
-      <CircularSlider data={homeData?.testimonials_domestic ?? []} />
     </div>
   )
 }

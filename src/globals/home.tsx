@@ -41,6 +41,8 @@ export const Home: GlobalConfig = {
     {
       name: 'testimonials_home',
       type: 'array',
+      minRows: 5,
+      maxRows: 5,
       fields: [
         {
           name: 'name',
@@ -60,6 +62,50 @@ export const Home: GlobalConfig = {
     {
       name: 'testimonials_domestic',
       type: 'array',
+      minRows: 5,
+      maxRows: 5,
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+        },
+        {
+          name: 'review',
+          type: 'text',
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+        },
+      ],
+    },
+    {
+      name: 'testimonials_international',
+      type: 'array',
+      minRows: 5,
+      maxRows: 5,
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+        },
+        {
+          name: 'review',
+          type: 'text',
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+        },
+      ],
+    },
+    {
+      name: 'testimonials_cruise',
+      type: 'array',
+      minRows: 5,
+      maxRows: 5,
       fields: [
         {
           name: 'name',
