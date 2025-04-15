@@ -2,7 +2,6 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
-import IconSwiperLeft from '@/assets/icons/swiperLeft'
 import Pill from '../pill'
 import Packages from '../cards/package'
 import { useState } from 'react'
@@ -16,7 +15,17 @@ type SwiperPopularPackagesProps = {
 export default function SwiperPopularPackages({ title, data }: SwiperPopularPackagesProps) {
   const [activePill, setActivePill] = useState('All')
 
-  const setOfCategories = [...new Set(data.flatMap((item) => item.category || []))]
+  const setOfCategories = [
+    ...new Set(
+      data
+        .flatMap((item) =>
+          (item.category || []).map((element) =>
+            typeof element === 'object' && element !== null ? element.name : null,
+          ),
+        )
+        .filter(Boolean),
+    ),
+  ]
 
   return (
     <div className="px-4 lg:px-20">
@@ -39,7 +48,7 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
       </div>
       <div className="flex gap-4 mt-6 mb-6 lg:gap-6 lg:mt-10 lg:mb-8 overflow-x-scroll lg:overflow-hidden">
         <Pill text="All" isActive={'All' === activePill} setActivePill={setActivePill} />
-        {setOfCategories?.map((category: string, index: number) => (
+        {(setOfCategories as string[])?.map((category: string, index: number) => (
           <Pill
             key={index}
             text={category ?? ''}
@@ -70,7 +79,17 @@ export default function SwiperPopularPackages({ title, data }: SwiperPopularPack
         className="mySwiper"
       >
         {data
-          ?.filter((packages: Package) => activePill === 'All' || packages?.category === activePill)
+          ?.filter(
+            (packages: Package) =>
+              activePill === 'All' ||
+              packages?.category?.some(
+                (item) =>
+                  typeof item === 'object' &&
+                  item !== null &&
+                  'name' in item &&
+                  item.name === activePill,
+              ),
+          )
           .map((data: Package) => (
             <SwiperSlide key={data?.id} className="!w-auto">
               <Packages data={data} />

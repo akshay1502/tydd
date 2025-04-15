@@ -99,7 +99,7 @@ export default async function DetailPage({ params }: { params: DetailPageProps }
       </div>
 
       <div className="flex lg:gap-24">
-        <div className="flex flex-col gap-16 overflow-hidden">
+        <div className="flex flex-col gap-16 grow overflow-hidden">
           <div>
             <h2 className="text-darkBlue ">Overview</h2>
             <p className="lg:text-xl text-sm text-black lg:mt-8 mt-6">{data?.overview}</p>

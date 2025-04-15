@@ -23,8 +23,9 @@ export default function FixedDeparture({ data }: { data: FixedPackage }) {
             className="object-cover"
             sizes="(min-width: 1280px) 30vw"
           />
+          <div className="w-full h-full bg-[#00000026] z-10 absolute"></div>
         </div>
-        <p className="absolute bottom-3 left-3 text-white font-semibold b2reg">
+        <p className="absolute lg:bottom-3 lg:left-3 bottom-2 left-2 z-20 text-white font-semibold b2reg">
           {data?.destination}
         </p>
       </div>

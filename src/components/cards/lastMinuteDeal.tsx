@@ -1,14 +1,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../ui/button'
-import IconFeature from '@/assets/icons/feature'
 import { LastMinutePackage } from '@/payload-types'
+import IconLastMinuteFeature from '@/assets/icons/lastMinuteFeature'
 
 export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
   return (
     <Link
       href={`/package/last-minute-packages/${data?.destination}`}
-      className="flex flex-col lg:w-[300px] w-[250px] p-2 border border-offWhite backdrop-blur-md rounded-2xl bg-last-minute-card-gradient"
+      className="flex flex-col lg:w-[300px] w-[250px] p-2 rounded-2xl backdrop-blur-md"
+      style={{
+        background:
+          'linear-gradient(112.61deg, rgba(255, 255, 255, 0.32) -3.49%, rgba(255, 255, 255, 0.1) 114.11%)',
+      }}
     >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
         <div className="w-[284px] h-52">
@@ -19,11 +23,12 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
             className="object-cover"
             sizes="(min-width: 1280px) 25vw"
           />
+          <div className="w-full h-full bg-[#00000026] z-10 absolute"></div>
         </div>
-        <p className="rounded-br-lg py-1 px-2 text-white text-xs font-semibold absolute top-0 left-0 bg-last-minute-discount-gradient">
+        <p className="rounded-br-lg py-1 px-2 z-20 text-white text-xs font-semibold absolute top-0 left-0 bg-last-minute-discount-gradient">
           {data?.discount}% OFF
         </p>
-        <p className="absolute lg:bottom-6 bottom-2 lg:left-4 left-2 text-white font-semibold b2reg">
+        <p className="absolute lg:bottom-3 lg:left-3 bottom-2 left-2 z-20 text-white font-semibold b2reg">
           {data?.destination}
         </p>
       </div>
@@ -32,7 +37,7 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
         {data?.features?.map((item) => {
           return (
             <div className="text-white font-semibold flex items-center gap-2" key={item?.id}>
-              <IconFeature color="white" />
+              <IconLastMinuteFeature />
               <p className="text-white text-sm">{item?.feature}</p>
             </div>
           )

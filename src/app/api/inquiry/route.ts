@@ -24,6 +24,7 @@ export async function POST(req: Request) {
       - Mobile: ${data?.mobile ?? 'NA'}
       - Email: ${data?.email ?? 'NA'}
       - No. of travellers: ${data?.travellers ?? 'NA'}
+      - Destination: ${data?.destination?.replaceAll('-', ' ') ?? 'NA'}
       - Type: ${data?.type?.replaceAll('-', ' ') ?? 'NA'}
       
       Please review and follow up as needed.

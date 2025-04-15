@@ -14,6 +14,7 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
 import { Inquiry } from '@/payload-types'
+import { useState } from 'react'
 
 const formSchema = z.object({
   name: z
@@ -50,6 +51,8 @@ export default function DetailPageForm({
   cost: number
   type: string
 }) {
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false)
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -62,6 +65,7 @@ export default function DetailPageForm({
 
   const onSubmit = async (data: InquiryFormData) => {
     try {
+      setIsFormSubmitting(true)
       // Create an entry in contact collection and send email
       const res = await fetch('/api/inquiry', {
         method: 'POST',
@@ -80,6 +84,7 @@ export default function DetailPageForm({
       console.log('ERR ', error)
     } finally {
       form.reset()
+      setIsFormSubmitting(false)
     }
   }
 
@@ -162,7 +167,7 @@ export default function DetailPageForm({
           </p>
         </div>
 
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full" disabled={isFormSubmitting}>
           Get Expert Assistance
         </Button>
       </form>

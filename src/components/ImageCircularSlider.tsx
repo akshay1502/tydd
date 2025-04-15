@@ -8,7 +8,7 @@ import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(MotionPathPlugin)
 
-type Testimonial = {
+export type Testimonial = {
   name?: string | null
   review?: string | null
   image?: (number | null) | Media

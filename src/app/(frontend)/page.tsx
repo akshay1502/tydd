@@ -6,7 +6,13 @@ import SwiperInternationalPackages from '@/components/Swiper/internationalPackag
 import SwiperLastMinutePackages from '@/components/Swiper/lastMinutePackages'
 import SwiperHeroPackages from '@/components/Swiper/heroPackages'
 import Image from 'next/image'
-import { getFixedPackages, getHomeData, getLastMinutePackages, getPackages } from '@/payload'
+import {
+  getFixedPackages,
+  getHomeData,
+  getInternationalPackages,
+  getLastMinutePackages,
+  getPopularPackages,
+} from '@/payload'
 import Marquee from 'react-fast-marquee'
 
 // swiper navigation and pagination css files
@@ -20,10 +26,14 @@ import { IconItineraries, IconLuxury, IconPlanning, IconTrust } from '@/assets/i
 export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
-  const packages = await getPackages(10)
-  const fixedPackages = await getFixedPackages()
-  const lastMinutePackages = await getLastMinutePackages()
-  const homeData = await getHomeData(2)
+  const [packages, fixedPackages, lastMinutePackages, homeData, internationalPackages] =
+    await Promise.all([
+      getPopularPackages(),
+      getFixedPackages(),
+      getLastMinutePackages(),
+      getHomeData(2),
+      getInternationalPackages(),
+    ])
 
   const whyTydd = [
     {
@@ -60,7 +70,7 @@ export default async function HomePage() {
       {/* packages with international type */}
       <SwiperInternationalPackages
         title="International Budget-Friendly Packages"
-        data={packages?.filter((item) => item?.type == 'international')}
+        data={internationalPackages}
       />
       <div className="px-4 lg:px-20">
         <h2 className="text-darkBlue ">Why TYDD</h2>

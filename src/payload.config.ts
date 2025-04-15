@@ -15,6 +15,8 @@ import { LastMinutePackages } from './collections/LastMinutePackages'
 import { Contact } from './collections/Contact'
 import { Home } from './globals/home'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import { Categories } from './collections/Categories'
+import { Locations } from './collections/Locations'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,7 +28,17 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Packages, Inquiry, FixedPackages, LastMinutePackages, Contact],
+  collections: [
+    Users,
+    Media,
+    Packages,
+    Inquiry,
+    FixedPackages,
+    LastMinutePackages,
+    Contact,
+    Categories,
+    Locations,
+  ],
   globals: [Home],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
