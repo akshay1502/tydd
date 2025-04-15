@@ -33,11 +33,20 @@ export const Packages: CollectionConfig = {
       relationTo: 'media',
     },
     {
+      name: 'is_popular',
+      type: 'checkbox',
+    },
+    {
+      name: 'popular_order',
+      type: 'number',
+      defaultValue: 0,
+      min: 0,
+    },
+    {
       name: 'order',
       type: 'number',
       defaultValue: 0,
       min: 0,
-      max: 10,
     },
     {
       name: 'type',
@@ -46,8 +55,16 @@ export const Packages: CollectionConfig = {
     },
     {
       name: 'category',
-      type: 'select',
-      options: ['Solo', 'Adventure', 'Honeymoon', 'Group', 'Friends', 'Family', 'Religious'],
+      label: 'Categories',
+      type: 'relationship',
+      relationTo: 'categories', // Reference to the `packages` collection
+      hasMany: true, // Allows selecting multiple packages
+    },
+    {
+      name: 'location',
+      label: 'Location',
+      type: 'relationship',
+      relationTo: 'locations', // Reference to the `packages` collection
     },
     {
       name: 'gallery',

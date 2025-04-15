@@ -74,6 +74,8 @@ export interface Config {
     'fixed-packages': FixedPackage;
     'last-minute-packages': LastMinutePackage;
     contact: Contact;
+    categories: Category;
+    locations: Location;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -87,6 +89,8 @@ export interface Config {
     'fixed-packages': FixedPackagesSelect<false> | FixedPackagesSelect<true>;
     'last-minute-packages': LastMinutePackagesSelect<false> | LastMinutePackagesSelect<true>;
     contact: ContactSelect<false> | ContactSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    locations: LocationsSelect<false> | LocationsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -176,9 +180,12 @@ export interface Package {
   package?: string | null;
   cost?: number | null;
   image?: (number | null) | Media;
+  is_popular?: boolean | null;
+  popular_order?: number | null;
   order?: number | null;
   type?: ('domestic' | 'international' | 'cruise') | null;
-  category?: ('Solo' | 'Adventure' | 'Honeymoon' | 'Group' | 'Friends' | 'Family' | 'Religious') | null;
+  category?: (number | Category)[] | null;
+  location?: (number | null) | Location;
   gallery?: (number | Media)[] | null;
   overview?: string | null;
   highlights?: {
@@ -223,6 +230,26 @@ export interface Package {
         }[]
       | null;
   };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "locations".
+ */
+export interface Location {
+  id: number;
+  name: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -416,6 +443,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'contact';
         value: number | Contact;
+      } | null)
+    | ({
+        relationTo: 'categories';
+        value: number | Category;
+      } | null)
+    | ({
+        relationTo: 'locations';
+        value: number | Location;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -504,9 +539,12 @@ export interface PackagesSelect<T extends boolean = true> {
   package?: T;
   cost?: T;
   image?: T;
+  is_popular?: T;
+  popular_order?: T;
   order?: T;
   type?: T;
   category?: T;
+  location?: T;
   gallery?: T;
   overview?: T;
   highlights?:
@@ -721,6 +759,24 @@ export interface ContactSelect<T extends boolean = true> {
   email?: T;
   destination?: T;
   ideas?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "locations_select".
+ */
+export interface LocationsSelect<T extends boolean = true> {
+  name?: T;
   updatedAt?: T;
   createdAt?: T;
 }
