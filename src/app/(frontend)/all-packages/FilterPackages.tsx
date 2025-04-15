@@ -47,8 +47,8 @@ export default function FilterPackages({
   return (
     <>
       <div className="lg:px-20 px-4">
-        <h2 className="text-darkBlue lg:mb-8 mb-6 capitalize">Explore {activeTab}</h2>
-        <div className="flex gap-6 my-9">
+        <h2 className="text-darkBlue capitalize">Explore {activeTab}</h2>
+        <div className="flex lg:gap-6 gap-4 lg:my-9 my-6 overflow-x-scroll scrollbar-hide">
           <Pill text="All" isActive={'All' === activePill} setActivePill={setActivePill} />
           {setOfLocations.map((location: string, index: number) => (
             <Pill
