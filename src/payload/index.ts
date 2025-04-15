@@ -40,6 +40,30 @@ export const getPackages = async () => {
   return result?.docs as Package[]
 }
 
+export const getInternationalPackages = async () => {
+  const result = await payload.find({
+    collection: 'packages', // required
+    depth: 1,
+    pagination: false, // If you want to disable pagination count, etc.
+    select: {
+      destination: true,
+      package: true,
+      cost: true,
+      image: true,
+      type: true,
+      updatedAt: true,
+      createdAt: true,
+      category: true,
+      location: true,
+    }, // Fetch only required fields
+    where: {
+      type: { equals: 'international' },
+    },
+    sort: '-order',
+  })
+  return result?.docs as Package[]
+}
+
 export const getPopularPackages = async () => {
   const result = await payload.find({
     collection: 'packages', // required
