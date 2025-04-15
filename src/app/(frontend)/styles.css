@@ -175,3 +175,12 @@ body {
     margin-top: 32px;
   }
 }
+
+/* hide scrollbar globally or create a utility class */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
