@@ -1,18 +1,16 @@
 'use client'
-import LightboxComponent from 'yet-another-react-lightbox'
+import LightboxComponent, {
+  isImageFitCover,
+  isImageSlide,
+  useLightboxProps,
+  useLightboxState,
+} from 'yet-another-react-lightbox'
 import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails'
 import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import { Button } from './ui/button'
 import { useState } from 'react'
 import Image from 'next/image'
-
-import {
-  isImageFitCover,
-  isImageSlide,
-  useLightboxProps,
-  useLightboxState,
-} from 'yet-another-react-lightbox'
 
 const isNextJsImage = (slide: any) => {
   return isImageSlide(slide) && typeof slide.width === 'number' && typeof slide.height === 'number'
