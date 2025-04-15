@@ -29,8 +29,8 @@ export default function Footer() {
       header: 'Reach us',
       links: [
         { name: 'info@tydd.in', href: 'mailto:info@tydd.in' },
-        { name: 'Connect over Whatsapp', href: 'https://wa.me/917891234560' },
-        { name: '+91-7891234560', href: 'tel:+917891234560' },
+        { name: 'Connect over Whatsapp', href: 'https://wa.me/919987159008' },
+        { name: '+91-9987159008', href: 'tel:+9199871 59008' },
       ],
     },
   ]
@@ -43,9 +43,20 @@ export default function Footer() {
             <IconLogo />
           </Link>
           <div className="mt-4 lg:mt-8 flex gap-10">
-            <IconFaceBook />
-            <IconInstagram />
-            <IconLinkedIn />
+            {[
+              {
+                icon: <IconFaceBook />,
+                link: 'https://www.facebook.com/profile.php?id=61570062492405',
+              },
+              {
+                icon: <IconInstagram />,
+                link: 'https://www.instagram.com/travelyourdreamdestination?igsh=MWppM2JwMmJ1OXpqag==',
+              },
+            ]?.map((item, index) => (
+              <Link key={index} href={item.link} target="_blank">
+                {item.icon}
+              </Link>
+            ))}
           </div>
         </div>
         {footerData.map((item, index) => (
@@ -54,7 +65,7 @@ export default function Footer() {
             <ul className="mt-4">
               {item.links.map((link, index) => (
                 <li key={index} className="lg:py-2 py-0.5">
-                  <Link href={link.href} className="b2reg text-offWhite">
+                  <Link href={link.href} className="b2reg text-offWhite" target="_blank">
                     {link.name}
                   </Link>
                 </li>
