@@ -6,7 +6,7 @@ import SwiperInternationalPackages from '@/components/Swiper/internationalPackag
 import SwiperLastMinutePackages from '@/components/Swiper/lastMinutePackages'
 import SwiperHeroPackages from '@/components/Swiper/heroPackages'
 import Image from 'next/image'
-import { getFixedPackages, getHomeData, getLastMinutePackages, getPackages } from '@/payload'
+import { getFixedPackages, getHomeData, getLastMinutePackages, getPopularPackages } from '@/payload'
 import Marquee from 'react-fast-marquee'
 
 // swiper navigation and pagination css files
@@ -21,7 +21,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function HomePage() {
   const [packages, fixedPackages, lastMinutePackages, homeData] = await Promise.all([
-    getPackages(10),
+    getPopularPackages(),
     getFixedPackages(),
     getLastMinutePackages(),
     getHomeData(2),

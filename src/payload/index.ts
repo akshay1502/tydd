@@ -19,12 +19,11 @@ export const getDetailPage = async (collection: CollectionSlug, destination: str
   return result?.docs[0] as Package | LastMinutePackage | FixedPackage
 }
 
-export const getPackages = async (limit?: number) => {
+export const getPackages = async () => {
   const result = await payload.find({
     collection: 'packages', // required
     depth: 1,
     pagination: false, // If you want to disable pagination count, etc.
-    limit: limit ?? 0,
     select: {
       destination: true,
       package: true,
@@ -34,8 +33,34 @@ export const getPackages = async (limit?: number) => {
       updatedAt: true,
       createdAt: true,
       category: true,
+      location: true,
     }, // Fetch only required fields
     sort: '-order',
+  })
+  return result?.docs as Package[]
+}
+
+export const getPopularPackages = async () => {
+  const result = await payload.find({
+    collection: 'packages', // required
+    depth: 1,
+    pagination: false, // If you want to disable pagination count, etc.
+    select: {
+      destination: true,
+      package: true,
+      cost: true,
+      image: true,
+      type: true,
+      updatedAt: true,
+      createdAt: true,
+      category: true,
+      is_popular: true,
+      popular_order: true,
+    }, // Fetch only required fields
+    where: {
+      is_popular: { equals: true },
+    },
+    sort: '-popular_order',
   })
   return result?.docs as Package[]
 }
