@@ -60,13 +60,17 @@ export default async function HomePage() {
       {/* packages with popular boolean marked as true */}
       <SwiperPopularPackages title="Popular Packages" data={packages} />
       {/* last minute date packages with discount */}
-      <SwiperLastMinutePackages
-        title="Last Minute Deals"
-        data={lastMinutePackages}
-        dates={homeData?.last_minute_date}
-      />
+      {homeData?.last_minute_date?.show_last_minute_packages && (
+        <SwiperLastMinutePackages
+          title="Last Minute Deals"
+          data={lastMinutePackages}
+          dates={homeData?.last_minute_date}
+        />
+      )}
       {/* fixed date packages */}
-      <SwiperFixedPackages title="Fixed Departures" data={fixedPackages} />
+      {homeData?.show_fixed_departures_packages && (
+        <SwiperFixedPackages title="Fixed Departures" data={fixedPackages} />
+      )}
       {/* packages with international type */}
       <SwiperInternationalPackages
         title="International Budget-Friendly Packages"

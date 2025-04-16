@@ -15,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
 import { Textarea } from './ui/textarea'
 import { Contact } from '@/payload-types'
+import { useState } from 'react'
 
 const formSchema = z.object({
   name: z
@@ -49,8 +50,11 @@ export default function ContactUsForm() {
     },
   })
 
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false)
+
   const onSubmit = async (data: ContactFormData) => {
     try {
+      setIsFormSubmitting(true)
       // Create an entry in contact collection and send email
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -67,6 +71,7 @@ export default function ContactUsForm() {
       console.log('ERR ', error)
     } finally {
       form.reset()
+      setIsFormSubmitting(false)
     }
   }
   return (
@@ -148,25 +153,7 @@ export default function ContactUsForm() {
           )}
         />
 
-        {/* <FormField
-          control={form.control}
-          name="travellers"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>No. of Travellers</FormLabel>
-              <FormControl>
-                <Input type="number" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> 
-        // travellers: z.preprocess(
-  //   (val) => (typeof val === 'string' ? parseInt(val, 10) : val),
-  //   z.number().min(1, 'At least 1 traveller is required'),
-  // ),*/}
-
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full" disabled={isFormSubmitting}>
           Contact Us
         </Button>
       </form>

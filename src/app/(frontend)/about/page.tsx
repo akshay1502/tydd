@@ -86,16 +86,19 @@ export default function AboutPage() {
       <div className="flex lg:gap-24 gap-6 lg:flex-row flex-col">
         <div>
           <h2 className="text-black">Meet the founder</h2>
-          <p className="text-3xl text-black font-semibold lg:mt-8 lg:mb-12 my-4">Eshant</p>
+          <h3 className="h3 text-black font-semibold lg:mt-8 lg:mb-12 my-4">Eshant Ojha</h3>
           <p className="lg:text-2xl text-base text-black">
-            Eshant, the visionary founder of Travel Your Dream Destination (TYDD), is a passionate
-            traveler with a mission to make dream vacations accessible to all. With years of
-            experience in curating personalized travel experiences, he brings expertise and a deep
-            understanding of what makes a journey truly memorable. Based in Mumbai, Eshant founded
-            TYDD to blend affordability with luxury, ensuring every traveler enjoys a unique and
-            seamless experience. His commitment to quality and customer satisfaction drives the
-            agency&apos;s success. Eshant believes in turning travel dreams into lifelong memories
-            for every client.
+            With over a decade of diverse experience in the travel, event, and film industries,
+            Eshant Ojha founded Travel Your Dream Destination in 2012 to turn his passion for travel
+            into memorable experiences for others. A Commerce graduate with military training and a
+            background in Cruise Management, Eshant has worked with top brands like Wizcraft and
+            T-Series, managing MICE events and film productions across the globe.
+            <br />
+            His hands-on experience spans 6 years in the travel industry, 4 years in events, and a
+            stint in film, equipping him with deep insights into crafting seamless journeys. From
+            FIT and group bookings to product launches and DMC collaborations, he’s done it all.
+            Outside work, Eshant finds joy in communicating, singing, traveling, and
+            cooking—passions that continue to inspire his journey.
           </p>
         </div>
         <div className="lg:w-[508px] lg:h-[508px] w-full aspect-square relative rounded-2xl overflow-hidden shrink-0 self-center">
@@ -106,7 +109,7 @@ export default function AboutPage() {
       <Services />
 
       <div>
-        <h2 className="text-darkBlue">Why TYDD</h2>
+        <h2 className="text-darkBlue">What we Stand for</h2>
         <div className="lg:mt-12 mt-6 flex gap-6 lg:flex-row flex-col">
           {standings.map((item) => (
             <div
