@@ -50,6 +50,24 @@ const packagesImages = [
 export default function HeroImageSlider() {
   const searchParams = useSearchParams()
   const activeTab = searchParams.get('type') || 'domestic'
+
+  const packageDetails = [
+    {
+      type: 'domestic',
+      description:
+        'Discover the beauty of India with our curated travel packages, covering breathtaking destinations from the Himalayas to the beaches of Goa.',
+    },
+    {
+      type: 'international',
+      description:
+        'Explore the world beyond borders with our handpicked international packages - whether its the charm of Europe, the wonders of Asia, or island escapes in the tropics.',
+    },
+    {
+      type: 'cruise',
+      description:
+        'Set sail on unforgettable journeys with our cruise packages - luxurious stay, ocean views, and adventures that drift beyond the ordinary.',
+    },
+  ]
   useGSAP(() => {
     gsap.fromTo(
       '.firstImage',
@@ -154,8 +172,7 @@ export default function HeroImageSlider() {
       <div className="absolute lg:left-28 left-4 top-32 z-10 lg:w-[512px] lg:top-1/2 lg:-translate-y-1/2">
         <h2 className="text-white lg:mb-4 mb-2 capitalize">{activeTab}</h2>
         <p className="text-white lg:text-xl text-xs">
-          Discover the beauty of India with our curated travel packages, covering breathtaking
-          destinations from the Himalayas to the beaches of Goa.
+          {packageDetails.find((item) => item.type === activeTab)?.description}
         </p>
       </div>
     </div>
