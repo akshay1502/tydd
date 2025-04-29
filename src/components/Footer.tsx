@@ -46,14 +46,16 @@ export default function Footer() {
             {[
               {
                 icon: <IconFaceBook />,
+                title: 'Facebook',
                 link: 'https://www.facebook.com/profile.php?id=61570062492405',
               },
               {
                 icon: <IconInstagram />,
+                title: 'Instagram',
                 link: 'https://www.instagram.com/travelyourdreamdestination?igsh=MWppM2JwMmJ1OXpqag==',
               },
             ]?.map((item, index) => (
-              <Link key={index} href={item.link} target="_blank">
+              <Link key={index} href={item.link} target="_blank" aria-label={item?.title}>
                 {item.icon}
               </Link>
             ))}
