@@ -35,7 +35,18 @@ export default function Footer() {
   ]
   return (
     <footer className="relative px-4 pt-10 lg:px-20 lg:pt-12">
-      <Image src="/footerBackground.webp" alt="footer" fill className="object-cover -z-10" />
+      <Image
+        src="/footerBackground.webp"
+        alt="footer"
+        fill
+        className="object-cover -z-10 lg:block hidden"
+      />
+      <Image
+        src="/footerBackgroundMobile.webp"
+        alt="footer"
+        fill
+        className="object-cover -z-10 block lg:hidden"
+      />
       <div className="flex justify-between flex-col lg:flex-row gap-8 lg:gap-0">
         <div>
           <Link href="/" aria-label="Home">
