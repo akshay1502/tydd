@@ -2,7 +2,6 @@ import React from 'react'
 import './styles.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata = {
   description:
@@ -19,7 +18,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <SpeedInsights />
       </body>
     </html>
   )

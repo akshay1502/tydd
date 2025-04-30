@@ -1,6 +1,5 @@
 import IconFaceBook from '@/assets/icons/facebook'
 import IconInstagram from '@/assets/icons/instagram'
-import IconLinkedIn from '@/assets/icons/linkedin'
 import IconLogo from '@/assets/icons/logo'
 import Image from 'next/image'
 import Link from 'next/link'
