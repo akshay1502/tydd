@@ -8,31 +8,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'Aileron';
-  src: url('/fonts/Aileron-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aileron';
-  src: url('/fonts/Aileron-Bold.otf') format('opentype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Aileron';
-  src: url('/fonts/Aileron-SemiBold.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-body {
-  font-family: 'Aileron', sans-serif;
-}
-
 @layer base {
   h2 {
     @apply lg:text-[40px] lg:leading-[48px] text-[24px] leading-[32px] font-bold;

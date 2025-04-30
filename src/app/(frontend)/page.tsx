@@ -101,7 +101,7 @@ export default async function HomePage() {
               alt="image"
               fill
               className="object-cover"
-              sizes="(min-width: 1280px) 40vw"
+              sizes="(max-width: 450px) 100vw, (max-width: 1920px) 40vw"
             />
           </div>
         </div>
