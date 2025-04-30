@@ -3,27 +3,17 @@ import localFont from 'next/font/local'
 export const aileron = localFont({
   src: [
     {
-      path: './Aileron-Thin.otf',
-      weight: '200',
-      style: 'normal',
-    },
-    {
-      path: './Aileron-Light.otf',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: './Aileron-Regular.otf',
+      path: './Aileron-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './Aileron-SemiBold.otf',
+      path: './Aileron-SemiBold.woff2',
       weight: '600',
       style: 'normal',
     },
     {
-      path: './Aileron-Bold.otf',
+      path: './Aileron-Bold.woff2',
       weight: '700',
       style: 'normal',
     },
