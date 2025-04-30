@@ -1,4 +1,3 @@
-import React from 'react'
 import './styles.css'
 import SwiperPopularPackages from '@/components/Swiper/popularPackages'
 import SwiperFixedPackages from '@/components/Swiper/fixedPackages'
@@ -23,7 +22,7 @@ import { Package } from '@/payload-types'
 import CircularSlider from '@/components/ImageCircularSlider'
 import { IconItineraries, IconLuxury, IconPlanning, IconTrust } from '@/assets/icons/IconsWhyTydd'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 60
 
 export default async function HomePage() {
   const [packages, fixedPackages, lastMinutePackages, homeData, internationalPackages] =
@@ -125,7 +124,8 @@ export default async function HomePage() {
               width={0}
               height={156}
               className="mx-4 lg:mx-10 lg:h-[156px] h-14 w-auto object-contain"
-              sizes="(min-width: 1280px) 30vw"
+              sizes="(max-width: 450px) 50vw, (max-width: 1920px) 40vw"
+              loading="lazy"
             />
           ))}
         </Marquee>
