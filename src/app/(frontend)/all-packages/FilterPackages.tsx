@@ -1,6 +1,6 @@
 'use client'
 import Packages from '@/components/cards/package'
-import CircularSlider, { Testimonial } from '@/components/ImageCircularSlider'
+import { CircularSlider, Testimonial } from '@/components/ImageCircularSlider'
 import Pill from '@/components/pill'
 import { Package } from '@/payload-types'
 import { useSearchParams } from 'next/navigation'

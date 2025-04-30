@@ -19,7 +19,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Package } from '@/payload-types'
-import CircularSlider from '@/components/ImageCircularSlider'
+import { CircularSlider } from '@/components/ImageCircularSlider'
 import { IconItineraries, IconLuxury, IconPlanning, IconTrust } from '@/assets/icons/IconsWhyTydd'
 
 export const revalidate = 60
