@@ -16,8 +16,5 @@ export const Media: CollectionConfig = {
       type: 'text',
     },
   ],
-  upload: {
-    staticDir: 'media', // <--- this is the local folder where files are saved
-    mimeTypes: ['image/*'], // optional: restrict allowed file types
-  },
+  upload: true,
 }
