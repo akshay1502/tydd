@@ -53,7 +53,11 @@ export default function Navbar() {
             </Button>
           </li>
         </ul>
-        <button className="block lg:hidden" onClick={() => setIsOpen((prev) => !prev)}>
+        <button
+          className="block lg:hidden"
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-label="Open Menu"
+        >
           {isOpen ? <IconCross /> : <IconHamburger />}
         </button>
       </nav>

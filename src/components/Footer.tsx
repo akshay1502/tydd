@@ -1,6 +1,5 @@
 import IconFaceBook from '@/assets/icons/facebook'
 import IconInstagram from '@/assets/icons/instagram'
-import IconLinkedIn from '@/assets/icons/linkedin'
 import IconLogo from '@/assets/icons/logo'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -36,7 +35,18 @@ export default function Footer() {
   ]
   return (
     <footer className="relative px-4 pt-10 lg:px-20 lg:pt-12">
-      <Image src="/footerBackground.webp" alt="footer" fill className="object-cover -z-10" />
+      <Image
+        src="/footerBackground.webp"
+        alt="footer"
+        fill
+        className="object-cover -z-10 lg:block hidden"
+      />
+      <Image
+        src="/footerBackgroundMobile.webp"
+        alt="footer"
+        fill
+        className="object-cover -z-10 block lg:hidden"
+      />
       <div className="flex justify-between flex-col lg:flex-row gap-8 lg:gap-0">
         <div>
           <Link href="/" aria-label="Home">
@@ -46,14 +56,16 @@ export default function Footer() {
             {[
               {
                 icon: <IconFaceBook />,
+                title: 'Facebook',
                 link: 'https://www.facebook.com/profile.php?id=61570062492405',
               },
               {
                 icon: <IconInstagram />,
+                title: 'Instagram',
                 link: 'https://www.instagram.com/travelyourdreamdestination?igsh=MWppM2JwMmJ1OXpqag==',
               },
             ]?.map((item, index) => (
-              <Link key={index} href={item.link} target="_blank">
+              <Link key={index} href={item.link} target="_blank" aria-label={item?.title}>
                 {item.icon}
               </Link>
             ))}

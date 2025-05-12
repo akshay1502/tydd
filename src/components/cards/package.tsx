@@ -15,13 +15,13 @@ export default function Packages({
       className={`group flex flex-col lg:gap-2 gap-1 ${smallVariant ? 'w-auto' : 'w-48'}`}
     >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
-        <div className={`${smallVariant ? 'w-full aspect-square' : 'w-48 h-48'}`}>
+        <div className={`${smallVariant ? 'w-full aspect-square' : 'w-48 h-48'} relative`}>
           <Image
             src={typeof data.image === 'object' && data.image?.url ? data.image.url : ''}
             alt={typeof data.image === 'object' && data.image?.alt ? data.image.alt : ''}
             fill
             className="object-cover group-hover:scale-110 ease-linear duration-300"
-            sizes="(min-width: 1280px) 20vw"
+            sizes="(max-width: 450px) 50vw, (max-width: 1920px) 20vw"
           />
           <div className="w-full h-full bg-[#00000026] z-10 absolute"></div>
         </div>

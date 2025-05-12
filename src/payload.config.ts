@@ -3,7 +3,6 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-import { s3Storage } from '@payloadcms/storage-s3'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 
 import { Users } from './collections/Users'
@@ -17,6 +16,7 @@ import { Home } from './globals/home'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { Categories } from './collections/Categories'
 import { Locations } from './collections/Locations'
+import { s3Storage } from '@payloadcms/storage-s3'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)

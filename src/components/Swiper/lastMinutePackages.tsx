@@ -23,7 +23,18 @@ export default function SwiperLastMinutePackages({
   return (
     <div className="lg:mx-20">
       <div className="py-16 lg:py-20 relative lg:rounded-3xl overflow-hidden">
-        <Image src="/last_minute_bg.webp" alt="image" fill className="object-cover -z-10" />
+        <Image
+          src="/last_minute_bg.webp"
+          alt="image"
+          fill
+          className="object-cover -z-10 lg:block hidden"
+        />
+        <Image
+          src="/last_minute_bg_mobile.webp"
+          alt="image"
+          fill
+          className="object-cover -z-10 block lg:hidden"
+        />
         <div className="absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-[#00000099] -z-10"></div>
         <div className="lg:px-16 px-4 flexCenter">
           <h2 className="text-white ">{title}</h2>

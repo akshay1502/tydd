@@ -15,13 +15,13 @@ export default function LastMinuteDeal({ data }: { data: LastMinutePackage }) {
       }}
     >
       <div className="relative rounded-lg overflow-hidden shadow-packages">
-        <div className="w-[284px] h-52">
+        <div className="w-[284px] h-52 relative">
           <Image
             src={typeof data.image === 'object' && data.image?.url ? data.image.url : ''}
             alt={typeof data.image === 'object' && data.image?.alt ? data.image.alt : ''}
             fill
             className="object-cover"
-            sizes="(min-width: 1280px) 25vw"
+            sizes="(max-width: 450px) 50vw, (max-width: 1920px) 25vw"
           />
           <div className="w-full h-full bg-[#00000026] z-10 absolute"></div>
         </div>

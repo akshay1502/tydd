@@ -6,6 +6,14 @@ import Image from 'next/image'
 import { Media } from '@/payload-types'
 import { useGSAP } from '@gsap/react'
 
+import dynamic from 'next/dynamic'
+import { SkeletonCircularSlider } from '@/lib/skeleton'
+
+export const CircularSlider = dynamic(() => import('@/components/ImageCircularSlider'), {
+  ssr: false, // Ensures the component is only rendered on the client-side
+  loading: () => <SkeletonCircularSlider />, // Custom loading fallback
+})
+
 gsap.registerPlugin(MotionPathPlugin)
 
 export type Testimonial = {
@@ -15,7 +23,7 @@ export type Testimonial = {
   id?: string | null
 }
 
-export default function CircularSlider({ data }: { data: Testimonial[] }) {
+export default function CircularSliderWithGSAP({ data }: { data: Testimonial[] }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const imageRefs = useRef<(HTMLDivElement | null)[]>([])
 
