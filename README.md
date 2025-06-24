@@ -1,7 +1,5 @@
 # TYDD (Travel Your Dream Destination)
 
-![Thumbnail](./public/thumbnail.png)
-
 ## How to get started
 
 - Clone the repo
@@ -10,6 +8,8 @@
   - `npm install`
 - Running the project
   - `npm run dev`
+- Find backend at
+  - `https://github.com/akshay1502/tydd-frontend`
 
 ## Tech Stack used
 
@@ -21,9 +21,8 @@
 
 ## /src/app includes below folders
 
-- **/(frontend)** - contains all frontend routes
+- **/(frontend)** - frontend
 - **/(payload)** - automaticall genereated by payload
-- **/(api)** - APIs for handling form submissions
 
 > [!CAUTION]
 > Don't make any changes in **/(payload)** folder.
@@ -44,12 +43,3 @@
 - Running `npm run dev` will create migrations and will pull the data from DB automatically (no need for manual migrations)
 - [Local APIs](https://payloadcms.com/docs/local-api/overview) by payload are used for faster performance and low latency
 - Find cms level restrictions in `/src/access`
-
-## Miscellaneous
-
-- Project uses `shadcn` and `tailwind` for rendering frontend UI elements
-- `Nodemailer` is being used for sending mails
-- Forms are handled using `react-hook-form` along with `zod` for validations
-- `Swiper` is being used for serving multipel use cases
-- `yet-another-react-lightbox` package for showcasing gallery
-- `gsap` for animations
